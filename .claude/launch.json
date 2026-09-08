@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aicrazed-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/rameezjamal/Downloads/claude/build/serve.py"],
+      "port": 4173,
+      "autoPort": true
+    }
+  ]
+}

@@ -1,0 +1,952 @@
+{
+  "site": {
+    "name": "aicrazed",
+    "domain": "aicrazed.com",
+    "tagline": "Find real customer service contacts, fast.",
+    "description": "An independent directory of official customer service phone numbers, chat links, and hours for the brands people search for most. Not affiliated with any company listed.",
+    "contactEmail": "hello@aicrazed.com",
+    "featuredBrands": [
+      "amazon",
+      "walmart",
+      "temu",
+      "facebook",
+      "instagram",
+      "tiktok",
+      "gmail",
+      "icloud-mail",
+      "netflix",
+      "spotify",
+      "verizon",
+      "att"
+    ]
+  },
+  "categories": {
+    "retail": {
+      "label": "Retail",
+      "slug": "retail",
+      "description": "Online stores and delivery services — where to go when an order, refund, or delivery goes sideways."
+    },
+    "social": {
+      "label": "Social Media",
+      "navLabel": "Social",
+      "slug": "social",
+      "description": "Social platforms — most don't offer phone support, so knowing the real help channel matters even more."
+    },
+    "email": {
+      "label": "Email Providers",
+      "navLabel": "Email",
+      "slug": "email",
+      "description": "Email and account providers — for lockouts, hacked accounts, and recovery."
+    },
+    "streaming": {
+      "label": "Streaming",
+      "slug": "streaming",
+      "description": "Video and music subscriptions — billing issues, playback problems, and canceling a plan."
+    },
+    "telecom": {
+      "label": "Telecom",
+      "slug": "telecom",
+      "description": "Phone and internet carriers — for billing, outages, device, and account issues."
+    }
+  },
+  "brands": [
+    {
+      "slug": "temu",
+      "name": "Temu",
+      "category": "retail",
+      "aliases": [
+        "temu customer service",
+        "temu support number",
+        "temu phone number",
+        "temu help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Its official Contact Us page lists 24/7 chat as the main support channel for general (US) support.",
+      "chatUrl": "https://www.temu.com/support-center.html",
+      "chatLabel": "Temu Support Center & live chat",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.temu.com/contact-us.html",
+      "sourceLabel": "Temu Contact Us page",
+      "commonIssues": [
+        "Find my order or track a shipment",
+        "Cancel an order",
+        "Return or refund status",
+        "Managing my account",
+        "Payment and promo codes"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "amazon",
+      "name": "Amazon",
+      "category": "retail",
+      "aliases": [
+        "amazon customer service",
+        "amazon support number",
+        "amazon phone number"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Its official help page instead asks you to sign in and choose your issue, which connects you by phone, chat, or email as appropriate.",
+      "chatUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508510",
+      "chatLabel": "Amazon Customer Service",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V",
+      "sourceLabel": "Amazon Support Options and Customer Service page",
+      "commonIssues": [
+        "Where's my order / shipping and delivery",
+        "Returns, refunds, and product support",
+        "Managing your account",
+        "Security and privacy",
+        "Payment, pricing, and promotions"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "doordash",
+      "name": "DoorDash",
+      "category": "retail",
+      "aliases": [
+        "doordash customer service",
+        "doordash support number",
+        "doordash phone number"
+      ],
+      "phone": "855-431-0459",
+      "phoneNote": "Available 24/7, alongside chat in the DoorDash app and on the website.",
+      "phoneAltNote": "",
+      "chatUrl": "https://help.doordash.com/consumers",
+      "chatLabel": "DoorDash Help Center — Consumers",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.doordash.com/consumers",
+      "sourceLabel": "DoorDash Help Center",
+      "commonIssues": [
+        "Order never arrived",
+        "Missing or incorrect items",
+        "Cancel an order",
+        "DashPass membership questions",
+        "Getting started / availability"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "facebook",
+      "name": "Facebook",
+      "category": "social",
+      "aliases": [
+        "facebook customer service",
+        "facebook support number",
+        "facebook help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Meta's official Help Centre for Facebook offers only a search box and an AI support assistant.",
+      "chatUrl": "https://www.facebook.com/help/",
+      "chatLabel": "Facebook Help Centre",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No support hours are published. The Help Centre and its AI support assistant are self-service and available anytime you visit."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.facebook.com/help/",
+      "sourceLabel": "Meta Help Centre for Facebook",
+      "commonIssues": [
+        "Account settings",
+        "Login and password recovery",
+        "Privacy and security",
+        "Marketplace",
+        "Groups and Pages"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "instagram",
+      "name": "Instagram",
+      "category": "social",
+      "aliases": [
+        "instagram customer service",
+        "instagram support number",
+        "instagram help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Its official Help Center offers the same Meta AI support assistant used by Facebook.",
+      "chatUrl": "https://help.instagram.com/",
+      "chatLabel": "Instagram Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No support hours are published. Help articles and the AI support assistant are self-service and available anytime you visit."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.instagram.com/",
+      "sourceLabel": "Instagram Help Center",
+      "commonIssues": [
+        "Login, recovery, and security",
+        "Managing your account",
+        "Staying safe",
+        "Privacy and reporting"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "x",
+      "name": "X (Twitter)",
+      "category": "social",
+      "aliases": [
+        "x customer service",
+        "twitter support number",
+        "x help",
+        "twitter help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "X provides help articles and a topic-based Contact Us form rather than a phone line or live chat.",
+      "chatUrl": "https://help.x.com/en/forms",
+      "chatLabel": "X Help Center — Contact Us form",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No support hours are published. X uses a topic-based contact form rather than live support."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.x.com/en/forms",
+      "sourceLabel": "X Help Center — Contact Us form",
+      "commonIssues": [
+        "Locked or suspended account",
+        "Problems with account access",
+        "Compromised account help",
+        "Report impersonation or authenticity issues"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "gmail",
+      "name": "Gmail",
+      "category": "email",
+      "aliases": [
+        "gmail customer service",
+        "gmail support number",
+        "gmail help",
+        "google account help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Free personal Gmail accounts don't have a live phone or chat channel — support is through self-service help articles and a peer-to-peer Help Community forum, not Google staff.",
+      "chatUrl": "https://support.google.com/mail/",
+      "chatLabel": "Google Mail Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No live support hours are published for personal Gmail accounts. Self-service help articles are available anytime."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://support.google.com/mail/",
+      "sourceLabel": "Google Mail Help Center",
+      "commonIssues": [
+        "Gmail messages are missing",
+        "Unwanted or suspicious emails",
+        "Account access issues",
+        "Sync and import problems",
+        "Rejected or bounced messages"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "outlook",
+      "name": "Outlook",
+      "category": "email",
+      "aliases": [
+        "outlook customer service",
+        "outlook support number",
+        "outlook help",
+        "microsoft account help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Its official Contact Us page instead asks you to sign in and choose a product first — self-service options appear, with live chat available if needed.",
+      "chatUrl": "https://support.microsoft.com/contactus",
+      "chatLabel": "Microsoft Support — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No specific support hours are published on the official Contact Us page."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://support.microsoft.com/contactus",
+      "sourceLabel": "Microsoft Support — Contact Us",
+      "commonIssues": [
+        "Get started / add an account",
+        "Email issues",
+        "Calendar and To Do",
+        "People and profiles",
+        "Share and delegate access"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "yahoo-mail",
+      "name": "Yahoo Mail",
+      "category": "email",
+      "aliases": [
+        "yahoo mail customer service",
+        "yahoo support number",
+        "yahoo help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Yahoo's official support article says help is available via email, chat, or help articles, and notes: “We don't have a contact option for every product or issue.”",
+      "chatUrl": "https://help.yahoo.com/kb/new-yahoo-mail",
+      "chatLabel": "Yahoo Mail Help",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No support hours are published."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.yahoo.com/kb/SLN28796.html",
+      "sourceLabel": "Yahoo — Get help from Yahoo customer support",
+      "commonIssues": [
+        "Reset or change password",
+        "Fix sign-in problems",
+        "Recover lost or deleted emails",
+        "Expected emails not received",
+        "Recognize a hacked account"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "walmart",
+      "name": "Walmart",
+      "category": "retail",
+      "aliases": [
+        "walmart customer service",
+        "walmart support number",
+        "walmart phone number"
+      ],
+      "phone": "1-800-925-6278",
+      "phoneNote": "ASL (American Sign Language) video support is also available.",
+      "phoneAltNote": "",
+      "chatUrl": "https://www.walmart.com/help",
+      "chatLabel": "Walmart Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No specific support hours are published on Walmart's official contact pages."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://corporate.walmart.com/about/contact",
+      "sourceLabel": "Walmart Corporate — Contact Us",
+      "commonIssues": [
+        "Track your order",
+        "Edit or cancel an order",
+        "Returns and refunds",
+        "Account and payment issues",
+        "Pickup and delivery problems"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "ebay",
+      "name": "eBay",
+      "category": "retail",
+      "aliases": [
+        "ebay customer service",
+        "ebay support number",
+        "ebay phone number"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "eBay routes support through an automated assistant and a sign-in-based Contact Us flow rather than a static phone number.",
+      "chatUrl": "https://www.ebay.com/help/home",
+      "chatLabel": "eBay Help & Contact",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No support hours are published — eBay's help center uses an automated assistant rather than live hours."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.ebay.com/help/home",
+      "sourceLabel": "eBay Help Center",
+      "commonIssues": [
+        "Buying and order issues",
+        "Selling questions",
+        "Account access",
+        "Returns and refunds",
+        "Shipping and tracking"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "target",
+      "name": "Target",
+      "category": "retail",
+      "aliases": [
+        "target customer service",
+        "target support number",
+        "target phone number"
+      ],
+      "phone": "1-800-440-0680",
+      "phoneNote": "For Target.com order issues specifically, Target also lists 1-800-591-3869, plus live chat.",
+      "phoneAltNote": "",
+      "chatUrl": "https://www.target.com/help/contact-us/target-com-order-experience",
+      "chatLabel": "Target Help — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No specific support hours are published on Target's official contact pages."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://corporate.target.com/about/contact-help",
+      "sourceLabel": "Target Corporate — Contact & Help",
+      "commonIssues": [
+        "Track or manage a Target.com order",
+        "Returns and cancellations",
+        "Target Circle and Target Circle Card",
+        "Target GiftCard",
+        "Report a security or fraud concern"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "best-buy",
+      "name": "Best Buy",
+      "category": "retail",
+      "aliases": [
+        "best buy customer service",
+        "best buy support number",
+        "best buy phone number"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Best Buy's official contact pages route you through topic buttons (Orders & Purchases, My Account, and so on) rather than displaying one general phone number as page text.",
+      "chatUrl": "https://www.bestbuy.com/contact-us",
+      "chatLabel": "Best Buy Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No specific support hours are published on Best Buy's official contact pages."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.bestbuy.com/contact-us",
+      "sourceLabel": "Best Buy Contact Us",
+      "commonIssues": [
+        "Orders and purchases",
+        "Returns and exchanges",
+        "Price Match Guarantee",
+        "Product repair and support",
+        "Shipping, delivery, and store pickup"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "shein",
+      "name": "Shein",
+      "category": "retail",
+      "aliases": [
+        "shein customer service",
+        "shein support number",
+        "shein phone number"
+      ],
+      "phone": "1-833-853-8668",
+      "phoneNote": "Phone support: Monday–Friday, 9 a.m.–6 p.m. Pacific time. Live chat runs longer hours — see below.",
+      "phoneAltNote": "",
+      "chatUrl": "https://us.shein.com/contact-us.html",
+      "chatLabel": "Shein Contact Us",
+      "hours": {
+        "mode": "detailed",
+        "tz": "America/Los_Angeles",
+        "start": "04:00",
+        "end": "20:00",
+        "days": "daily"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://us.shein.com/contact-us.html",
+      "sourceLabel": "Shein Contact Us page",
+      "commonIssues": [
+        "Tracking and delivery",
+        "Return and refund status",
+        "Order processing",
+        "Payment issues",
+        "Account issues"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "tiktok",
+      "name": "TikTok",
+      "category": "social",
+      "aliases": [
+        "tiktok customer service",
+        "tiktok support number",
+        "tiktok help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "TikTok support is handled through in-app reporting and the Help Center rather than a phone line.",
+      "chatUrl": "https://support.tiktok.com/en",
+      "chatLabel": "TikTok Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — support is self-service and in-app."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://support.tiktok.com/en",
+      "sourceLabel": "TikTok Help Center",
+      "commonIssues": [
+        "Account and privacy settings",
+        "Log in and troubleshooting",
+        "Safety and Community Guidelines",
+        "Account recovery"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "linkedin",
+      "name": "LinkedIn",
+      "category": "social",
+      "aliases": [
+        "linkedin customer service",
+        "linkedin support number",
+        "linkedin help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "LinkedIn support is handled through a web-based Contact Us form.",
+      "chatUrl": "https://www.linkedin.com/help/linkedin/ask",
+      "chatLabel": "LinkedIn Help — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — support is form-based, not live."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.linkedin.com/help/linkedin",
+      "sourceLabel": "LinkedIn Help Center",
+      "commonIssues": [
+        "Account basics",
+        "Data and privacy",
+        "Subscription billing",
+        "Your profile",
+        "Job search and applications"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "snapchat",
+      "name": "Snapchat",
+      "category": "social",
+      "aliases": [
+        "snapchat customer service",
+        "snapchat support number",
+        "snapchat help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Snapchat support is handled through a Contact Us ticket form.",
+      "chatUrl": "https://help.snapchat.com/hc/en-us/requests/new",
+      "chatLabel": "Snapchat Support — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — support is ticket-based."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.snapchat.com",
+      "sourceLabel": "Snapchat Help Center",
+      "commonIssues": [
+        "Compromised account recovery",
+        "Managing your account",
+        "Safety and security",
+        "Privacy"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "pinterest",
+      "name": "Pinterest",
+      "category": "social",
+      "aliases": [
+        "pinterest customer service",
+        "pinterest support number",
+        "pinterest help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Pinterest support is handled through a guided, topic-based Contact form.",
+      "chatUrl": "https://help.pinterest.com/en/contact",
+      "chatLabel": "Pinterest Help — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — support is form-based."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.pinterest.com",
+      "sourceLabel": "Pinterest Help Center",
+      "commonIssues": [
+        "Account access and password reset",
+        "Reactivate or close an account",
+        "Profile and settings",
+        "Report a policy violation"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "reddit",
+      "name": "Reddit",
+      "category": "social",
+      "aliases": [
+        "reddit customer service",
+        "reddit support number",
+        "reddit help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Reddit support is handled through a ticket-based request form.",
+      "chatUrl": "https://support.reddithelp.com",
+      "chatLabel": "Reddit Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — support is ticket-based."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://support.reddithelp.com/hc/en-us/p/redditor_help_center",
+      "sourceLabel": "Reddit Help Center",
+      "commonIssues": [
+        "Account status",
+        "Getting started",
+        "Features and experiences",
+        "Rules and reporting",
+        "Privacy and security"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "icloud-mail",
+      "name": "iCloud Mail",
+      "category": "email",
+      "aliases": [
+        "icloud mail customer service",
+        "icloud support number",
+        "apple id help",
+        "apple account help"
+      ],
+      "phone": "1-800-692-7753",
+      "phoneNote": "This is Apple's general support line (1-800-MY-APPLE) — Apple routes iCloud and Apple Account issues through a personalized flow rather than a dedicated iCloud number.",
+      "phoneAltNote": "",
+      "chatUrl": "https://support.apple.com/en-us/icloud",
+      "chatLabel": "Apple Support — iCloud",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not stated specifically for iCloud support."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.apple.com/contact/",
+      "sourceLabel": "Apple — Contact Apple",
+      "commonIssues": [
+        "Reset your Apple Account password",
+        "Manage iCloud+ storage",
+        "Back up or restore a device",
+        "iCloud Drive and Photos sync",
+        "iCloud Keychain"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "aol-mail",
+      "name": "AOL Mail",
+      "category": "email",
+      "aliases": [
+        "aol mail customer service",
+        "aol support number",
+        "aol help"
+      ],
+      "phone": "1-800-358-4860",
+      "phoneNote": "",
+      "phoneAltNote": "",
+      "chatUrl": "https://help.aol.com/",
+      "chatLabel": "AOL Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No specific support hours are published on AOL's official help page."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.aol.com/",
+      "sourceLabel": "AOL Help Center",
+      "commonIssues": [
+        "Reset or change password",
+        "AOL Mail account setup",
+        "POP/IMAP sync issues",
+        "Sign-in troubleshooting",
+        "Spam and privacy management"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "proton-mail",
+      "name": "Proton Mail",
+      "category": "email",
+      "aliases": [
+        "proton mail customer service",
+        "protonmail support",
+        "proton mail help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Proton doesn't offer phone support by design — support is via ticket for paid users and self-service articles for everyone.",
+      "chatUrl": "https://proton.me/support/mail",
+      "chatLabel": "Proton Mail Support",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not applicable — no phone or live chat support is offered."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://proton.me/support/mail",
+      "sourceLabel": "Proton Mail Support",
+      "commonIssues": [
+        "Getting started",
+        "Using Proton Mail",
+        "Contacts",
+        "Custom email domain",
+        "Addresses and identities"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "netflix",
+      "name": "Netflix",
+      "category": "streaming",
+      "aliases": [
+        "netflix customer service",
+        "netflix support number",
+        "netflix phone number",
+        "netflix help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Netflix's Contact Us flow asks you to describe your issue first, then may offer a callback or chat tied to your account — no general number is printed on the page.",
+      "chatUrl": "https://help.netflix.com/en/contactus",
+      "chatLabel": "Netflix Help — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not stated — availability depends on the issue you select."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.netflix.com/en/contactus",
+      "sourceLabel": "Netflix Help Center — Contact Us",
+      "commonIssues": [
+        "Streaming and playback issues",
+        "Reset your password",
+        "Update email or account details",
+        "Update payment method",
+        "Netflix Games support"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "spotify",
+      "name": "Spotify",
+      "category": "streaming",
+      "aliases": [
+        "spotify customer service",
+        "spotify support number",
+        "spotify help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Spotify support is chat and ticket-based through an in-account assistant, plus a large Community forum.",
+      "chatUrl": "https://support.spotify.com/us/",
+      "chatLabel": "Spotify Support",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Not stated."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://support.spotify.com/us/",
+      "sourceLabel": "Spotify Support",
+      "commonIssues": [
+        "Payments and billing",
+        "Manage your account",
+        "Premium plans",
+        "Troubleshoot playback"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "hulu",
+      "name": "Hulu",
+      "category": "streaming",
+      "aliases": [
+        "hulu customer service",
+        "hulu support number",
+        "hulu help"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Hulu explicitly states its support is chat-based, not phone.",
+      "chatUrl": "https://help.hulu.com/s/",
+      "chatLabel": "Hulu Help — Get in Touch",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://help.hulu.com/s/",
+      "sourceLabel": "Hulu Help Center",
+      "commonIssues": [
+        "Getting started",
+        "Account and billing",
+        "Plans and add-ons",
+        "Fix a playback problem",
+        "Using Hulu"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "verizon",
+      "name": "Verizon",
+      "category": "telecom",
+      "aliases": [
+        "verizon customer service",
+        "verizon support number",
+        "verizon phone number"
+      ],
+      "phone": "800-922-0204",
+      "phoneNote": "For Fios account, billing, or technical support, Verizon lists a separate line: 800-837-4966.",
+      "phoneAltNote": "",
+      "chatUrl": "https://www.verizon.com/support/contact-us/",
+      "chatLabel": "Verizon Support — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Verizon lists different hours for mobile billing, mobile technical support, sales, and Fios on its official contact page — check the source link for the exact hours for your issue."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.verizon.com/support/contact-us/",
+      "sourceLabel": "Verizon Support — Contact Us",
+      "commonIssues": [
+        "Connection or network issues",
+        "Billing questions",
+        "Device or SIM/eSIM issues",
+        "Plan changes",
+        "Account access"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "att",
+      "name": "AT&T",
+      "category": "telecom",
+      "aliases": [
+        "at&t customer service",
+        "att support number",
+        "at&t phone number"
+      ],
+      "phone": "800-331-0500",
+      "phoneNote": "New service: 888-333-6651 (same hours). Traveling abroad: +1-314-925-6925, available 24/7.",
+      "phoneAltNote": "",
+      "chatUrl": "https://www.att.com/support/contact-us/wireless",
+      "chatLabel": "AT&T Support — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Bill & account and New service lines: Monday–Friday 8am–8pm, Saturday–Sunday 9am–7pm, Central time."
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.att.com/support/contact-us/wireless",
+      "sourceLabel": "AT&T Support — Contact Us (Wireless)",
+      "commonIssues": [
+        "Connection issues",
+        "Voicemail",
+        "SIM or eSIM issues",
+        "Unlock a device",
+        "Orders and upgrades"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "t-mobile",
+      "name": "T-Mobile",
+      "category": "telecom",
+      "aliases": [
+        "t-mobile customer service",
+        "tmobile support number",
+        "t-mobile phone number"
+      ],
+      "phone": "1-800-937-8997",
+      "phoneNote": "Daily, 4am–9pm Pacific time. From a T-Mobile phone, you can also just dial 611.",
+      "phoneAltNote": "",
+      "chatUrl": "https://www.t-mobile.com/contact-us",
+      "chatLabel": "T-Mobile Contact Us",
+      "hours": {
+        "mode": "detailed",
+        "tz": "America/Los_Angeles",
+        "start": "04:00",
+        "end": "21:00",
+        "days": "daily"
+      },
+      "verifiedDate": "2026-09-08",
+      "sourceUrl": "https://www.t-mobile.com/contact-us",
+      "sourceLabel": "T-Mobile Contact Us",
+      "commonIssues": [
+        "Billing questions",
+        "Device and SIM/eSIM issues",
+        "Plan changes",
+        "Account access",
+        "International service"
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    }
+  ]
+}
