@@ -639,6 +639,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   margin-bottom: 10px;
 }
 
+/* FAQ accordion */
+.faq-list { border-top: 1px solid var(--rule); }
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+  padding: 4px 0;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 18px 34px 18px 0;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+  position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 16px;
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 120ms ease;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item summary:hover { color: var(--accent); }
+.faq-item p {
+  margin: 0 0 20px;
+  font-size: 0.98rem;
+  max-width: 68ch;
+}
+
 .contact-card {
   border: 1px solid var(--rule);
   border-radius: var(--radius-md);

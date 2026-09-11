@@ -70,6 +70,7 @@ NAV_ITEMS = _CATEGORY_NAV_SHORT + [
 
 FOOTER_NAV = [("/", "Home")] + _CATEGORY_NAV_FULL + [
     ("/how-it-works/", "How It Works"),
+    ("/faq/", "FAQ"),
     ("/about/", "About"),
     ("/contact/", "Contact"),
 ]
@@ -103,7 +104,11 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{base_url}/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{base_url}/og-image.png">
 <meta name="robots" content="{robots}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,6 +165,7 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
         extra_head=extra_head,
         json_ld=json_ld,
         robots=robots,
+        base_url=BASE_URL,
         nav=nav,
         footer_nav=footer_nav,
         body=body,
@@ -594,6 +600,7 @@ def render_how_it_works():
       <li><strong>Real support won&rsquo;t ask for remote access to your device,</strong> gift cards, wire transfers, or your password to &ldquo;verify&rdquo; you.</li>
       <li><strong>When in doubt, go direct.</strong> Type the company&rsquo;s known web address in yourself rather than clicking a search result or ad.</li>
     </ul>
+    <p>More questions? Check the <a href="/faq/">FAQ</a>.</p>
   </div>
 </section>
 """
@@ -624,8 +631,8 @@ def render_privacy():
     <h2>Information we collect</h2>
     <p><strong>Information you send us.</strong> If you email us at <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a> &mdash; to report an outdated listing, request a brand be added, or ask a question &mdash; we receive your email address and whatever else you choose to include in that message. We use it only to respond to you and to investigate or correct the listing you wrote in about.</p>
     <p><strong>Information collected automatically.</strong> Like most websites, our hosting provider's servers log standard technical information with each request &mdash; things like IP address, browser type, the page requested, and the time of the request. We use these logs only to keep the site running securely and to understand aggregate traffic patterns (for example, which pages are popular). We do not use this information to build individual profiles or to track you across other sites.</p>
-    <p><strong>Cookies and local storage.</strong> aicrazed does not use advertising or tracking cookies, and we don&rsquo;t run third-party analytics. Some pages use your browser&rsquo;s local storage for small, on-device conveniences (like remembering a UI preference); this data stays on your device and is never sent to us.</p>
-    <p><strong>Fonts.</strong> This site loads typefaces from Google Fonts. Loading a font involves a request from your browser to Google&rsquo;s servers, which may log your IP address under Google&rsquo;s own privacy practices &mdash; not ours. See <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google&rsquo;s Privacy Policy</a> for details.</p>
+    <p><strong>Cookies and local storage.</strong> aicrazed itself sets no cookies &mdash; no advertising cookies, no tracking cookies, no third-party analytics. That&rsquo;s also why you won&rsquo;t see a cookie banner here: there&rsquo;s nothing to ask your consent for on our end. (The one exception is the font request described just below.) Some pages use your browser&rsquo;s local storage for small, on-device conveniences, like remembering a UI preference; that data stays on your device and is never sent to us.</p>
+    <p><strong>Fonts.</strong> This site loads typefaces from Google Fonts rather than storing them ourselves. That means your browser makes a direct request to Google&rsquo;s servers to fetch them, which exposes your IP address to Google under its own privacy practices &mdash; not ours, and not something we control. No cookie is set by this request, but the IP address itself is personal data under laws like the GDPR, and courts in some jurisdictions have held that sending it to Google this way can require consent. If that matters to you, use a browser extension that blocks third-party font requests, or contact us and we&rsquo;ll point you to a version of the page without them. See <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google&rsquo;s Privacy Policy</a> for how Google handles it.</p>
 
     <h2>External links</h2>
     <p>Every brand page on aicrazed links out to that company&rsquo;s own official website, phone line, or chat channel. Once you leave aicrazed.com, that company&rsquo;s own privacy policy governs &mdash; we don&rsquo;t control, and aren&rsquo;t responsible for, the privacy practices of any third-party site we link to.</p>
@@ -800,6 +807,82 @@ def render_accessibility():
     )
 
 
+FAQ_ITEMS = [
+    (
+        "Is aicrazed affiliated with the companies you list?",
+        "No. aicrazed is an independent directory. We are not affiliated with, endorsed by, sponsored by, or operated by any company listed on this site, or any of their subsidiaries or affiliates.",
+    ),
+    (
+        "How do you verify a phone number or chat link?",
+        "We check it directly against that company’s own official website — never forums, other directories, or ads. Every brand page shows a “verified on” date and links straight to the exact source page we checked. See How It Works for the full process.",
+    ),
+    (
+        "Why don’t some companies show a phone number?",
+        "Because they don’t publish one. Many social platforms, streaming services, and email providers only offer chat or a help center — no phone line at all. Rather than guess or reuse a number we found elsewhere, we say so plainly and point you to the official channel that does exist.",
+    ),
+    (
+        "What if a listing is out of date?",
+        "Companies change phone systems, hours, and support channels without notice, so it happens. Tell us which brand and what changed on the Contact page, and we’ll recheck it against the official source.",
+    ),
+    (
+        "Is aicrazed free to use?",
+        "Yes, always. There’s no account, no paywall, and nothing to sign up for — search or browse, then contact the company directly.",
+    ),
+    (
+        "Do you collect my personal information?",
+        "We don’t track you, and we don’t use advertising or analytics cookies. If you email us, we only use that to respond and to fix the listing you wrote in about. Full details are in the Privacy Policy.",
+    ),
+    (
+        "I think I called a scam number — what do I do?",
+        "Hang up or end the chat immediately, and don’t share anything further — especially a password, one-time code, gift card, or payment. Then contact the company through the verified channel on its aicrazed page. If you already shared payment or account details, contact your bank or card issuer right away, and consider reporting it to the FTC at reportfraud.ftc.gov.",
+    ),
+    (
+        "How do I request a company be added?",
+        "Email us on the Contact page with the company name, and we’ll look into adding a verified listing.",
+    ),
+]
+
+
+def render_faq():
+    items_html = ""
+    faq_ld = []
+    for q, a in FAQ_ITEMS:
+        items_html += """<details class="faq-item">
+  <summary>{q}</summary>
+  <p>{a}</p>
+</details>""".format(q=q, a=a)
+        faq_ld.append(
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+        )
+
+    json_ld_obj = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_ld}
+    json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(json_ld_obj))
+
+    body = """
+<section class="page-hero container">
+  <p class="eyebrow">FAQ</p>
+  <h1>Frequently asked questions.</h1>
+</section>
+<section class="section container">
+  <div class="prose faq-list">
+    {items}
+  </div>
+</section>
+""".format(items=items_html)
+
+    return layout(
+        title="FAQ | aicrazed",
+        description="Common questions about aicrazed: affiliation, how listings are verified, missing phone numbers, privacy, and what to do if you spot a scam.",
+        path="/faq/",
+        body=body,
+        json_ld=json_ld,
+    )
+
+
 def render_404():
     body = """
 <section class="page-hero container" style="text-align:center;padding:80px 0 40px;">
@@ -840,6 +923,9 @@ def build():
     favicon_src = os.path.join(PUBLIC, "favicon.svg")
     if os.path.exists(favicon_src):
         shutil.copy(favicon_src, os.path.join(DIST, "favicon.svg"))
+    og_image_src = os.path.join(PUBLIC, "og-image.png")
+    if os.path.exists(og_image_src):
+        shutil.copy(og_image_src, os.path.join(DIST, "og-image.png"))
 
     # Pages
     write("index.html", render_home())
@@ -850,6 +936,7 @@ def build():
     write("terms/index.html", render_terms())
     write("trademark-notice/index.html", render_trademark())
     write("accessibility/index.html", render_accessibility())
+    write("faq/index.html", render_faq())
     write("404.html", render_404())
 
     for cat_slug in CATEGORIES:
@@ -861,7 +948,7 @@ def build():
     # robots.txt + sitemap.xml
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: {}/sitemap.xml\n".format(BASE_URL))
 
-    static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/privacy/", "/terms/", "/trademark-notice/", "/accessibility/"]
+    static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/accessibility/"]
     urls = list(static_pages)
     urls += ["/category/{}/".format(c) for c in CATEGORIES]
     urls += ["/brand/{}/".format(b["slug"]) for b in BRANDS]
