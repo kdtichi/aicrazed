@@ -3,7 +3,7 @@
     "name": "aicrazed",
     "domain": "aicrazed.com",
     "tagline": "Find real customer service contacts, fast.",
-    "description": "An independent directory of official customer service phone numbers, chat links, and hours for the brands people search for most. Not affiliated with any company listed.",
+    "description": "Independent directory of official customer service phone numbers, chat links, and hours — verified against each company's own site.",
     "contactEmail": "hello@aicrazed.com",
     "featuredBrands": [
       "amazon",
@@ -24,29 +24,34 @@
     "retail": {
       "label": "Retail",
       "slug": "retail",
-      "description": "Online stores and delivery services — where to go when an order, refund, or delivery goes sideways."
+      "description": "Online stores and delivery services — where to go when an order, refund, or delivery goes sideways.",
+      "intro": "Retail customer service almost always comes down to the same few problems: an order that hasn't arrived, arrived damaged, or a refund that hasn't shown up yet. Every retailer below handles these through its own official channels — a help center, live chat, and in some cases a published phone line — and processing times vary by company and by how the order was paid for. Before you reach out, have your order number and the email address used at checkout ready; most retailers ask for both to look up a purchase. If a company here doesn't list a phone number, that's because it isn't published on their official site, not something we missed — use the verified chat link instead. Every listing links to that retailer's own support page, so you can confirm the same information yourself."
     },
     "social": {
       "label": "Social Media",
       "navLabel": "Social",
       "slug": "social",
-      "description": "Social platforms — most don't offer phone support, so knowing the real help channel matters even more."
+      "description": "Social platforms — most don't offer phone support, so knowing the real help channel matters even more.",
+      "intro": "Social platforms almost never offer a phone line. Support runs through in-app reporting, a help center, or in Meta's case an AI assistant, and that's deliberate on the platform's part, not a gap in our research. That also makes account-recovery scams especially common here: if you're locked out or think your account was hacked, be wary of any site or ad promising a phone number to call, since none of the platforms below publish one. The safest path is always the official help center link on each page, verified to go to that company's own domain. Common reasons people look these companies up include a compromised account, a forgotten password, a suspended account, or reporting impersonation — each help center below has a dedicated flow for exactly that."
     },
     "email": {
       "label": "Email Providers",
       "navLabel": "Email",
       "slug": "email",
-      "description": "Email and account providers — for lockouts, hacked accounts, and recovery."
+      "description": "Email and account providers — for lockouts, hacked accounts, and recovery.",
+      "intro": "Email providers, like social platforms, rarely offer phone support for personal accounts &mdash; Gmail, Outlook, and Yahoo Mail all route account issues through self-service help articles or, in Microsoft's case, a sign-in-gated chat option. The most common reason people search for these providers is being locked out or suspecting their account was compromised, which is unfortunately the exact scenario scammers exploit with fake account-recovery phone numbers. None of the providers listed here publish a general support line, so treat any number claiming otherwise as unverified. Each listing links directly to that provider's own help center, where you can start password recovery or report suspicious activity through their real, official flow."
     },
     "streaming": {
       "label": "Streaming",
       "slug": "streaming",
-      "description": "Video and music subscriptions — billing issues, playback problems, and canceling a plan."
+      "description": "Video and music subscriptions — billing issues, playback problems, and canceling a plan.",
+      "intro": "Streaming support issues are usually about billing or access — a payment that didn't go through, a plan you want to change, or trouble signing in on a new device. None of the services listed here publish a general customer service phone number; support runs through their help center and, once you're signed in, a chat option tied to your account. That's standard across the industry, not a gap in our listings. Before contacting any of them, have the email address tied to your subscription ready, since most support flows start by confirming your account. Each listing below links directly to that service's own official help center, checked against the source and dated."
     },
     "telecom": {
       "label": "Telecom",
       "slug": "telecom",
-      "description": "Phone and internet carriers — for billing, outages, device, and account issues."
+      "description": "Phone and internet carriers — for billing, outages, device, and account issues.",
+      "intro": "Telecom support covers more ground than most categories here — billing questions, outages, device and SIM issues, and account changes all route through the same customer service lines. Unlike social media or streaming, telecom carriers do publish real phone numbers, and we've verified each one directly against the carrier's own site, along with its stated hours. Carriers often run separate lines for different issues &mdash; new service versus an existing account versus technical support &mdash; so check the full listing below rather than just the headline number if your issue is more specific. As always, treat any number you find elsewhere, like a search ad or forum post, as unverified until you confirm it here or on the carrier's own site."
     }
   },
   "brands": [

@@ -275,11 +275,30 @@ def render_home():
         ),
     )
 
+    org_ld = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "aicrazed",
+        "url": BASE_URL + "/",
+        "logo": BASE_URL + "/logo.png",
+        "description": SITE["description"],
+    }
+    website_ld = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "aicrazed",
+        "url": BASE_URL + "/",
+    }
+    json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
+        json.dumps(org_ld), json.dumps(website_ld)
+    )
+
     return layout(
         title="aicrazed — Independent Customer Service Directory",
         description=SITE["description"],
         path="/",
         body=body,
+        json_ld=json_ld,
     )
 
 
@@ -333,6 +352,65 @@ def render_hours_field(b):
     )
 
 
+_TZ_LABELS = {
+    "America/Los_Angeles": "Pacific time",
+    "America/New_York": "Eastern time",
+    "America/Chicago": "Central time",
+    "America/Denver": "Mountain time",
+}
+
+
+def _fmt_12h(hhmm):
+    h, m = map(int, hhmm.split(":"))
+    period = "AM" if h < 12 else "PM"
+    h12 = h % 12 or 12
+    return "{}:{:02d} {}".format(h12, m, period)
+
+
+def hours_static_text(b):
+    h = b["hours"]
+    mode = h.get("mode", "detailed")
+    name = b["name"]
+    if mode == "247":
+        return "{} offers support 24 hours a day, every day.".format(name)
+    if mode == "unspecified":
+        return h["text"]
+    start = _fmt_12h(h["start"])
+    end = _fmt_12h(h["end"])
+    tz = _TZ_LABELS.get(h["tz"], h["tz"])
+    days = "Monday through Friday" if h.get("days") == "weekdays" else "every day"
+    return "{}&rsquo;s stated support hours are {}&ndash;{} {}, {}.".format(name, start, end, tz, days)
+
+
+def brand_faq_items(b):
+    name = b["name"]
+    if b.get("phone"):
+        note = " " + b["phoneNote"] if b.get("phoneNote") else ""
+        phone_a = "Yes &mdash; {name}&rsquo;s verified customer service number is {phone}.{note}".format(
+            name=name, phone=b["phone"], note=note
+        )
+    else:
+        alt = " " + b["phoneAltNote"] if b.get("phoneAltNote") else ""
+        phone_a = "No. {name} does not publish a public customer service phone number.{alt} Use the official chat link on this page instead.".format(
+            name=name, alt=alt
+        )
+
+    issues = b["commonIssues"]
+    if len(issues) >= 3:
+        issues_text = "{}; {}; and {}".format(issues[0], issues[1], issues[2])
+    else:
+        issues_text = "; ".join(issues)
+
+    return [
+        ("Does {} have a customer service phone number?".format(name), phone_a),
+        ("What are {}&rsquo;s support hours?".format(name), hours_static_text(b)),
+        (
+            "What can I contact {} about?".format(name),
+            "Common reasons people contact {name} include: {issues}.".format(name=name, issues=issues_text),
+        ),
+    ]
+
+
 def render_brand(b):
     cat = CATEGORIES[b["category"]]
     issues = "".join("<li>{}</li>".format(esc(i)) for i in b["commonIssues"])
@@ -370,8 +448,21 @@ def render_brand(b):
             {"@type": "ListItem", "position": 3, "name": b["name"], "item": BASE_URL + "/brand/" + b["slug"] + "/"},
         ],
     }
-    json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
-        json.dumps(json_ld_obj), json.dumps(breadcrumb_ld)
+    faq_items = brand_faq_items(b)
+    faq_ld = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": html_lib.unescape(q), "acceptedAnswer": {"@type": "Answer", "text": html_lib.unescape(a)}}
+            for q, a in faq_items
+        ],
+    }
+    json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
+        json.dumps(json_ld_obj), json.dumps(breadcrumb_ld), json.dumps(faq_ld)
+    )
+    faq_html = "".join(
+        '<details class="faq-item"><summary>{q}</summary><p>{a}</p></details>'.format(q=q, a=a)
+        for q, a in faq_items
     )
 
     body = """
@@ -440,6 +531,11 @@ def render_brand(b):
       <p class="stat-sub">General rule of thumb, not brand-specific data: contacting outside peak hours tends to mean a shorter wait.</p>
     </div>
   </div>
+
+  <div class="faq-list" style="margin-top:48px;border-top:1px solid var(--rule);">
+    <h4 style="margin:28px 0 4px;">Quick answers</h4>
+    {faq_html}
+  </div>
 </section>
 """.format(
         cat_slug=cat["slug"],
@@ -456,6 +552,7 @@ def render_brand(b):
         issues=issues,
         avg_wait=esc(avg_wait),
         best_time=esc(best_time),
+        faq_html=faq_html,
     )
 
     title = "{} Customer Service: Phone Number, Chat & Hours | aicrazed".format(b["name"])
@@ -500,6 +597,13 @@ def render_category(cat_slug):
   <p class="eyebrow">Category</p>
   <h1>{label}</h1>
   <p class="lede" style="margin:0 0 0;max-width:60ch;">{desc}</p>
+</section>
+<section class="container">
+  <div class="prose" style="max-width:68ch;">
+    <p>{intro}</p>
+  </div>
+</section>
+<section class="container">
   <div class="cat-nav-pills">{pills}</div>
 </section>
 <section class="section container">
@@ -507,11 +611,21 @@ def render_category(cat_slug):
     {rows}
   </div>
 </section>
-""".format(label=esc(cat["label"]), desc=esc(cat["description"]), pills=pills, rows=rows)
+""".format(label=esc(cat["label"]), desc=esc(cat["description"]), intro=cat["intro"], pills=pills, rows=rows)
+
+    breadcrumb_ld = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": cat["label"], "item": BASE_URL + "/category/" + cat_slug + "/"},
+        ],
+    }
+    json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(breadcrumb_ld))
 
     title = "{} Customer Service Numbers & Contacts | aicrazed".format(cat["label"])
     description = "Verified official customer service contacts for {} companies: phone numbers, chat links, and support hours.".format(cat["label"])
-    return layout(title=title, description=description, path="/category/{}/".format(cat_slug), body=body)
+    return layout(title=title, description=description, path="/category/{}/".format(cat_slug), body=body, json_ld=json_ld)
 
 
 # ---------------------------------------------------------------------------
@@ -926,6 +1040,9 @@ def build():
     og_image_src = os.path.join(PUBLIC, "og-image.png")
     if os.path.exists(og_image_src):
         shutil.copy(og_image_src, os.path.join(DIST, "og-image.png"))
+    logo_src = os.path.join(PUBLIC, "logo.png")
+    if os.path.exists(logo_src):
+        shutil.copy(logo_src, os.path.join(DIST, "logo.png"))
 
     # Pages
     write("index.html", render_home())
