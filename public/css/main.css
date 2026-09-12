@@ -55,6 +55,9 @@ h1 { font-size: clamp(2.4rem, 5vw + 1rem, 4.4rem); font-weight: 480; }
 h2 { font-size: clamp(1.7rem, 2.6vw + 1rem, 2.5rem); }
 h3 { font-size: 1.35rem; }
 h4 { font-size: 1.05rem; font-family: var(--font-sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+/* Same visual treatment as h4, for headings that need a different semantic
+   level (h2/h3) so the document outline doesn't skip levels. */
+.label-heading { font-size: 1.05rem; font-family: var(--font-sans); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0 0 0.4em; line-height: 1.08; }
 
 p { margin: 0 0 1em; color: var(--ink-soft); }
 a { color: inherit; }
@@ -117,10 +120,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   white-space: nowrap;
 }
 .site-nav a:hover { color: var(--ink); border-bottom-color: var(--rule-strong); }
-.nav-toggle { display: none; }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1.5px solid var(--rule-strong);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (max-width: 720px) {
-  .site-nav { display: none; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 8px var(--gutter) 16px;
+    z-index: 30;
+  }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { display: block; padding: 10px 0; }
+  .nav-toggle { display: inline-block; }
+  .site-header__bar { position: relative; }
 }
 
 /* Independence ribbon — thin, always visible, never buried */
@@ -413,7 +444,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   padding: 32px;
   border-right: 1px solid var(--rule);
 }
-@media (max-width: 760px) { .contact-panel__main { border-right: none; border-bottom: 1px solid var(--rule); } }
+@media (max-width: 760px) { .contact-panel__main { border-right: none; } }
+
+/* On mobile, show the verification stamp before the (sometimes long) phone/
+   chat/hours details, so the trust signal lands within the first screen
+   instead of being pushed below the fold by a lengthy "no phone published"
+   explanation. Visual order only — DOM order (and text-extraction order)
+   is unchanged. */
+@media (max-width: 760px) {
+  .contact-panel__aside { order: -1; border-bottom: 1px solid var(--rule); }
+}
 
 .contact-field { margin-bottom: 24px; }
 .contact-field:last-child { margin-bottom: 0; }
@@ -457,18 +497,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   border-radius: var(--radius-sm);
   padding: 12px 14px;
 }
+.no-phone-verdict {
+  font-family: var(--font-sans);
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
 .chat-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--bg);
+  background: var(--ink);
   text-decoration: none;
-  border-bottom: 1.5px solid var(--accent);
-  padding-bottom: 1px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
 }
-.chat-link:hover { color: var(--accent); }
+.chat-link:hover { background: var(--accent); color: var(--accent-ink); }
 .hours-value { font-size: 1.05rem; color: var(--ink); }
 .hours-status {
   display: inline-flex;
@@ -557,7 +606,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   font-family: var(--font-serif);
   font-weight: 700;
 }
-.scam-box h3 { margin-bottom: 6px; font-size: 1.1rem; }
+.scam-box h2 { margin-bottom: 6px; font-size: 1.1rem; }
 .scam-box p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
 .scam-box ul { margin: 10px 0 0; padding-left: 20px; color: var(--ink-soft); font-size: 0.93rem; }
 .scam-box li { margin-bottom: 4px; }
@@ -712,7 +761,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   background: var(--bg-raised);
   margin-bottom: 16px;
 }
-.contact-card h3 { margin-bottom: 6px; font-size: 1.05rem; }
+.contact-card h2 { margin-bottom: 6px; font-size: 1.05rem; }
 .contact-card a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
 
 .btn {

@@ -137,8 +137,9 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
 <header class="site-header">
   <div class="site-header__bar">
     <a class="logo" href="/">aicrazed<span>.</span></a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav aria-label="Primary">
-      <ul class="site-nav">{nav}</ul>
+      <ul class="site-nav" id="site-nav">{nav}</ul>
     </nav>
   </div>
 </header>
@@ -173,6 +174,7 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
 <script src="/js/search.js" defer></script>
 <script src="/js/hours.js" defer></script>
 <script src="/js/fonts-optout.js" defer></script>
+<script src="/js/nav-toggle.js" defer></script>
 </body>
 </html>
 """.format(
@@ -330,14 +332,15 @@ def render_phone_field(b):
         note = "<p class='stat-sub' style='margin-top:10px;'>{}</p>".format(esc(b["phoneNote"])) if b.get("phoneNote") else ""
         return """<div class="contact-field">
   <label for="phone-link">Official phone number</label>
-  <a class="phone-number" id="phone-link" href="{tel}">{display}<span class="tap-hint">Tap to call</span></a>
+  <a class="phone-number" id="phone-link" href="{tel}">{display}<span class="tap-hint" aria-hidden="true">Tap to call</span></a>
   {note}
 </div>""".format(tel=tel_href, display=esc(b["phone"]), note=note)
     else:
-        alt = " " + esc(b["phoneAltNote"]) if b.get("phoneAltNote") else ""
+        alt = esc(b["phoneAltNote"]) if b.get("phoneAltNote") else ""
         return """<div class="contact-field">
   <label>Official phone number</label>
-  <p class="no-phone-note">{name} does not publish a public customer service phone number on its official site.{alt} Any &ldquo;support number&rdquo; for {name} circulating elsewhere is not confirmed and may be a scam. Use the official chat channel below instead.</p>
+  <p class="no-phone-verdict">{name} publishes no phone number &mdash; use the official chat below.</p>
+  <p class="stat-sub">{alt} Any &ldquo;support number&rdquo; for {name} circulating elsewhere is not confirmed and may be a scam.</p>
 </div>""".format(name=esc(b["name"]), alt=alt)
 
 
@@ -504,7 +507,7 @@ def render_brand(b):
             for r in related
         )
         related_html = """<div class="related-brands">
-      <h4>Other {cat_label} brands</h4>
+      <h3 class="label-heading">Other {cat_label} brands</h3>
       <div class="related-links">{links}</div>
     </div>""".format(cat_label=esc(cat["label"]), links=related_links)
     else:
@@ -535,10 +538,10 @@ def render_brand(b):
         {hours_field}
       </div>
       <div class="contact-panel__aside">
-        <div class="stamp" aria-hidden="true">
+        <div class="stamp">
           <div class="stamp__inner">
             <div class="stamp__word">Verified</div>
-            <div class="stamp__check">&#10003;</div>
+            <div class="stamp__check" aria-hidden="true">&#10003;</div>
             <div class="stamp__date">{verified_date}</div>
           </div>
         </div>
@@ -550,7 +553,7 @@ def render_brand(b):
   <div class="scam-box">
     <span class="scam-box__icon" aria-hidden="true">!</span>
     <div>
-      <h3>Before you call or chat</h3>
+      <h2>Before you call or chat</h2>
       <p>{scam_note}</p>
       <ul>
         <li>We never ask for your password, one-time code, or payment details.</li>
@@ -561,26 +564,26 @@ def render_brand(b):
   </div>
 
   <div class="issues-section">
-    <h4>Common issues &amp; how to resolve them</h4>
+    <h2 class="label-heading">Common issues &amp; how to resolve them</h2>
     <p class="stat-sub" style="margin-bottom:16px;">General guidance based on what usually works for this kind of issue &mdash; not {name}&rsquo;s official policy.</p>
     <div class="faq-list">{issues}</div>
   </div>
 
   <div class="info-grid info-grid--stats">
     <div class="info-col">
-      <h4>Average wait time</h4>
+      <h3 class="label-heading">Average wait time</h3>
       <div class="stat-value" style="font-size:1.5rem;">{avg_wait}</div>
       <p class="stat-sub">{name} doesn&rsquo;t publish wait-time data &mdash; this isn&rsquo;t a verified figure.</p>
     </div>
     <div class="info-col">
-      <h4>Best time to contact</h4>
+      <h3 class="label-heading">Best time to contact</h3>
       <div class="stat-value" style="font-size:1.4rem;">{best_time}</div>
       <p class="stat-sub">General rule of thumb, not brand-specific data: contacting outside peak hours tends to mean a shorter wait.</p>
     </div>
   </div>
 
   <div class="faq-list" style="margin-top:48px;border-top:1px solid var(--rule);">
-    <h4 style="margin:28px 0 4px;">Quick answers</h4>
+    <h2 class="label-heading" style="margin:28px 0 4px;">Quick answers</h2>
     {faq_html}
   </div>
 
@@ -675,19 +678,18 @@ def render_category(cat_slug):
   <div class="page-icon">{icon}</div>
   <p class="eyebrow">Category</p>
   <h1>{label}</h1>
-  <p class="lede" style="margin:0 0 0;max-width:60ch;">{desc}</p>
-</section>
-<section class="container">
-  <div class="prose" style="max-width:68ch;">
-    <p>{intro}</p>
-  </div>
-</section>
-<section class="container">
-  <div class="cat-nav-pills">{pills}</div>
+  <p class="lede" style="margin:0;max-width:60ch;">{desc}</p>
+  <div class="cat-nav-pills" style="margin-top:20px;">{pills}</div>
 </section>
 <section class="section container">
   <div class="cat-list">
     {rows}
+  </div>
+</section>
+<section class="container">
+  <div class="prose" style="max-width:68ch;border-top:1px solid var(--rule);padding-top:32px;">
+    <h2 class="label-heading">About {label} support</h2>
+    <p>{intro}</p>
   </div>
 </section>
 """.format(label=esc(cat["label"]), desc=esc(cat["description"]), intro=cat["intro"], pills=pills, rows=rows, icon=CATEGORY_ICONS[cat_slug])
@@ -773,12 +775,12 @@ def render_contact():
 <section class="section container">
   <div class="prose">
     <div class="contact-card">
-      <h3>Report an outdated or incorrect listing</h3>
+      <h2>Report an outdated or incorrect listing</h2>
       <p>If a phone number, chat link, or hours listing is wrong, tell us which brand and what changed, and we&rsquo;ll recheck it against the official source.</p>
       <a href="mailto:{email}">{email}</a>
     </div>
     <div class="contact-card">
-      <h3>Request a brand be added</h3>
+      <h2>Request a brand be added</h2>
       <p>Let us know which company you couldn&rsquo;t find, and we&rsquo;ll look into adding a verified listing.</p>
       <a href="mailto:{email}">{email}</a>
     </div>
@@ -1007,7 +1009,7 @@ def render_editorial_policy():
     <p>Every phone number, chat link, and hours listing is checked directly against that company&rsquo;s own official website &mdash; its help center, contact page, or support article. We do not use forums, review sites, other directories, or advertisements as a source for any fact published here, even when they&rsquo;d be faster to cite.</p>
 
     <h2>When we can&rsquo;t verify something</h2>
-    <p>Sometimes an official source can&rsquo;t be confirmed &mdash; a page is geo-blocked, temporarily unreachable, or gives conflicting information across regions. When that happens we do one of two things: state the uncertainty plainly on the page, or leave the company out of the directory entirely until it can be confirmed. We do not fill a gap with a plausible-sounding guess. A few companies have been excluded from aicrazed for exactly this reason.</p>
+    <p>Sometimes an official source can&rsquo;t be confirmed &mdash; a page is geo-blocked, temporarily unreachable, or gives conflicting information across regions. When that happens we do one of two things: state the uncertainty plainly on the page, or leave the company out of the directory entirely until it can be confirmed. We do not fill a gap with a plausible-sounding guess. For example, Disney+ is not currently listed: its official help center was inaccessible from our research environment at the time we tried to verify it, and rather than publish a guess, we left it out. We&rsquo;ll add it once we can confirm its listing directly.</p>
 
     <h2>What we say when a company publishes nothing</h2>
     <p>Many companies, especially social platforms and email providers, don&rsquo;t publish a public phone number at all. We say so directly on the page rather than substituting a number found elsewhere &mdash; a great deal of the fraud in this category comes from exactly that substitution.</p>
@@ -1130,7 +1132,9 @@ def render_faq():
         )
 
     json_ld_obj = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_ld}
-    json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(json_ld_obj))
+    json_ld = '<script type="application/ld+json">{}</script>\n{}'.format(
+        json.dumps(json_ld_obj), static_page_ld("FAQ", "/faq/")
+    )
 
     body = """
 <section class="page-hero container">
