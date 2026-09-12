@@ -350,6 +350,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   border-bottom: 1px solid transparent;
 }
 .footer-legal-links a:hover { color: var(--accent); border-color: var(--accent); }
+.footer-legal-toggle {
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+}
+.footer-legal-toggle:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
 /* ---------- Category pills / breadcrumb ---------- */
 .breadcrumb {
@@ -638,6 +651,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   color: var(--accent);
   margin-bottom: 10px;
 }
+
+/* Original line-art page icons (no stock photos, no brand logos) */
+.page-icon {
+  color: var(--accent);
+  margin: 4px 0 16px;
+}
+.page-icon--wide { margin-bottom: 8px; }
+
+/* Related brands */
+.related-brands { margin-top: 40px; }
+.related-brands h4 { margin-bottom: 14px; }
+.related-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.related-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+  border-radius: 20px;
+  padding: 8px 16px;
+}
+.related-link:hover { border-color: var(--accent); color: var(--accent); }
 
 /* FAQ accordion */
 .faq-list { border-top: 1px solid var(--rule); }

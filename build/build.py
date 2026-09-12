@@ -26,7 +26,7 @@ CATEGORIES = DATA["categories"]
 BRANDS = DATA["brands"]
 BASE_URL = "https://" + SITE["domain"]
 
-TODAY = "2026-09-08"
+TODAY = "2026-09-12"
 
 
 def esc(s):
@@ -86,7 +86,7 @@ def render_footer_nav():
     return items
 
 
-def layout(title, description, path, body, extra_head="", json_ld="", robots="index, follow"):
+def layout(title, description, path, body, extra_head="", json_ld="", robots="index, follow", og_image="/og-image.png"):
     canonical = BASE_URL + path
     nav = render_nav()
     footer_nav = render_footer_nav()
@@ -104,16 +104,30 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{base_url}/og-image.png">
+<meta property="og:image" content="{base_url}{og_image}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{base_url}/og-image.png">
+<meta name="twitter:image" content="{base_url}{og_image}">
 <meta name="robots" content="{robots}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+(function(){{
+  try {{ if (localStorage.getItem('aicrazed-fonts-optout') === '1') return; }} catch(e) {{}}
+  var head = document.head;
+  ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'].forEach(function(href, i){{
+    var l = document.createElement('link');
+    l.rel = 'preconnect';
+    l.href = href;
+    if (i === 1) l.crossOrigin = '';
+    head.appendChild(l);
+  }});
+  var stylesheet = document.createElement('link');
+  stylesheet.rel = 'stylesheet';
+  stylesheet.href = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap';
+  head.appendChild(stylesheet);
+}})();
+</script>
 <link rel="stylesheet" href="/css/main.css">
 {extra_head}
 {json_ld}
@@ -150,12 +164,14 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
         <li><a href="/terms/">Terms of Service</a></li>
         <li><a href="/trademark-notice/">Trademark Notice</a></li>
         <li><a href="/accessibility/">Accessibility</a></li>
+        <li><button type="button" id="fonts-optout-toggle" class="footer-legal-toggle">Turn off Google Fonts</button></li>
       </ul>
     </div>
   </div>
 </footer>
 <script src="/js/search.js" defer></script>
 <script src="/js/hours.js" defer></script>
+<script src="/js/fonts-optout.js" defer></script>
 </body>
 </html>
 """.format(
@@ -166,6 +182,7 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
         json_ld=json_ld,
         robots=robots,
         base_url=BASE_URL,
+        og_image=og_image,
         nav=nav,
         footer_nav=footer_nav,
         body=body,
@@ -457,13 +474,35 @@ def render_brand(b):
             for q, a in faq_items
         ],
     }
-    json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
-        json.dumps(json_ld_obj), json.dumps(breadcrumb_ld), json.dumps(faq_ld)
+    webpage_ld = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "{} Customer Service".format(b["name"]),
+        "url": BASE_URL + "/brand/" + b["slug"] + "/",
+        "dateModified": b["verifiedDate"],
+        "about": {"@type": "Organization", "name": b["name"]},
+    }
+    json_ld = "\n".join(
+        '<script type="application/ld+json">{}</script>'.format(json.dumps(obj))
+        for obj in (json_ld_obj, breadcrumb_ld, faq_ld, webpage_ld)
     )
     faq_html = "".join(
         '<details class="faq-item"><summary>{q}</summary><p>{a}</p></details>'.format(q=q, a=a)
         for q, a in faq_items
     )
+
+    related = [r for r in brands_in(b["category"]) if r["slug"] != b["slug"]][:4]
+    if related:
+        related_links = "".join(
+            '<a class="related-link" href="/brand/{slug}/">{name}</a>'.format(slug=r["slug"], name=esc(r["name"]))
+            for r in related
+        )
+        related_html = """<div class="related-brands">
+      <h4>Other {cat_label} brands</h4>
+      <div class="related-links">{links}</div>
+    </div>""".format(cat_label=esc(cat["label"]), links=related_links)
+    else:
+        related_html = ""
 
     body = """
 <div class="container">
@@ -536,6 +575,8 @@ def render_brand(b):
     <h4 style="margin:28px 0 4px;">Quick answers</h4>
     {faq_html}
   </div>
+
+  {related_html}
 </section>
 """.format(
         cat_slug=cat["slug"],
@@ -548,6 +589,7 @@ def render_brand(b):
         hours_field=render_hours_field(b),
         verified_date=esc(b["verifiedDate"]),
         source_url=esc(b["sourceUrl"]),
+        related_html=related_html,
         scam_note=scam_note,
         issues=issues,
         avg_wait=esc(avg_wait),
@@ -559,7 +601,35 @@ def render_brand(b):
     description = "Official {} customer service contact info, verified {}: phone number (if published), live chat link, support hours in your timezone, and common issues.".format(
         b["name"], b["verifiedDate"]
     )
-    return layout(title=title, description=description, path="/brand/{}/".format(b["slug"]), body=body, json_ld=json_ld)
+    return layout(
+        title=title,
+        description=description,
+        path="/brand/{}/".format(b["slug"]),
+        body=body,
+        json_ld=json_ld,
+        og_image="/og/{}.png".format(b["slug"]),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Original line-art icons (no stock photos, no brand logos)
+# ---------------------------------------------------------------------------
+
+_ICON_ATTRS = 'width="64" height="64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"'
+
+CATEGORY_ICONS = {
+    "retail": '<svg viewBox="0 0 120 120" {attrs}><path d="M30 40 L34 20 Q36 12 44 12 H76 Q84 12 86 20 L90 40"/><rect x="24" y="40" width="72" height="60" rx="4"/><path d="M44 52 Q44 64 60 64 Q76 64 76 52"/></svg>',
+    "social": '<svg viewBox="0 0 120 120" {attrs}><path d="M20 30 H100 Q108 30 108 38 V74 Q108 82 100 82 H50 L28 100 V82 H20 Q12 82 12 74 V38 Q12 30 20 30 Z"/><circle cx="45" cy="56" r="3" fill="currentColor" stroke="none"/><circle cx="60" cy="56" r="3" fill="currentColor" stroke="none"/><circle cx="75" cy="56" r="3" fill="currentColor" stroke="none"/></svg>',
+    "email": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="30" width="92" height="64" rx="4"/><path d="M18 34 L60 68 L102 34"/></svg>',
+    "streaming": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="20" width="92" height="64" rx="6"/><path d="M52 36 L74 52 L52 68 Z" fill="currentColor" stroke="none"/><path d="M40 96 H80"/></svg>',
+    "telecom": '<svg viewBox="0 0 120 120" {attrs}><path d="M40 36 Q60 20 80 36"/><path d="M30 46 Q60 16 90 46"/><path d="M60 20 V36"/><circle cx="60" cy="14" r="4" fill="currentColor" stroke="none"/><rect x="48" y="60" width="24" height="40" rx="3"/></svg>',
+}
+for _k in CATEGORY_ICONS:
+    CATEGORY_ICONS[_k] = CATEGORY_ICONS[_k].format(attrs=_ICON_ATTRS)
+
+ABOUT_ICON = '<svg viewBox="0 0 120 120" {attrs}><circle cx="52" cy="52" r="32"/><path d="M76 76 L100 100"/><path d="M38 52 L48 62 L68 40"/></svg>'.format(attrs=_ICON_ATTRS)
+
+HOW_IT_WORKS_ICON = '<svg viewBox="0 0 200 60" width="180" height="54" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="30" r="10"/><path d="M30 30 H90"/><circle cx="100" cy="30" r="10"/><path d="M110 30 H170"/><circle cx="180" cy="30" r="10"/></svg>'
 
 
 # ---------------------------------------------------------------------------
@@ -594,6 +664,7 @@ def render_category(cat_slug):
     body = """
 <section class="cat-hero container">
   <p class="breadcrumb" style="padding:0 0 12px;"><a href="/">Home</a> &rsaquo; {label}</p>
+  <div class="page-icon">{icon}</div>
   <p class="eyebrow">Category</p>
   <h1>{label}</h1>
   <p class="lede" style="margin:0 0 0;max-width:60ch;">{desc}</p>
@@ -611,7 +682,7 @@ def render_category(cat_slug):
     {rows}
   </div>
 </section>
-""".format(label=esc(cat["label"]), desc=esc(cat["description"]), intro=cat["intro"], pills=pills, rows=rows)
+""".format(label=esc(cat["label"]), desc=esc(cat["description"]), intro=cat["intro"], pills=pills, rows=rows, icon=CATEGORY_ICONS[cat_slug])
 
     breadcrumb_ld = {
         "@context": "https://schema.org",
@@ -635,6 +706,7 @@ def render_category(cat_slug):
 def render_about():
     body = """
 <section class="page-hero container">
+  <div class="page-icon">{icon}</div>
   <p class="eyebrow">About</p>
   <h1>A directory, not a call center.</h1>
 </section>
@@ -650,7 +722,7 @@ def render_about():
     <p>Read more about our verification approach on the <a href="/how-it-works/">How It Works</a> page.</p>
   </div>
 </section>
-"""
+""".format(icon=ABOUT_ICON)
     return layout(
         title="About aicrazed | Independent Customer Service Directory",
         description="aicrazed is an independent directory of official customer service contacts. Learn what we do, what we don't, and how we keep listings current.",
@@ -692,6 +764,7 @@ def render_contact():
 def render_how_it_works():
     body = """
 <section class="page-hero container">
+  <div class="page-icon page-icon--wide">{icon}</div>
   <p class="eyebrow">How It Works</p>
   <h1>How we verify every listing.</h1>
 </section>
@@ -717,7 +790,7 @@ def render_how_it_works():
     <p>More questions? Check the <a href="/faq/">FAQ</a>.</p>
   </div>
 </section>
-"""
+""".format(icon=HOW_IT_WORKS_ICON)
     return layout(
         title="How It Works | aicrazed Verification Process",
         description="How aicrazed verifies customer service contact info, and how to spot a fake support site.",
@@ -746,7 +819,7 @@ def render_privacy():
     <p><strong>Information you send us.</strong> If you email us at <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a> &mdash; to report an outdated listing, request a brand be added, or ask a question &mdash; we receive your email address and whatever else you choose to include in that message. We use it only to respond to you and to investigate or correct the listing you wrote in about.</p>
     <p><strong>Information collected automatically.</strong> Like most websites, our hosting provider's servers log standard technical information with each request &mdash; things like IP address, browser type, the page requested, and the time of the request. We use these logs only to keep the site running securely and to understand aggregate traffic patterns (for example, which pages are popular). We do not use this information to build individual profiles or to track you across other sites.</p>
     <p><strong>Cookies and local storage.</strong> aicrazed itself sets no cookies &mdash; no advertising cookies, no tracking cookies, no third-party analytics. That&rsquo;s also why you won&rsquo;t see a cookie banner here: there&rsquo;s nothing to ask your consent for on our end. (The one exception is the font request described just below.) Some pages use your browser&rsquo;s local storage for small, on-device conveniences, like remembering a UI preference; that data stays on your device and is never sent to us.</p>
-    <p><strong>Fonts.</strong> This site loads typefaces from Google Fonts rather than storing them ourselves. That means your browser makes a direct request to Google&rsquo;s servers to fetch them, which exposes your IP address to Google under its own privacy practices &mdash; not ours, and not something we control. No cookie is set by this request, but the IP address itself is personal data under laws like the GDPR, and courts in some jurisdictions have held that sending it to Google this way can require consent. If that matters to you, use a browser extension that blocks third-party font requests, or contact us and we&rsquo;ll point you to a version of the page without them. See <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google&rsquo;s Privacy Policy</a> for how Google handles it.</p>
+    <p><strong>Fonts.</strong> This site loads typefaces from Google Fonts rather than storing them ourselves. That means your browser makes a direct request to Google&rsquo;s servers to fetch them, which exposes your IP address to Google under its own privacy practices &mdash; not ours, and not something we control. No cookie is set by this request, but the IP address itself is personal data under laws like the GDPR, and courts in some jurisdictions have held that sending it to Google this way can require consent. If that matters to you, click &ldquo;Turn off Google Fonts&rdquo; in the footer of any page &mdash; it stops your browser from ever making that request, on this device, and the site falls back to your system&rsquo;s own fonts. See <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google&rsquo;s Privacy Policy</a> for how Google handles the request when it does happen.</p>
 
     <h2>External links</h2>
     <p>Every brand page on aicrazed links out to that company&rsquo;s own official website, phone line, or chat channel. Once you leave aicrazed.com, that company&rsquo;s own privacy policy governs &mdash; we don&rsquo;t control, and aren&rsquo;t responsible for, the privacy practices of any third-party site we link to.</p>
@@ -1015,6 +1088,52 @@ def render_404():
     )
 
 
+def render_llms_txt():
+    lines = [
+        "# aicrazed",
+        "",
+        "> Independent directory of official customer service phone numbers, chat links, and support hours. "
+        "Not affiliated with any company listed. Every listing is checked directly against that company's own "
+        "official website, with a verification date and source link shown on the page.",
+        "",
+        "Key facts about this site, for anyone (human or automated) summarizing or citing it:",
+        "- aicrazed has no phone/chat relationship with any listed company; we link to their official channels.",
+        "- When a company does not publish a public phone number, we say so explicitly rather than guessing.",
+        "- Each brand page states the date it was last checked and links to the exact official source page.",
+        "",
+    ]
+    for slug, cat in CATEGORIES.items():
+        members = brands_in(slug)
+        if not members:
+            continue
+        lines.append("## {}".format(cat["label"]))
+        lines.append("")
+        for b in members:
+            phone_bit = "phone: {}".format(b["phone"]) if b.get("phone") else "no public phone number"
+            lines.append(
+                "- [{name}]({url}): {phone_bit}, verified {date}.".format(
+                    name=b["name"],
+                    url=BASE_URL + "/brand/" + b["slug"] + "/",
+                    phone_bit=phone_bit,
+                    date=b["verifiedDate"],
+                )
+            )
+        lines.append("")
+
+    lines.append("## Site")
+    lines.append("")
+    for path, label in [
+        ("/", "Home"),
+        ("/how-it-works/", "How It Works"),
+        ("/faq/", "Frequently Asked Questions"),
+        ("/about/", "About"),
+        ("/contact/", "Contact"),
+    ]:
+        lines.append("- [{}]({}{})".format(label, BASE_URL, path))
+
+    return "\n".join(lines) + "\n"
+
+
 # ---------------------------------------------------------------------------
 # Write files
 # ---------------------------------------------------------------------------
@@ -1040,6 +1159,9 @@ def build():
     og_image_src = os.path.join(PUBLIC, "og-image.png")
     if os.path.exists(og_image_src):
         shutil.copy(og_image_src, os.path.join(DIST, "og-image.png"))
+    og_dir_src = os.path.join(PUBLIC, "og")
+    if os.path.isdir(og_dir_src):
+        shutil.copytree(og_dir_src, os.path.join(DIST, "og"))
     logo_src = os.path.join(PUBLIC, "logo.png")
     if os.path.exists(logo_src):
         shutil.copy(logo_src, os.path.join(DIST, "logo.png"))
@@ -1064,13 +1186,24 @@ def build():
 
     # robots.txt + sitemap.xml
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: {}/sitemap.xml\n".format(BASE_URL))
+    write("llms.txt", render_llms_txt())
 
     static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/accessibility/"]
-    urls = list(static_pages)
-    urls += ["/category/{}/".format(c) for c in CATEGORIES]
-    urls += ["/brand/{}/".format(b["slug"]) for b in BRANDS]
+
+    # (path, lastmod) pairs. Static pages use the site's last-edit date (TODAY);
+    # brand pages use the date we actually last checked that listing — never
+    # inflated to "today" just to look fresher than the content really is.
+    url_entries = [(u, TODAY) for u in static_pages]
+    for slug, cat in CATEGORIES.items():
+        members = brands_in(slug)
+        cat_lastmod = max((b["verifiedDate"] for b in members), default=TODAY)
+        url_entries.append(("/category/{}/".format(slug), cat_lastmod))
+    for b in BRANDS:
+        url_entries.append(("/brand/{}/".format(b["slug"]), b["verifiedDate"]))
+
     sitemap_entries = "".join(
-        "<url><loc>{}{}</loc></url>\n".format(BASE_URL, u) for u in urls
+        "<url><loc>{}{}</loc><lastmod>{}</lastmod></url>\n".format(BASE_URL, u, lastmod)
+        for u, lastmod in url_entries
     )
     write(
         "sitemap.xml",
