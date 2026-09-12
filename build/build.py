@@ -605,8 +605,8 @@ def render_brand(b):
         faq_html=faq_html,
     )
 
-    title = "{} Customer Service: Phone Number, Chat & Hours | aicrazed".format(b["name"])
-    description = "Official {} customer service contact info, verified {}: phone number (if published), live chat link, support hours in your timezone, and common issues.".format(
+    title = "{} Customer Service: Phone & Chat | aicrazed".format(b["name"])
+    description = "Official {} customer service: phone number (if published), live chat, support hours, and common issues — verified {}.".format(
         b["name"], b["verifiedDate"]
     )
     return layout(
@@ -702,7 +702,7 @@ def render_category(cat_slug):
     }
     json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(breadcrumb_ld))
 
-    title = "{} Customer Service Numbers & Contacts | aicrazed".format(cat["label"])
+    title = "{} Customer Service Contacts | aicrazed".format(cat["label"])
     description = "Verified official customer service contacts for {} companies: phone numbers, chat links, and support hours.".format(cat["label"])
     return layout(title=title, description=description, path="/category/{}/".format(cat_slug), body=body, json_ld=json_ld)
 
@@ -710,6 +710,30 @@ def render_category(cat_slug):
 # ---------------------------------------------------------------------------
 # About / Contact / How It Works
 # ---------------------------------------------------------------------------
+
+def static_page_ld(name, path):
+    """WebPage + BreadcrumbList schema for general content/legal pages that
+    aren't a brand, category, or the homepage (those get richer schema of
+    their own elsewhere in this file)."""
+    webpage_ld = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": name,
+        "url": BASE_URL + path,
+        "isPartOf": {"@type": "WebSite", "name": "aicrazed", "url": BASE_URL + "/"},
+    }
+    breadcrumb_ld = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": name, "item": BASE_URL + path},
+        ],
+    }
+    return "\n".join(
+        '<script type="application/ld+json">{}</script>'.format(json.dumps(obj))
+        for obj in (webpage_ld, breadcrumb_ld)
+    )
 
 def render_about():
     body = """
@@ -735,6 +759,7 @@ def render_about():
         title="About aicrazed | Independent Customer Service Directory",
         description="aicrazed is an independent directory of official customer service contacts. Learn what we do, what we don't, and how we keep listings current.",
         path="/about/",
+        json_ld=static_page_ld("About", "/about/"),
         body=body,
     )
 
@@ -765,6 +790,7 @@ def render_contact():
         title="Contact aicrazed",
         description="Report an outdated listing, request a brand be added, or get in touch with aicrazed.",
         path="/contact/",
+        json_ld=static_page_ld("Contact", "/contact/"),
         body=body,
     )
 
@@ -803,6 +829,7 @@ def render_how_it_works():
         title="How It Works | aicrazed Verification Process",
         description="How aicrazed verifies customer service contact info, and how to spot a fake support site.",
         path="/how-it-works/",
+        json_ld=static_page_ld("How It Works", "/how-it-works/"),
         body=body,
     )
 
@@ -861,6 +888,7 @@ def render_privacy():
         title="Privacy Policy | aicrazed",
         description="How aicrazed collects, uses, and protects information — and what we don't collect.",
         path="/privacy/",
+        json_ld=static_page_ld("Privacy Policy", "/privacy/"),
         body=body,
     )
 
@@ -925,6 +953,7 @@ def render_terms():
         title="Terms of Service | aicrazed",
         description="The terms that govern your use of aicrazed's independent customer service directory.",
         path="/terms/",
+        json_ld=static_page_ld("Terms of Service", "/terms/"),
         body=body,
     )
 
@@ -957,6 +986,7 @@ def render_trademark():
         title="Trademark Notice | aicrazed",
         description="aicrazed is independent and not affiliated with any company it lists. How and why we reference brand names.",
         path="/trademark-notice/",
+        json_ld=static_page_ld("Trademark Notice", "/trademark-notice/"),
         body=body,
     )
 
@@ -1000,6 +1030,7 @@ def render_editorial_policy():
         title="Editorial Policy | aicrazed",
         description="The sourcing, verification, and correction standards every aicrazed listing is held to.",
         path="/editorial-policy/",
+        json_ld=static_page_ld("Editorial Policy", "/editorial-policy/"),
         body=body,
     )
 
@@ -1041,6 +1072,7 @@ def render_accessibility():
         title="Accessibility Statement | aicrazed",
         description="aicrazed's commitment to WCAG 2.1 AA accessibility, what's built in today, and how to report a barrier.",
         path="/accessibility/",
+        json_ld=static_page_ld("Accessibility Statement", "/accessibility/"),
         body=body,
     )
 
