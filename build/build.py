@@ -302,6 +302,8 @@ def render_home():
         "url": BASE_URL + "/",
         "logo": BASE_URL + "/logo.png",
         "description": SITE["description"],
+        "email": SITE["contactEmail"],
+        "address": {"@type": "PostalAddress", **SITE["address"]},
     }
     website_ld = {
         "@context": "https://schema.org",
@@ -754,9 +756,18 @@ def render_about():
     <h2>How listings stay current</h2>
     <p>Each brand page shows a &ldquo;verified&rdquo; date and a link to the official source page the information was checked against. Companies change phone systems and support hours without notice; if you find a listing that&rsquo;s out of date, <a href="/contact/">let us know</a> and we&rsquo;ll recheck it.</p>
     <p>Read more about our verification approach on the <a href="/how-it-works/">How It Works</a> page.</p>
+    <h2>Who runs this</h2>
+    <p>aicrazed is operated from {street}, {city} {postal}, {country}. Reach us at <a href="mailto:{email}">{email}</a> &mdash; see the <a href="/contact/">Contact page</a> for what we can and can&rsquo;t help with directly.</p>
   </div>
 </section>
-""".format(icon=ABOUT_ICON)
+""".format(
+        icon=ABOUT_ICON,
+        street=esc(SITE["address"]["streetAddress"]),
+        city=esc(SITE["address"]["addressLocality"]),
+        postal=esc(SITE["address"]["postalCode"]),
+        country="India",
+        email=esc(SITE["contactEmail"]),
+    )
     return layout(
         title="About aicrazed | Independent Customer Service Directory",
         description="aicrazed is an independent directory of official customer service contacts. Learn what we do, what we don't, and how we keep listings current.",
@@ -785,9 +796,19 @@ def render_contact():
       <a href="mailto:{email}">{email}</a>
     </div>
     <p style="margin-top:24px;">aicrazed is an independent directory and cannot access, change, or look up your account with any listed company &mdash; for that, please use the official contact channel shown on that company&rsquo;s page.</p>
+    <div class="contact-card">
+      <h2>Mailing address</h2>
+      <p style="margin:0;">aicrazed<br>{street}<br>{city} {postal}<br>{country}</p>
+    </div>
   </div>
 </section>
-""".format(email=esc(SITE["contactEmail"]))
+""".format(
+        email=esc(SITE["contactEmail"]),
+        street=esc(SITE["address"]["streetAddress"]),
+        city=esc(SITE["address"]["addressLocality"]),
+        postal=esc(SITE["address"]["postalCode"]),
+        country="India",
+    )
     return layout(
         title="Contact aicrazed",
         description="Report an outdated listing, request a brand be added, or get in touch with aicrazed.",
@@ -853,7 +874,7 @@ def render_privacy():
     <p>aicrazed (&ldquo;aicrazed,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) publishes an independent directory of publicly available customer service contact information. This policy explains what little information we collect, and why.</p>
 
     <h2>Information we collect</h2>
-    <p><strong>Information you send us.</strong> If you email us at <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a> &mdash; to report an outdated listing, request a brand be added, or ask a question &mdash; we receive your email address and whatever else you choose to include in that message. We use it only to respond to you and to investigate or correct the listing you wrote in about.</p>
+    <p><strong>Information you send us.</strong> If you email us at <a href="mailto:help@aicrazed.com">help@aicrazed.com</a> &mdash; to report an outdated listing, request a brand be added, or ask a question &mdash; we receive your email address and whatever else you choose to include in that message. We use it only to respond to you and to investigate or correct the listing you wrote in about.</p>
     <p><strong>Information collected automatically.</strong> Like most websites, our hosting provider's servers log standard technical information with each request &mdash; things like IP address, browser type, the page requested, and the time of the request. We use these logs only to keep the site running securely and to understand aggregate traffic patterns (for example, which pages are popular). We do not use this information to build individual profiles or to track you across other sites.</p>
     <p><strong>Cookies and local storage.</strong> aicrazed itself sets no cookies &mdash; no advertising cookies, no tracking cookies, no third-party analytics. That&rsquo;s also why you won&rsquo;t see a cookie banner here: there&rsquo;s nothing to ask your consent for on our end. (The one exception is the font request described just below.) Some pages use your browser&rsquo;s local storage for small, on-device conveniences, like remembering a UI preference; that data stays on your device and is never sent to us.</p>
     <p><strong>Fonts.</strong> This site loads typefaces from Google Fonts rather than storing them ourselves. That means your browser makes a direct request to Google&rsquo;s servers to fetch them, which exposes your IP address to Google under its own privacy practices &mdash; not ours, and not something we control. No cookie is set by this request, but the IP address itself is personal data under laws like the GDPR, and courts in some jurisdictions have held that sending it to Google this way can require consent. If that matters to you, click &ldquo;Turn off Google Fonts&rdquo; in the footer of any page &mdash; it stops your browser from ever making that request, on this device, and the site falls back to your system&rsquo;s own fonts. See <a href="https://policies.google.com/privacy" rel="nofollow noopener" target="_blank">Google&rsquo;s Privacy Policy</a> for how Google handles the request when it does happen.</p>
@@ -876,13 +897,16 @@ def render_privacy():
     <p>aicrazed is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
 
     <h2>Your choices</h2>
-    <p>You&rsquo;re never required to email us to use this site. Depending on where you live, you may have rights under applicable law (such as the California Consumer Privacy Act or the EU/UK GDPR) to request access to, correction of, or deletion of personal information we hold about you. To exercise any of these rights, contact <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a>.</p>
+    <p>You&rsquo;re never required to email us to use this site. Depending on where you live, you may have rights under applicable law (such as the California Consumer Privacy Act or the EU/UK GDPR) to request access to, correction of, or deletion of personal information we hold about you. To exercise any of these rights, contact <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>.</p>
+
+    <h2>Who operates this site</h2>
+    <p>aicrazed is operated from N-33, Sailing Club Road, Batla House, New Delhi 110025, India. That&rsquo;s the address to use for any formal privacy request that needs one.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we&rsquo;ll update this page and change the effective date above.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy: <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a>.</p>
+    <p>Questions about this policy: <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>.</p>
   </div>
 </section>
 """
@@ -947,7 +971,7 @@ def render_terms():
     <p>We may update these terms from time to time. Continued use of the Site after a change means you accept the updated terms. We&rsquo;ll update the effective date above whenever we do.</p>
 
     <h2>Contact</h2>
-    <p>Questions about these terms: <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a>.</p>
+    <p>Questions about these terms: <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>.</p>
   </div>
 </section>
 """
@@ -980,7 +1004,7 @@ def render_trademark():
     <p>We deliberately don&rsquo;t use any company&rsquo;s logo or visual branding on aicrazed. Every listing is identified by name only, styled entirely in aicrazed&rsquo;s own visual design, so nothing on the Site could be mistaken for a company&rsquo;s own materials.</p>
 
     <h2>Rights holders</h2>
-    <p>If you represent a company listed on aicrazed and have a concern about how your trademark is used here, contact us at <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a>. We&rsquo;ll review promptly, and we&rsquo;re glad to correct, adjust, or remove a listing at the rights holder&rsquo;s request.</p>
+    <p>If you represent a company listed on aicrazed and have a concern about how your trademark is used here, contact us at <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>. We&rsquo;ll review promptly, and we&rsquo;re glad to correct, adjust, or remove a listing at the rights holder&rsquo;s request.</p>
   </div>
 </section>
 """
@@ -1066,7 +1090,7 @@ def render_accessibility():
     <p>aicrazed is a growing directory, and we keep testing new pages as we add them. If you run into a barrier &mdash; a missing label, a focus trap, low contrast we missed &mdash; it&rsquo;s a real gap we want to fix, not something to work around.</p>
 
     <h2>Tell us</h2>
-    <p>Email <a href="mailto:hello@aicrazed.com">hello@aicrazed.com</a> with the page URL and what happened. We&rsquo;ll aim to respond within a few business days.</p>
+    <p>Email <a href="mailto:help@aicrazed.com">help@aicrazed.com</a> with the page URL and what happened. We&rsquo;ll aim to respond within a few business days.</p>
   </div>
 </section>
 """

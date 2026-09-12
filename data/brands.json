@@ -4,7 +4,13 @@
     "domain": "aicrazed.com",
     "tagline": "Find real customer service contacts, fast.",
     "description": "Independent directory of official customer service phone numbers, chat links, and hours — verified against each company's own site.",
-    "contactEmail": "hello@aicrazed.com",
+    "contactEmail": "help@aicrazed.com",
+    "address": {
+      "streetAddress": "N-33, Sailing Club Road, Batla House",
+      "addressLocality": "New Delhi",
+      "postalCode": "110025",
+      "addressCountry": "IN"
+    },
     "featuredBrands": [
       "amazon",
       "walmart",
