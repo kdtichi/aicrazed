@@ -163,6 +163,7 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
         <li><a href="/privacy/">Privacy Policy</a></li>
         <li><a href="/terms/">Terms of Service</a></li>
         <li><a href="/trademark-notice/">Trademark Notice</a></li>
+        <li><a href="/editorial-policy/">Editorial Policy</a></li>
         <li><a href="/accessibility/">Accessibility</a></li>
         <li><button type="button" id="fonts-optout-toggle" class="footer-legal-toggle">Turn off Google Fonts</button></li>
       </ul>
@@ -787,7 +788,7 @@ def render_how_it_works():
       <li><strong>Real support won&rsquo;t ask for remote access to your device,</strong> gift cards, wire transfers, or your password to &ldquo;verify&rdquo; you.</li>
       <li><strong>When in doubt, go direct.</strong> Type the company&rsquo;s known web address in yourself rather than clicking a search result or ad.</li>
     </ul>
-    <p>More questions? Check the <a href="/faq/">FAQ</a>.</p>
+    <p>More questions? Check the <a href="/faq/">FAQ</a>. For the formal sourcing and correction standard behind all of this, see our <a href="/editorial-policy/">Editorial Policy</a>.</p>
   </div>
 </section>
 """.format(icon=HOW_IT_WORKS_ICON)
@@ -949,6 +950,49 @@ def render_trademark():
         title="Trademark Notice | aicrazed",
         description="aicrazed is independent and not affiliated with any company it lists. How and why we reference brand names.",
         path="/trademark-notice/",
+        body=body,
+    )
+
+
+def render_editorial_policy():
+    body = """
+<section class="page-hero container">
+  <p class="eyebrow">Legal</p>
+  <h1>Editorial Policy</h1>
+</section>
+<section class="section container">
+  <div class="prose">
+    <p><strong>Effective date: September 12, 2026</strong></p>
+
+    <p>This page sets out the standard every listing on aicrazed is held to. It exists so the standard is written down in one place, not just implied by the site&rsquo;s design.</p>
+
+    <h2>Sourcing</h2>
+    <p>Every phone number, chat link, and hours listing is checked directly against that company&rsquo;s own official website &mdash; its help center, contact page, or support article. We do not use forums, review sites, other directories, or advertisements as a source for any fact published here, even when they&rsquo;d be faster to cite.</p>
+
+    <h2>When we can&rsquo;t verify something</h2>
+    <p>Sometimes an official source can&rsquo;t be confirmed &mdash; a page is geo-blocked, temporarily unreachable, or gives conflicting information across regions. When that happens we do one of two things: state the uncertainty plainly on the page, or leave the company out of the directory entirely until it can be confirmed. We do not fill a gap with a plausible-sounding guess. A few companies have been excluded from aicrazed for exactly this reason.</p>
+
+    <h2>What we say when a company publishes nothing</h2>
+    <p>Many companies, especially social platforms and email providers, don&rsquo;t publish a public phone number at all. We say so directly on the page rather than substituting a number found elsewhere &mdash; a great deal of the fraud in this category comes from exactly that substitution.</p>
+
+    <h2>Dates and freshness</h2>
+    <p>Every brand page shows the date it was last checked. That date is never advanced without an actual recheck against the source &mdash; it is not refreshed automatically just to look current, in the sitemap or anywhere else.</p>
+
+    <h2>No visual impersonation</h2>
+    <p>aicrazed does not use any company&rsquo;s logo, icon, or visual branding. Every listing is identified by name only, in aicrazed&rsquo;s own design system, so no page could be mistaken for a company&rsquo;s own site or materials. See the <a href="/trademark-notice/">Trademark Notice</a> for the legal detail.</p>
+
+    <h2>Corrections</h2>
+    <p>If a listing is wrong or out of date, tell us on the <a href="/contact/">Contact page</a> with the company name and what changed. We recheck it against the official source and update the page &mdash; we don&rsquo;t just take a report at face value without confirming it ourselves.</p>
+
+    <h2>Independence</h2>
+    <p>aicrazed is not affiliated with, endorsed by, sponsored by, or operated by any company listed on this site. This is stated on every page, not only here.</p>
+  </div>
+</section>
+"""
+    return layout(
+        title="Editorial Policy | aicrazed",
+        description="The sourcing, verification, and correction standards every aicrazed listing is held to.",
+        path="/editorial-policy/",
         body=body,
     )
 
@@ -1174,6 +1218,7 @@ def build():
     write("privacy/index.html", render_privacy())
     write("terms/index.html", render_terms())
     write("trademark-notice/index.html", render_trademark())
+    write("editorial-policy/index.html", render_editorial_policy())
     write("accessibility/index.html", render_accessibility())
     write("faq/index.html", render_faq())
     write("404.html", render_404())
@@ -1188,7 +1233,7 @@ def build():
     write("robots.txt", "User-agent: *\nAllow: /\nSitemap: {}/sitemap.xml\n".format(BASE_URL))
     write("llms.txt", render_llms_txt())
 
-    static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/accessibility/"]
+    static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/editorial-policy/", "/accessibility/"]
 
     # (path, lastmod) pairs. Static pages use the site's last-edit date (TODAY);
     # brand pages use the date we actually last checked that listing — never
