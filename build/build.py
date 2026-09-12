@@ -413,11 +413,11 @@ def brand_faq_items(b):
             name=name, alt=alt
         )
 
-    issues = b["commonIssues"]
-    if len(issues) >= 3:
-        issues_text = "{}; {}; and {}".format(issues[0], issues[1], issues[2])
+    issue_names = [ci["issue"] for ci in b["commonIssues"]]
+    if len(issue_names) >= 3:
+        issues_text = "{}; {}; and {}".format(issue_names[0], issue_names[1], issue_names[2])
     else:
-        issues_text = "; ".join(issues)
+        issues_text = "; ".join(issue_names)
 
     return [
         ("Does {} have a customer service phone number?".format(name), phone_a),
@@ -431,7 +431,12 @@ def brand_faq_items(b):
 
 def render_brand(b):
     cat = CATEGORIES[b["category"]]
-    issues = "".join("<li>{}</li>".format(esc(i)) for i in b["commonIssues"])
+    issues = "".join(
+        '<details class="faq-item"><summary>{issue}</summary><p>{solution}</p></details>'.format(
+            issue=esc(ci["issue"]), solution=esc(ci["solution"])
+        )
+        for ci in b["commonIssues"]
+    )
     avg_wait = b.get("avgWaitTime") or "Not officially published"
     best_time = b.get("bestTimeToCall") or "Early or late in the day, local time"
 
@@ -555,11 +560,13 @@ def render_brand(b):
     </div>
   </div>
 
-  <div class="info-grid">
-    <div class="info-col">
-      <h4>Common issues</h4>
-      <ul class="issue-list">{issues}</ul>
-    </div>
+  <div class="issues-section">
+    <h4>Common issues &amp; how to resolve them</h4>
+    <p class="stat-sub" style="margin-bottom:16px;">General guidance based on what usually works for this kind of issue &mdash; not {name}&rsquo;s official policy.</p>
+    <div class="faq-list">{issues}</div>
+  </div>
+
+  <div class="info-grid info-grid--stats">
     <div class="info-col">
       <h4>Average wait time</h4>
       <div class="stat-value" style="font-size:1.5rem;">{avg_wait}</div>

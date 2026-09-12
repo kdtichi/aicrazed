@@ -77,11 +77,26 @@
       "sourceUrl": "https://www.temu.com/contact-us.html",
       "sourceLabel": "Temu Contact Us page",
       "commonIssues": [
-        "Find my order or track a shipment",
-        "Cancel an order",
-        "Return or refund status",
-        "Managing my account",
-        "Payment and promo codes"
+        {
+          "issue": "Find my order or track a shipment",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Cancel an order",
+          "solution": "Check your order history first — many orders can still be canceled there if it hasn't shipped yet. If that option is gone, contact Temu above as soon as possible; the sooner you ask, the better the odds of stopping it."
+        },
+        {
+          "issue": "Return or refund status",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Managing my account",
+          "solution": "Most account details can be updated directly in your account settings. Contact Temu above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Payment and promo codes",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Temu above with the exact date and amount."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -108,11 +123,26 @@
       "sourceUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V",
       "sourceLabel": "Amazon Support Options and Customer Service page",
       "commonIssues": [
-        "Where's my order / shipping and delivery",
-        "Returns, refunds, and product support",
-        "Managing your account",
-        "Security and privacy",
-        "Payment, pricing, and promotions"
+        {
+          "issue": "Where's my order / shipping and delivery",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Returns, refunds, and product support",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Managing your account",
+          "solution": "Most account details can be updated directly in your account settings. Contact Amazon above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Security and privacy",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Payment, pricing, and promotions",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Amazon above with the exact date and amount."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -139,11 +169,26 @@
       "sourceUrl": "https://help.doordash.com/consumers",
       "sourceLabel": "DoorDash Help Center",
       "commonIssues": [
-        "Order never arrived",
-        "Missing or incorrect items",
-        "Cancel an order",
-        "DashPass membership questions",
-        "Getting started / availability"
+        {
+          "issue": "Order never arrived",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Missing or incorrect items",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with DoorDash."
+        },
+        {
+          "issue": "Cancel an order",
+          "solution": "Check your order history first — many orders can still be canceled there if it hasn't shipped yet. If that option is gone, contact DoorDash above as soon as possible; the sooner you ask, the better the odds of stopping it."
+        },
+        {
+          "issue": "DashPass membership questions",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact DoorDash above if the option isn't available or a charge doesn't match your plan."
+        },
+        {
+          "issue": "Getting started / availability",
+          "solution": "DoorDash's own help center covers most setup questions step by step, which is usually faster than contacting support directly. Use the option above if your situation isn't addressed there."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -171,11 +216,26 @@
       "sourceUrl": "https://www.facebook.com/help/",
       "sourceLabel": "Meta Help Centre for Facebook",
       "commonIssues": [
-        "Account settings",
-        "Login and password recovery",
-        "Privacy and security",
-        "Marketplace",
-        "Groups and Pages"
+        {
+          "issue": "Account settings",
+          "solution": "Most account details can be updated directly in your account settings. Contact Facebook above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Login and password recovery",
+          "solution": "Try Facebook's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Privacy and security",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Marketplace",
+          "solution": "These are managed through their own dedicated settings inside the app rather than general account settings. Facebook's help center above covers the specific controls."
+        },
+        {
+          "issue": "Groups and Pages",
+          "solution": "These are managed through their own dedicated settings inside the app rather than general account settings. Facebook's help center above covers the specific controls."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -203,10 +263,26 @@
       "sourceUrl": "https://help.instagram.com/",
       "sourceLabel": "Instagram Help Center",
       "commonIssues": [
-        "Login, recovery, and security",
-        "Managing your account",
-        "Staying safe",
-        "Privacy and reporting"
+        {
+          "issue": "Login, recovery, and security",
+          "solution": "Try Instagram's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Managing your account",
+          "solution": "Most account details can be updated directly in your account settings. Contact Instagram above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Staying safe",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Instagram."
+        },
+        {
+          "issue": "Privacy and reporting",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Report a fake or impersonating account",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -235,10 +311,26 @@
       "sourceUrl": "https://help.x.com/en/forms",
       "sourceLabel": "X Help Center — Contact Us form",
       "commonIssues": [
-        "Locked or suspended account",
-        "Problems with account access",
-        "Compromised account help",
-        "Report impersonation or authenticity issues"
+        {
+          "issue": "Locked or suspended account",
+          "solution": "Check your email for a message from X (Twitter) explaining the suspension — it usually states the reason and next step. If you don't see one, use the option above to ask directly."
+        },
+        {
+          "issue": "Problems with account access",
+          "solution": "Try X (Twitter)'s own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Compromised account help",
+          "solution": "Change your password immediately from a device you trust, then report it using the contact option above. Don't trust any other phone number or link claiming to help “recover” your account."
+        },
+        {
+          "issue": "Report impersonation or authenticity issues",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Report abusive or harmful content",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -267,11 +359,26 @@
       "sourceUrl": "https://support.google.com/mail/",
       "sourceLabel": "Google Mail Help Center",
       "commonIssues": [
-        "Gmail messages are missing",
-        "Unwanted or suspicious emails",
-        "Account access issues",
-        "Sync and import problems",
-        "Rejected or bounced messages"
+        {
+          "issue": "Gmail messages are missing",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact Gmail above if the message still doesn't turn up."
+        },
+        {
+          "issue": "Unwanted or suspicious emails",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact Gmail above if the message still doesn't turn up."
+        },
+        {
+          "issue": "Account access issues",
+          "solution": "Try Gmail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Sync and import problems",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact Gmail above if the message still doesn't turn up."
+        },
+        {
+          "issue": "Rejected or bounced messages",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact Gmail above if the message still doesn't turn up."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -300,11 +407,26 @@
       "sourceUrl": "https://support.microsoft.com/contactus",
       "sourceLabel": "Microsoft Support — Contact Us",
       "commonIssues": [
-        "Get started / add an account",
-        "Email issues",
-        "Calendar and To Do",
-        "People and profiles",
-        "Share and delegate access"
+        {
+          "issue": "Get started / add an account",
+          "solution": "Outlook's own help center covers most setup questions step by step, which is usually faster than contacting support directly. Use the option above if your situation isn't addressed there."
+        },
+        {
+          "issue": "Email issues",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Outlook."
+        },
+        {
+          "issue": "Calendar and To Do",
+          "solution": "This is a feature-configuration question rather than an account problem — Outlook's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        },
+        {
+          "issue": "People and profiles",
+          "solution": "This is a feature-configuration question rather than an account problem — Outlook's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        },
+        {
+          "issue": "Share and delegate access",
+          "solution": "This is a feature-configuration question rather than an account problem — Outlook's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -332,11 +454,26 @@
       "sourceUrl": "https://help.yahoo.com/kb/SLN28796.html",
       "sourceLabel": "Yahoo — Get help from Yahoo customer support",
       "commonIssues": [
-        "Reset or change password",
-        "Fix sign-in problems",
-        "Recover lost or deleted emails",
-        "Expected emails not received",
-        "Recognize a hacked account"
+        {
+          "issue": "Reset or change password",
+          "solution": "Try Yahoo Mail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Fix sign-in problems",
+          "solution": "Try Yahoo Mail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Recover lost or deleted emails",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Yahoo Mail."
+        },
+        {
+          "issue": "Expected emails not received",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact Yahoo Mail above if the message still doesn't turn up."
+        },
+        {
+          "issue": "Recognize a hacked account",
+          "solution": "Change your password immediately from a device you trust, then report it using the contact option above. Don't trust any other phone number or link claiming to help “recover” your account."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -364,11 +501,26 @@
       "sourceUrl": "https://corporate.walmart.com/about/contact",
       "sourceLabel": "Walmart Corporate — Contact Us",
       "commonIssues": [
-        "Track your order",
-        "Edit or cancel an order",
-        "Returns and refunds",
-        "Account and payment issues",
-        "Pickup and delivery problems"
+        {
+          "issue": "Track your order",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Edit or cancel an order",
+          "solution": "Check your order history first — many orders can still be canceled there if it hasn't shipped yet. If that option is gone, contact Walmart above as soon as possible; the sooner you ask, the better the odds of stopping it."
+        },
+        {
+          "issue": "Returns and refunds",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Account and payment issues",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Walmart above with the exact date and amount."
+        },
+        {
+          "issue": "Pickup and delivery problems",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -396,11 +548,26 @@
       "sourceUrl": "https://www.ebay.com/help/home",
       "sourceLabel": "eBay Help Center",
       "commonIssues": [
-        "Buying and order issues",
-        "Selling questions",
-        "Account access",
-        "Returns and refunds",
-        "Shipping and tracking"
+        {
+          "issue": "Buying and order issues",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Selling questions",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with eBay."
+        },
+        {
+          "issue": "Account access",
+          "solution": "Try eBay's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Returns and refunds",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Shipping and tracking",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -428,11 +595,26 @@
       "sourceUrl": "https://corporate.target.com/about/contact-help",
       "sourceLabel": "Target Corporate — Contact & Help",
       "commonIssues": [
-        "Track or manage a Target.com order",
-        "Returns and cancellations",
-        "Target Circle and Target Circle Card",
-        "Target GiftCard",
-        "Report a security or fraud concern"
+        {
+          "issue": "Track or manage a Target.com order",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Returns and cancellations",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Target Circle and Target Circle Card",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Target."
+        },
+        {
+          "issue": "Target GiftCard",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Target above with the exact date and amount."
+        },
+        {
+          "issue": "Report a security or fraud concern",
+          "solution": "Contact Target above as soon as you notice it — the sooner a disputed charge or security concern is reported, the more options they have to fix it."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -460,11 +642,26 @@
       "sourceUrl": "https://www.bestbuy.com/contact-us",
       "sourceLabel": "Best Buy Contact Us",
       "commonIssues": [
-        "Orders and purchases",
-        "Returns and exchanges",
-        "Price Match Guarantee",
-        "Product repair and support",
-        "Shipping, delivery, and store pickup"
+        {
+          "issue": "Orders and purchases",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Returns and exchanges",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Price Match Guarantee",
+          "solution": "Have your receipt and a link or ad showing the lower price ready — most price-match requests need both. Contact Best Buy above to submit it."
+        },
+        {
+          "issue": "Product repair and support",
+          "solution": "Check whether your item is still under warranty first, since that changes what Best Buy can offer. Contact them above with your order or serial number."
+        },
+        {
+          "issue": "Shipping, delivery, and store pickup",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -495,11 +692,26 @@
       "sourceUrl": "https://us.shein.com/contact-us.html",
       "sourceLabel": "Shein Contact Us page",
       "commonIssues": [
-        "Tracking and delivery",
-        "Return and refund status",
-        "Order processing",
-        "Payment issues",
-        "Account issues"
+        {
+          "issue": "Tracking and delivery",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Return and refund status",
+          "solution": "Start a return from your order history if possible, and keep your receipt or order confirmation handy. If the order doesn't show a return option, use the contact channel above instead."
+        },
+        {
+          "issue": "Order processing",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        },
+        {
+          "issue": "Payment issues",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Shein above with the exact date and amount."
+        },
+        {
+          "issue": "Account issues",
+          "solution": "Most account details can be updated directly in your account settings. Contact Shein above for anything the settings page doesn't cover."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -527,10 +739,26 @@
       "sourceUrl": "https://support.tiktok.com/en",
       "sourceLabel": "TikTok Help Center",
       "commonIssues": [
-        "Account and privacy settings",
-        "Log in and troubleshooting",
-        "Safety and Community Guidelines",
-        "Account recovery"
+        {
+          "issue": "Account and privacy settings",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Log in and troubleshooting",
+          "solution": "Try TikTok's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Safety and Community Guidelines",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Account recovery",
+          "solution": "Try TikTok's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Report inappropriate content",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -558,11 +786,26 @@
       "sourceUrl": "https://www.linkedin.com/help/linkedin",
       "sourceLabel": "LinkedIn Help Center",
       "commonIssues": [
-        "Account basics",
-        "Data and privacy",
-        "Subscription billing",
-        "Your profile",
-        "Job search and applications"
+        {
+          "issue": "Account basics",
+          "solution": "Try LinkedIn's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Data and privacy",
+          "solution": "Most account details can be updated directly in your account settings. Contact LinkedIn above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Subscription billing",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact LinkedIn above with the exact date and amount."
+        },
+        {
+          "issue": "Your profile",
+          "solution": "Most account details can be updated directly in your account settings. Contact LinkedIn above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Job search and applications",
+          "solution": "This is a feature-configuration question rather than an account problem — LinkedIn's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -590,10 +833,26 @@
       "sourceUrl": "https://help.snapchat.com",
       "sourceLabel": "Snapchat Help Center",
       "commonIssues": [
-        "Compromised account recovery",
-        "Managing your account",
-        "Safety and security",
-        "Privacy"
+        {
+          "issue": "Compromised account recovery",
+          "solution": "Change your password immediately from a device you trust, then report it using the contact option above. Don't trust any other phone number or link claiming to help “recover” your account."
+        },
+        {
+          "issue": "Managing your account",
+          "solution": "Most account details can be updated directly in your account settings. Contact Snapchat above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Safety and security",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Privacy",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Deactivate or delete your account",
+          "solution": "This is usually handled directly in your account settings without needing to contact support. Use the contact option above only if the in-app option isn't working, or to recover a recently closed account."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -621,10 +880,26 @@
       "sourceUrl": "https://help.pinterest.com",
       "sourceLabel": "Pinterest Help Center",
       "commonIssues": [
-        "Account access and password reset",
-        "Reactivate or close an account",
-        "Profile and settings",
-        "Report a policy violation"
+        {
+          "issue": "Account access and password reset",
+          "solution": "Try Pinterest's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Reactivate or close an account",
+          "solution": "This is usually handled directly in your account settings without needing to contact support. Use the contact option above only if the in-app option isn't working, or to recover a recently closed account."
+        },
+        {
+          "issue": "Profile and settings",
+          "solution": "Most account details can be updated directly in your account settings. Contact Pinterest above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Report a policy violation",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Report inappropriate pins or content",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -652,11 +927,26 @@
       "sourceUrl": "https://support.reddithelp.com/hc/en-us/p/redditor_help_center",
       "sourceLabel": "Reddit Help Center",
       "commonIssues": [
-        "Account status",
-        "Getting started",
-        "Features and experiences",
-        "Rules and reporting",
-        "Privacy and security"
+        {
+          "issue": "Account status",
+          "solution": "Most account details can be updated directly in your account settings. Contact Reddit above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Getting started",
+          "solution": "Reddit's own help center covers most setup questions step by step, which is usually faster than contacting support directly. Use the option above if your situation isn't addressed there."
+        },
+        {
+          "issue": "Features and experiences",
+          "solution": "Most account details can be updated directly in your account settings. Contact Reddit above for anything the settings page doesn't cover."
+        },
+        {
+          "issue": "Rules and reporting",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        },
+        {
+          "issue": "Privacy and security",
+          "solution": "Use the in-app or on-page reporting tool first — it's usually faster than general support for this. Use the contact option above if there's no direct reporting flow for your situation."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -685,11 +975,26 @@
       "sourceUrl": "https://www.apple.com/contact/",
       "sourceLabel": "Apple — Contact Apple",
       "commonIssues": [
-        "Reset your Apple Account password",
-        "Manage iCloud+ storage",
-        "Back up or restore a device",
-        "iCloud Drive and Photos sync",
-        "iCloud Keychain"
+        {
+          "issue": "Reset your Apple Account password",
+          "solution": "Try iCloud Mail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Manage iCloud+ storage",
+          "solution": "Check your device's iCloud settings and available storage first, since that's the most common cause. Use the contact option above if the sync or backup issue continues."
+        },
+        {
+          "issue": "Back up or restore a device",
+          "solution": "Check your device's iCloud settings and available storage first, since that's the most common cause. Use the contact option above if the sync or backup issue continues."
+        },
+        {
+          "issue": "iCloud Drive and Photos sync",
+          "solution": "Check your device's iCloud settings and available storage first, since that's the most common cause. Use the contact option above if the sync or backup issue continues."
+        },
+        {
+          "issue": "iCloud Keychain",
+          "solution": "Check your device's iCloud settings and available storage first, since that's the most common cause. Use the contact option above if the sync or backup issue continues."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -717,11 +1022,26 @@
       "sourceUrl": "https://help.aol.com/",
       "sourceLabel": "AOL Help Center",
       "commonIssues": [
-        "Reset or change password",
-        "AOL Mail account setup",
-        "POP/IMAP sync issues",
-        "Sign-in troubleshooting",
-        "Spam and privacy management"
+        {
+          "issue": "Reset or change password",
+          "solution": "Try AOL Mail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "AOL Mail account setup",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with AOL Mail."
+        },
+        {
+          "issue": "POP/IMAP sync issues",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact AOL Mail above if the message still doesn't turn up."
+        },
+        {
+          "issue": "Sign-in troubleshooting",
+          "solution": "Try AOL Mail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Spam and privacy management",
+          "solution": "Check your spam or junk folder and any mail filters first, since misdirected or delayed mail is the most common cause. Contact AOL Mail above if the message still doesn't turn up."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -749,11 +1069,26 @@
       "sourceUrl": "https://proton.me/support/mail",
       "sourceLabel": "Proton Mail Support",
       "commonIssues": [
-        "Getting started",
-        "Using Proton Mail",
-        "Contacts",
-        "Custom email domain",
-        "Addresses and identities"
+        {
+          "issue": "Getting started",
+          "solution": "Proton Mail's own help center covers most setup questions step by step, which is usually faster than contacting support directly. Use the option above if your situation isn't addressed there."
+        },
+        {
+          "issue": "Using Proton Mail",
+          "solution": "This is a feature-configuration question rather than an account problem — Proton Mail's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        },
+        {
+          "issue": "Contacts",
+          "solution": "This is a feature-configuration question rather than an account problem — Proton Mail's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        },
+        {
+          "issue": "Custom email domain",
+          "solution": "This is a feature-configuration question rather than an account problem — Proton Mail's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        },
+        {
+          "issue": "Addresses and identities",
+          "solution": "This is a feature-configuration question rather than an account problem — Proton Mail's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -782,11 +1117,26 @@
       "sourceUrl": "https://help.netflix.com/en/contactus",
       "sourceLabel": "Netflix Help Center — Contact Us",
       "commonIssues": [
-        "Streaming and playback issues",
-        "Reset your password",
-        "Update email or account details",
-        "Update payment method",
-        "Netflix Games support"
+        {
+          "issue": "Streaming and playback issues",
+          "solution": "Restart the app and your device, and confirm your internet connection is stable — that fixes most playback issues. Contact Netflix above if it persists, with the device and error message you're seeing."
+        },
+        {
+          "issue": "Reset your password",
+          "solution": "Try Netflix's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "Update email or account details",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Netflix."
+        },
+        {
+          "issue": "Update payment method",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Netflix above with the exact date and amount."
+        },
+        {
+          "issue": "Netflix Games support",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Netflix."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -814,10 +1164,26 @@
       "sourceUrl": "https://support.spotify.com/us/",
       "sourceLabel": "Spotify Support",
       "commonIssues": [
-        "Payments and billing",
-        "Manage your account",
-        "Premium plans",
-        "Troubleshoot playback"
+        {
+          "issue": "Payments and billing",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Spotify above with the exact date and amount."
+        },
+        {
+          "issue": "Manage your account",
+          "solution": "Have your account details and a clear description of the issue ready, then use the contact option above — that's the fastest way to get this resolved directly with Spotify."
+        },
+        {
+          "issue": "Premium plans",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact Spotify above if the option isn't available or a charge doesn't match your plan."
+        },
+        {
+          "issue": "Troubleshoot playback",
+          "solution": "Restart the app and your device, and confirm your internet connection is stable — that fixes most playback issues. Contact Spotify above if it persists, with the device and error message you're seeing."
+        },
+        {
+          "issue": "Cancel or change your subscription",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact Spotify above if the option isn't available or a charge doesn't match your plan."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -844,11 +1210,26 @@
       "sourceUrl": "https://help.hulu.com/s/",
       "sourceLabel": "Hulu Help Center",
       "commonIssues": [
-        "Getting started",
-        "Account and billing",
-        "Plans and add-ons",
-        "Fix a playback problem",
-        "Using Hulu"
+        {
+          "issue": "Getting started",
+          "solution": "Hulu's own help center covers most setup questions step by step, which is usually faster than contacting support directly. Use the option above if your situation isn't addressed there."
+        },
+        {
+          "issue": "Account and billing",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Hulu above with the exact date and amount."
+        },
+        {
+          "issue": "Plans and add-ons",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact Hulu above if the option isn't available or a charge doesn't match your plan."
+        },
+        {
+          "issue": "Fix a playback problem",
+          "solution": "Restart the app and your device, and confirm your internet connection is stable — that fixes most playback issues. Contact Hulu above if it persists, with the device and error message you're seeing."
+        },
+        {
+          "issue": "Using Hulu",
+          "solution": "This is a feature-configuration question rather than an account problem — Hulu's help center above walks through the exact steps. Contact them directly if you get stuck partway through."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -876,11 +1257,26 @@
       "sourceUrl": "https://www.verizon.com/support/contact-us/",
       "sourceLabel": "Verizon Support — Contact Us",
       "commonIssues": [
-        "Connection or network issues",
-        "Billing questions",
-        "Device or SIM/eSIM issues",
-        "Plan changes",
-        "Account access"
+        {
+          "issue": "Connection or network issues",
+          "solution": "Check for a reported service outage in your area before assuming it's your device or account. If nothing's reported, contact Verizon above."
+        },
+        {
+          "issue": "Billing questions",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact Verizon above with the exact date and amount."
+        },
+        {
+          "issue": "Device or SIM/eSIM issues",
+          "solution": "Restart the device and reseat the SIM first, since that resolves a lot of these on its own. If it doesn't, contact Verizon above with your device model and account number ready."
+        },
+        {
+          "issue": "Plan changes",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact Verizon above if the option isn't available or a charge doesn't match your plan."
+        },
+        {
+          "issue": "Account access",
+          "solution": "Try Verizon's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -908,11 +1304,26 @@
       "sourceUrl": "https://www.att.com/support/contact-us/wireless",
       "sourceLabel": "AT&T Support — Contact Us (Wireless)",
       "commonIssues": [
-        "Connection issues",
-        "Voicemail",
-        "SIM or eSIM issues",
-        "Unlock a device",
-        "Orders and upgrades"
+        {
+          "issue": "Connection issues",
+          "solution": "Check for a reported service outage in your area before assuming it's your device or account. If nothing's reported, contact AT&T above."
+        },
+        {
+          "issue": "Voicemail",
+          "solution": "Check for a reported service outage in your area before assuming it's your device or account. If nothing's reported, contact AT&T above."
+        },
+        {
+          "issue": "SIM or eSIM issues",
+          "solution": "Restart the device and reseat the SIM first, since that resolves a lot of these on its own. If it doesn't, contact AT&T above with your device model and account number ready."
+        },
+        {
+          "issue": "Unlock a device",
+          "solution": "Restart the device and reseat the SIM first, since that resolves a lot of these on its own. If it doesn't, contact AT&T above with your device model and account number ready."
+        },
+        {
+          "issue": "Orders and upgrades",
+          "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
@@ -943,11 +1354,26 @@
       "sourceUrl": "https://www.t-mobile.com/contact-us",
       "sourceLabel": "T-Mobile Contact Us",
       "commonIssues": [
-        "Billing questions",
-        "Device and SIM/eSIM issues",
-        "Plan changes",
-        "Account access",
-        "International service"
+        {
+          "issue": "Billing questions",
+          "solution": "Double-check the card or payment method on file for a typo or expiration date first. If a charge still looks wrong, contact T-Mobile above with the exact date and amount."
+        },
+        {
+          "issue": "Device and SIM/eSIM issues",
+          "solution": "Restart the device and reseat the SIM first, since that resolves a lot of these on its own. If it doesn't, contact T-Mobile above with your device model and account number ready."
+        },
+        {
+          "issue": "Plan changes",
+          "solution": "Manage or cancel your plan directly in your account settings — changes usually apply immediately there. Contact T-Mobile above if the option isn't available or a charge doesn't match your plan."
+        },
+        {
+          "issue": "Account access",
+          "solution": "Try T-Mobile's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number on file, use the option above and be ready to prove account ownership another way."
+        },
+        {
+          "issue": "International service",
+          "solution": "Check the help center linked above for country-specific requirements before you travel or reach out — international terms often differ from domestic ones."
+        }
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",

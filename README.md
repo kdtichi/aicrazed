@@ -58,7 +58,9 @@ Everything lives in `data/brands.json`. Add an object to the `brands` array:
   "verifiedDate": "2026-09-12",
   "sourceUrl": "https://example.com/contact",
   "sourceLabel": "Example Contact Us page",
-  "commonIssues": ["Order not delivered", "Refund status", "Account access"],
+  "commonIssues": [
+    { "issue": "Order not delivered", "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above." }
+  ],
   "avgWaitTime": "",
   "bestTimeToCall": "",
   "scamWarningNote": ""
@@ -69,6 +71,7 @@ Everything lives in `data/brands.json`. Add an object to the `brands` array:
 
 - **Never invent a phone number, hours, or a fact you can't source.** If a company doesn't publish a phone number, set `"phone": null` and explain why in `phoneAltNote` — the page will render an honest "does not publish a number" notice instead. This site's entire value proposition is that every fact is checked against the company's own official page; a wrong number here is worse than no number.
 - **`sourceUrl` must be the company's own official domain**, never a forum, review site, or aggregator. `verifiedDate` is the date you actually checked it — don't bump it to "today" just to look fresh; that's what `sitemap.xml`'s `lastmod` and the on-page "Verified" stamp both key off of.
+- **`commonIssues` needs 5–7 entries**, each `{"issue": "...", "solution": "..."}`. The `issue` should be a real category pulled from that company's own help center navigation, not invented. The `solution` should be **generic, universally-true guidance** ("check X first, then contact them with Y ready") — never a specific policy, refund window, or procedure you haven't actually verified for that company. That distinction is deliberate: writing genuine per-company resolution steps for every issue on every brand would need real per-issue research we haven't done, and a plausible-sounding invented one is worse than a generic one. See `build/generate_issue_solutions.py` for the category/template set and the tone to match — it's a one-off migration script, not part of the main build, but the `categorize()`/`solution_for()` logic is worth reusing rather than writing new solution text ad hoc.
 - **`hours.mode`** is one of three shapes:
   - `{"mode": "247"}` — literally 24/7, no other fields needed.
   - `{"mode": "unspecified", "text": "..."}` — full sentence for when hours aren't published, or vary in a way the `detailed` mode can't represent (e.g. different weekday/weekend hours) — see AT&T or Coinbase-era entries for tone.
