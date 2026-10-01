@@ -9,7 +9,7 @@ Live at [aicrazed.com](https://aicrazed.com), hosted on Netlify, source on GitHu
 Static site, no framework, no build-time dependencies beyond the Python 3 standard library. `build/build.py` reads `data/brands.json` and renders every page as plain HTML into `dist/`. Netlify runs that same command on every push (see `netlify.toml`) and serves `dist/` directly — nothing server-side, no database.
 
 ```
-data/brands.json      Single source of truth: site copy, categories, and all 28 brands
+data/brands.json      Single source of truth: site copy, categories, and all 40 brands
 build/build.py         The generator — reads brands.json, writes dist/
 build/serve.py          Local static file server (works around a sandbox getcwd bug — see file header)
 public/                Static assets copied into dist/ as-is: CSS, JS, favicon, logo, OG images
@@ -54,6 +54,7 @@ Everything lives in `data/brands.json`. Add an object to the `brands` array:
   "phoneAltNote": "",
   "chatUrl": "https://example.com/help",
   "chatLabel": "Example Help Center",
+  "channel": "chat",
   "hours": { "mode": "247" },
   "verifiedDate": "2026-09-12",
   "sourceUrl": "https://example.com/contact",
@@ -61,8 +62,6 @@ Everything lives in `data/brands.json`. Add an object to the `brands` array:
   "commonIssues": [
     { "issue": "Order not delivered", "solution": "Have your order number and the email used at checkout ready before you reach out — most order-status questions are resolved fastest with those on hand, using the contact option above." }
   ],
-  "avgWaitTime": "",
-  "bestTimeToCall": "",
   "scamWarningNote": ""
 }
 ```
@@ -76,7 +75,13 @@ Everything lives in `data/brands.json`. Add an object to the `brands` array:
   - `{"mode": "247"}` — literally 24/7, no other fields needed.
   - `{"mode": "unspecified", "text": "..."}` — full sentence for when hours aren't published, or vary in a way the `detailed` mode can't represent (e.g. different weekday/weekend hours) — see AT&T or Coinbase-era entries for tone.
   - `{"mode": "detailed", "tz": "America/Los_Angeles", "start": "04:00", "end": "21:00", "days": "daily"}` — a single daily window in the company's own timezone. `public/js/hours.js` converts this to the visitor's local time client-side and shows an "Open now"/"Closed now" badge. Only use this when the company publishes one clean daily window — don't force weekday/weekend splits into it.
-- **`avgWaitTime` / `bestTimeToCall`** should almost always stay `""` (empty) so the page falls back to honest, non-brand-specific guidance ("Not officially published" / "Early or late in the day"). Only fill these in if you have an actual sourced figure — this was originally shipped with a fabricated-sounding number for Temu and had to be walked back; see git history around the first commit if you want the cautionary tale.
+- **`channel`** is what the company offers besides (or instead of) a phone line, and drives the panel label, titles, meta descriptions, scam-box copy and Quick answers. Set it only to what the official page confirms:
+  - `chat` — live chat on the official site or app.
+  - `signin` — a sign-in-first contact flow that routes you to phone, chat or email (Amazon, Netflix, Outlook).
+  - `form` — a contact or ticket form, no live channel.
+  - `helpcenter` — help articles only. With `"phone": null` this marks a self-service-only brand (Gmail, Facebook, Instagram, TikTok): the page says there is no live support, and issue `solution` text must point to the help center, never to a "contact option above" that doesn't exist.
+- **`metaDescription`** (optional) overrides the generated per-brand meta description.
+- There are no wait-time or best-time-to-call fields: they were removed because no listed company publishes that data. Don't add them back without a sourced figure.
 - **Categories** live in the same file's `categories` object, each with a `description` (short, used in meta/lede) and an `intro` (100–200 words of real, category-specific copy — not boilerplate, see the existing five for the pattern). Adding a category also needs an SVG icon added to `CATEGORY_ICONS` in `build.py`.
 - **`featuredBrands`** (under `site` in the JSON) controls the home page's curated grid of 12 — it's a subset, not the full list. Search (`public/js/search.js`) always covers every brand regardless of what's featured.
 

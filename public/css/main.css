@@ -133,7 +133,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-@media (max-width: 720px) {
+@media (max-width: 1040px) {
   .site-nav {
     display: none;
     position: absolute;
@@ -623,14 +623,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   gap: 32px;
   margin-top: 48px;
 }
-.info-grid--stats { grid-template-columns: repeat(2, 1fr); margin-top: 40px; }
 @media (max-width: 820px) { .info-grid { grid-template-columns: 1fr; gap: 28px; } }
 .info-col h4 { margin-bottom: 14px; }
-.stat-value {
-  font-family: var(--font-serif);
-  font-size: 2.2rem;
-  color: var(--ink);
-}
 .stat-sub { font-size: 0.9rem; color: var(--ink-faint); margin-top: 4px; }
 
 /* ---------- Category / listing pages ---------- */

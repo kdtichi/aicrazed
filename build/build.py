@@ -56,6 +56,36 @@ def official_root(url):
     return p.scheme + "://" + p.netloc + "/"
 
 
+def official_domain(url):
+    from urllib.parse import urlparse
+
+    host = urlparse(url).netloc
+    return host[4:] if host.startswith("www.") else host
+
+
+# What a brand offers besides (or instead of) a phone line. Set per brand as
+# `channel` in brands.json, and only to what the company's own page confirms:
+#   chat       - live chat (human or chat-first support) on the official site/app
+#   signin     - a sign-in-first contact flow that routes you to phone/chat/email
+#   form       - a contact or ticket form, no live channel
+#   helpcenter - self-service help articles only (no confirmed chat or form)
+CHANNELS = {
+    "chat": {"label": "Official live chat &amp; help center", "noun": "official live chat", "meta": "Phone + official live chat"},
+    "signin": {"label": "Official contact flow (sign-in required)", "noun": "official sign-in contact flow", "meta": "Phone + official contact flow"},
+    "form": {"label": "Official contact form", "noun": "official contact form", "meta": "Phone + official contact form"},
+    "helpcenter": {"label": "Official help center", "noun": "official help center", "meta": "Phone + official help center"},
+}
+
+
+def channel(b):
+    return CHANNELS[b["channel"]]
+
+
+def is_self_service_only(b):
+    """No phone, no chat, no form: help articles are the only official route."""
+    return not b.get("phone") and b["channel"] == "helpcenter"
+
+
 # ---------------------------------------------------------------------------
 # Layout
 # ---------------------------------------------------------------------------
@@ -341,9 +371,16 @@ def render_phone_field(b):
         alt = esc(b["phoneAltNote"]) if b.get("phoneAltNote") else ""
         return """<div class="contact-field">
   <label>Official phone number</label>
-  <p class="no-phone-verdict">{name} publishes no phone number &mdash; use the official chat below.</p>
+  <p class="no-phone-verdict">{verdict}</p>
   <p class="stat-sub">{alt} Any &ldquo;support number&rdquo; for {name} circulating elsewhere is not confirmed and may be a scam.</p>
-</div>""".format(name=esc(b["name"]), alt=alt)
+</div>""".format(name=esc(b["name"]), alt=alt, verdict=no_phone_verdict(b))
+
+
+def no_phone_verdict(b):
+    name = esc(b["name"])
+    if is_self_service_only(b):
+        return "{} publishes no phone number and offers no live support channel &mdash; the official help center below is the only route.".format(name)
+    return "{} publishes no phone number &mdash; use the {} below.".format(name, channel(b)["noun"])
 
 
 def render_hours_field(b):
@@ -406,32 +443,80 @@ def hours_static_text(b):
 
 
 def brand_faq_items(b):
+    """Quick answers: questions the contact panel above doesn't already answer
+    word for word. Also emitted as FAQPage schema."""
     name = b["name"]
+    domain = official_domain(b["sourceUrl"])
+    noun = html_lib.unescape(channel(b)["noun"])
     if b.get("phone"):
         note = " " + b["phoneNote"] if b.get("phoneNote") else ""
-        phone_a = "Yes &mdash; {name}&rsquo;s verified customer service number is {phone}.{note}".format(
-            name=name, phone=b["phone"], note=note
+        phone_a = "Yes. {name} lists {phone} on its own site ({domain}).{note} Check it against the source link on this page before you call.".format(
+            name=name, phone=b["phone"], domain=domain, note=note
+        )
+        other_a = "Only if {name} publishes the same number on its own site ({domain}). Numbers that appear only in ads, forums, or other directories are a common way scammers pose as support &mdash; if you can&rsquo;t find it on {domain}, don&rsquo;t call it.".format(
+            name=name, domain=domain
         )
     else:
-        alt = " " + b["phoneAltNote"] if b.get("phoneAltNote") else ""
-        phone_a = "No. {name} does not publish a public customer service phone number.{alt} Use the official chat link on this page instead.".format(
-            name=name, alt=alt
+        phone_a = "No. {name} does not publish a customer service phone number on {domain}. {route}".format(
+            name=name,
+            domain=domain,
+            route="Help articles are the only official route." if is_self_service_only(b) else "Use its {} instead.".format(noun),
+        )
+        other_a = "No. Because {name} doesn&rsquo;t publish a support number, any &ldquo;{name} customer service number&rdquo; you find in an ad, forum, or another directory is unverified &mdash; and posing as support for companies without a phone line is a common scam.".format(
+            name=name
         )
 
-    issue_names = [ci["issue"] for ci in b["commonIssues"]]
-    if len(issue_names) >= 3:
-        issues_text = "{}; {}; and {}".format(issue_names[0], issue_names[1], issue_names[2])
+    if is_self_service_only(b):
+        fastest_a = "{name} doesn&rsquo;t offer live phone or chat support, so there&rsquo;s nobody to contact directly. Search the official help center at {domain} for your issue, and use {name}&rsquo;s own in-product tools (password reset, account recovery, reporting) where they exist.".format(
+            name=name, domain=domain
+        )
+    elif b.get("phone"):
+        fastest_a = "Call {phone}, or use the {noun} on {domain}. Have your account or order details ready before you start.".format(
+            phone=b["phone"], noun=noun, domain=official_domain(b["chatUrl"])
+        )
     else:
-        issues_text = "; ".join(issue_names)
+        fastest_a = "Use the {noun} on {domain}. Have your account or order details ready before you start.".format(
+            noun=noun, domain=official_domain(b["chatUrl"])
+        )
 
     return [
         ("Does {} have a customer service phone number?".format(name), phone_a),
-        ("What are {}&rsquo;s support hours?".format(name), hours_static_text(b)),
+        ("Is the {} support number I found on another website real?".format(name), other_a),
+        ("What&rsquo;s the fastest way to reach {}?".format(name), fastest_a),
         (
-            "What can I contact {} about?".format(name),
-            "Common reasons people contact {name} include: {issues}.".format(name=name, issues=issues_text),
+            "Can aicrazed fix my {} account or order?".format(name),
+            "No. aicrazed is an independent directory and can&rsquo;t see or change anything in your {name} account. Only {name}, through its official channels, can.".format(name=name),
         ),
     ]
+
+
+def brand_title(b):
+    name = b["name"]
+    if not b.get("phone"):
+        return "{} Customer Service: No Phone Number &mdash; Official Contact Route".format(name)
+    if b["channel"] == "chat":
+        return "{} Customer Service: Phone &amp; Chat | aicrazed".format(name)
+    return "{} Customer Service Phone Number | aicrazed".format(name)
+
+
+def brand_description(b):
+    if b.get("metaDescription"):
+        return b["metaDescription"]
+    name = b["name"]
+    domain = official_domain(b["sourceUrl"])
+    date = b["verifiedDate"]
+    if b.get("phone"):
+        extra = " plus live chat" if b["channel"] == "chat" else ""
+        return "{name}'s official customer service number is {phone}{extra}, as listed on {domain}. Hours and common fixes, verified {date}.".format(
+            name=name, phone=b["phone"], extra=extra, domain=domain, date=date
+        )
+    if is_self_service_only(b):
+        return "{name} has no customer service phone number or live support. Here's the official self-help route on {domain}, verified {date}.".format(
+            name=name, domain=domain, date=date
+        )
+    return "{name} has no customer service phone number. The real route is its {noun} on {domain} — verified {date}.".format(
+        name=name, noun=html_lib.unescape(channel(b)["noun"]), domain=domain, date=date
+    )
 
 
 def render_brand(b):
@@ -442,14 +527,27 @@ def render_brand(b):
         )
         for ci in b["commonIssues"]
     )
-    avg_wait = b.get("avgWaitTime") or "Not officially published"
-    best_time = b.get("bestTimeToCall") or "Early or late in the day, local time"
-
-    scam_note = b.get("scamWarningNote") or (
-        "aicrazed will never ask you for a password, one-time passcode, gift card, or payment over the phone or in chat. "
-        "Neither will {name}&rsquo;s real support team. If someone claiming to represent {name} asks for these, hang up "
-        "&mdash; you&rsquo;ve reached a scammer, not support.".format(name=esc(b["name"]))
-    )
+    if b.get("scamWarningNote"):
+        scam_note = esc(b["scamWarningNote"])
+    elif b.get("phone"):
+        scam_note = (
+            "aicrazed will never ask you for a password, one-time passcode, gift card, or payment over the phone or in chat. "
+            "Neither will {name}&rsquo;s real support team. If someone claiming to represent {name} asks for these, hang up "
+            "&mdash; you&rsquo;ve reached a scammer, not support.".format(name=esc(b["name"]))
+        )
+    elif b["channel"] == "signin":
+        scam_note = (
+            "{name} doesn&rsquo;t publish a phone number &mdash; real support starts from your own signed-in account. "
+            "Treat anyone who calls, texts, or messages you out of the blue claiming to be {name} support as a scammer. Don&rsquo;t share a password, one-time passcode, gift card, or payment &mdash; {name}&rsquo;s real team "
+            "won&rsquo;t ask for them, and neither will aicrazed.".format(name=esc(b["name"]))
+        )
+    else:
+        scam_note = (
+            "{name} doesn&rsquo;t offer phone support, so anyone who calls, texts, or messages you claiming to be {name} support "
+            "isn&rsquo;t. Stop replying and don&rsquo;t share a password, one-time passcode, gift card, or payment &mdash; "
+            "{name}&rsquo;s real team won&rsquo;t ask for them, and neither will aicrazed.".format(name=esc(b["name"]))
+        )
+    scam_heading = "Before you call or chat" if b.get("phone") else "Before you reach out"
 
     json_ld_obj = {
         "@context": "https://schema.org",
@@ -534,7 +632,7 @@ def render_brand(b):
       <div class="contact-panel__main">
         {phone_field}
         <div class="contact-field">
-          <label>Official chat &amp; help center</label>
+          <label>{channel_label}</label>
           <a class="chat-link" href="{chat_url}" rel="nofollow noopener" target="_blank">{chat_label} &rarr;</a>
         </div>
         {hours_field}
@@ -555,12 +653,12 @@ def render_brand(b):
   <div class="scam-box">
     <span class="scam-box__icon" aria-hidden="true">!</span>
     <div>
-      <h2>Before you call or chat</h2>
+      <h2>{scam_heading}</h2>
       <p>{scam_note}</p>
       <ul>
         <li>We never ask for your password, one-time code, or payment details.</li>
         <li>The links above go to {name}&rsquo;s own official domain &mdash; check your browser&rsquo;s address bar.</li>
-        <li>If a search result or ad shows a different number for {name}, treat it as unverified until you confirm it on their official site.</li>
+        <li>{ad_bullet}</li>
       </ul>
     </div>
   </div>
@@ -569,19 +667,6 @@ def render_brand(b):
     <h2 class="label-heading">Common issues &amp; how to resolve them</h2>
     <p class="stat-sub" style="margin-bottom:16px;">General guidance based on what usually works for this kind of issue &mdash; not {name}&rsquo;s official policy.</p>
     <div class="faq-list">{issues}</div>
-  </div>
-
-  <div class="info-grid info-grid--stats">
-    <div class="info-col">
-      <h3 class="label-heading">Average wait time</h3>
-      <div class="stat-value" style="font-size:1.5rem;">{avg_wait}</div>
-      <p class="stat-sub">{name} doesn&rsquo;t publish wait-time data &mdash; this isn&rsquo;t a verified figure.</p>
-    </div>
-    <div class="info-col">
-      <h3 class="label-heading">Best time to contact</h3>
-      <div class="stat-value" style="font-size:1.4rem;">{best_time}</div>
-      <p class="stat-sub">General rule of thumb, not brand-specific data: contacting outside peak hours tends to mean a shorter wait.</p>
-    </div>
   </div>
 
   <div class="faq-list" style="margin-top:48px;border-top:1px solid var(--rule);">
@@ -605,18 +690,19 @@ def render_brand(b):
         related_html=related_html,
         scam_note=scam_note,
         issues=issues,
-        avg_wait=esc(avg_wait),
-        best_time=esc(best_time),
+        scam_heading=scam_heading,
+        ad_bullet=(
+            "If a search result or ad shows a different number for {}, treat it as unverified until you confirm it on their official site.".format(esc(b["name"]))
+            if b.get("phone")
+            else "If a search result or ad shows a phone number for {}, it isn&rsquo;t {}&rsquo;s &mdash; {} doesn&rsquo;t publish one.".format(esc(b["name"]), esc(b["name"]), esc(b["name"]))
+        ),
+        channel_label=channel(b)["label"],
         faq_html=faq_html,
     )
 
-    title = "{} Customer Service: Phone & Chat | aicrazed".format(b["name"])
-    description = "Official {} customer service: phone number (if published), live chat, support hours, and common issues — verified {}.".format(
-        b["name"], b["verifiedDate"]
-    )
     return layout(
-        title=title,
-        description=description,
+        title=html_lib.unescape(brand_title(b)),
+        description=brand_description(b),
         path="/brand/{}/".format(b["slug"]),
         body=body,
         json_ld=json_ld,
@@ -636,6 +722,10 @@ CATEGORY_ICONS = {
     "email": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="30" width="92" height="64" rx="4"/><path d="M18 34 L60 68 L102 34"/></svg>',
     "streaming": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="20" width="92" height="64" rx="6"/><path d="M52 36 L74 52 L52 68 Z" fill="currentColor" stroke="none"/><path d="M40 96 H80"/></svg>',
     "telecom": '<svg viewBox="0 0 120 120" {attrs}><path d="M40 36 Q60 20 80 36"/><path d="M30 46 Q60 16 90 46"/><path d="M60 20 V36"/><circle cx="60" cy="14" r="4" fill="currentColor" stroke="none"/><rect x="48" y="60" width="24" height="40" rx="3"/></svg>',
+    "shipping": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 14 L102 34 V84 L60 106 L18 84 V34 Z"/><path d="M18 34 L60 54 L102 34"/><path d="M60 54 V106"/><path d="M39 24 L81 44"/></svg>',
+    "airlines": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 12 Q66 12 66 24 V48 L104 70 V80 L66 68 V90 L78 100 V106 L60 100 L42 106 V100 L54 90 V68 L16 80 V70 L54 48 V24 Q54 12 60 12 Z"/></svg>',
+    "insurance": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 12 L98 26 V58 Q98 90 60 108 Q22 90 22 58 V26 Z"/><path d="M44 60 L56 72 L78 48"/></svg>',
+    "rides-delivery": '<svg viewBox="0 0 120 120" {attrs}><path d="M18 76 V60 L30 40 H78 L92 60 H102 V76"/><path d="M30 40 L24 60 H92"/><circle cx="36" cy="80" r="10"/><circle cx="86" cy="80" r="10"/><path d="M46 80 H76"/><path d="M18 76 H26"/><path d="M96 76 H102"/></svg>',
 }
 for _k in CATEGORY_ICONS:
     CATEGORY_ICONS[_k] = CATEGORY_ICONS[_k].format(attrs=_ICON_ATTRS)
@@ -662,7 +752,12 @@ def render_category(cat_slug):
     else:
         rows = ""
     for b in members:
-        meta = "Phone + official chat" if b.get("phone") else "Official chat &amp; help center (no public phone line)"
+        if b.get("phone"):
+            meta = channel(b)["meta"]
+        elif is_self_service_only(b):
+            meta = "No public phone line &middot; self-service help center only"
+        else:
+            meta = "No public phone line &middot; {}".format(channel(b)["noun"])
         rows += """<a class="cat-row" href="/brand/{slug}/">
   <span class="cat-row__left">
     <span class="cat-row__mark" aria-hidden="true">{mark}</span>
