@@ -537,9 +537,8 @@ def render_brand(b):
         )
     elif b["channel"] == "signin":
         scam_note = (
-            "{name} doesn&rsquo;t publish a phone number &mdash; if it phones you at all, it&rsquo;s because you asked for a call "
-            "through its sign-in contact flow. Anyone who calls, texts, or messages you out of the blue claiming to be {name} support "
-            "isn&rsquo;t. Don&rsquo;t share a password, one-time passcode, gift card, or payment &mdash; {name}&rsquo;s real team "
+            "{name} doesn&rsquo;t publish a phone number &mdash; real support starts from your own signed-in account. "
+            "Treat anyone who calls, texts, or messages you out of the blue claiming to be {name} support as a scammer. Don&rsquo;t share a password, one-time passcode, gift card, or payment &mdash; {name}&rsquo;s real team "
             "won&rsquo;t ask for them, and neither will aicrazed.".format(name=esc(b["name"]))
         )
     else:
@@ -723,6 +722,10 @@ CATEGORY_ICONS = {
     "email": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="30" width="92" height="64" rx="4"/><path d="M18 34 L60 68 L102 34"/></svg>',
     "streaming": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="20" width="92" height="64" rx="6"/><path d="M52 36 L74 52 L52 68 Z" fill="currentColor" stroke="none"/><path d="M40 96 H80"/></svg>',
     "telecom": '<svg viewBox="0 0 120 120" {attrs}><path d="M40 36 Q60 20 80 36"/><path d="M30 46 Q60 16 90 46"/><path d="M60 20 V36"/><circle cx="60" cy="14" r="4" fill="currentColor" stroke="none"/><rect x="48" y="60" width="24" height="40" rx="3"/></svg>',
+    "shipping": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 14 L102 34 V84 L60 106 L18 84 V34 Z"/><path d="M18 34 L60 54 L102 34"/><path d="M60 54 V106"/><path d="M39 24 L81 44"/></svg>',
+    "airlines": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 12 Q66 12 66 24 V48 L104 70 V80 L66 68 V90 L78 100 V106 L60 100 L42 106 V100 L54 90 V68 L16 80 V70 L54 48 V24 Q54 12 60 12 Z"/></svg>',
+    "insurance": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 12 L98 26 V58 Q98 90 60 108 Q22 90 22 58 V26 Z"/><path d="M44 60 L56 72 L78 48"/></svg>',
+    "rides-delivery": '<svg viewBox="0 0 120 120" {attrs}><path d="M18 76 V60 L30 40 H78 L92 60 H102 V76"/><path d="M30 40 L24 60 H92"/><circle cx="36" cy="80" r="10"/><circle cx="86" cy="80" r="10"/><path d="M46 80 H76"/><path d="M18 76 H26"/><path d="M96 76 H102"/></svg>',
 }
 for _k in CATEGORY_ICONS:
     CATEGORY_ICONS[_k] = CATEGORY_ICONS[_k].format(attrs=_ICON_ATTRS)

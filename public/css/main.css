@@ -133,7 +133,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 .nav-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-@media (max-width: 720px) {
+@media (max-width: 1040px) {
   .site-nav {
     display: none;
     position: absolute;

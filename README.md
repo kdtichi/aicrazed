@@ -9,7 +9,7 @@ Live at [aicrazed.com](https://aicrazed.com), hosted on Netlify, source on GitHu
 Static site, no framework, no build-time dependencies beyond the Python 3 standard library. `build/build.py` reads `data/brands.json` and renders every page as plain HTML into `dist/`. Netlify runs that same command on every push (see `netlify.toml`) and serves `dist/` directly — nothing server-side, no database.
 
 ```
-data/brands.json      Single source of truth: site copy, categories, and all 28 brands
+data/brands.json      Single source of truth: site copy, categories, and all 40 brands
 build/build.py         The generator — reads brands.json, writes dist/
 build/serve.py          Local static file server (works around a sandbox getcwd bug — see file header)
 public/                Static assets copied into dist/ as-is: CSS, JS, favicon, logo, OG images
