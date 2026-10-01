@@ -65,3 +65,13 @@ Higher risk, deliberately excluded from the first batch: Amazon, Facebook, Insta
 **Practical conclusion:** a narrow, careful Google Ads pilot on the lower-risk tier is plausible. Full account-wide advertising across all 28 brands is not recommended even where technically not prohibited — the risk/reward gets worse as you move into the higher-risk tier.
 
 **Recommended before spending any budget:** re-verify current Google Ads policy directly (policy pages change), and read the actual current text of the trademark and "unacceptable business practices" policies rather than relying on this summary.
+
+### Update 2026-10-01: tiering for the 13 brands added this session (shipping/airlines/rideshare/insurance)
+
+Applying the same two criteria (real published phone number; not an account-recovery/scam-pattern category or aggressive-trademark brand) to the new additions:
+
+**Lowest risk, recommended for the first campaign:** Insurance (GEICO, State Farm, Allstate) and Shipping (UPS, FedEx, USPS) — all six have real phone numbers, none are tech-support-adjacent, and none of these companies have the aggressive third-party-ad trademark-enforcement posture that Amazon/Meta/Netflix/Apple have. This is exactly why these verticals were chosen when expanding the site in the first place. Top pick for the actual first page to run: **GEICO or UPS.**
+
+**Second tier, still low risk:** Airlines (Delta, American, United, Southwest) — same profile, marginally more consumer-complaint volume around flight disruptions than insurance/shipping, worth a second wave rather than the pilot.
+
+**Exclude from paid ads regardless of category:** Uber and Lyft — neither publishes any phone number (confirmed via direct research against their own official sites), which undercuts the ad's core value proposition and will likely hurt Quality Score/approval odds independent of category risk. Fine for organic SEO, not recommended for paid.
