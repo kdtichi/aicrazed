@@ -328,6 +328,11 @@ def render_home():
 # Brand page
 # ---------------------------------------------------------------------------
 
+def channel_noun(b):
+    """What to honestly call the brand's non-phone contact channel."""
+    return {"chat": "official chat", "form": "official contact form", "none": "official help center"}[b.get("chatType", "form")]
+
+
 def render_phone_field(b):
     if b.get("phone"):
         tel_href = "tel:" + "".join(ch for ch in b["phone"] if ch.isdigit() or ch == "+")
@@ -341,9 +346,9 @@ def render_phone_field(b):
         alt = esc(b["phoneAltNote"]) if b.get("phoneAltNote") else ""
         return """<div class="contact-field">
   <label>Official phone number</label>
-  <p class="no-phone-verdict">{name} publishes no phone number &mdash; use the official chat below.</p>
+  <p class="no-phone-verdict">{name} publishes no phone number &mdash; use the {channel} below.</p>
   <p class="stat-sub">{alt} Any &ldquo;support number&rdquo; for {name} circulating elsewhere is not confirmed and may be a scam.</p>
-</div>""".format(name=esc(b["name"]), alt=alt)
+</div>""".format(name=esc(b["name"]), alt=alt, channel=channel_noun(b))
 
 
 def render_hours_field(b):
@@ -414,8 +419,8 @@ def brand_faq_items(b):
         )
     else:
         alt = " " + b["phoneAltNote"] if b.get("phoneAltNote") else ""
-        phone_a = "No. {name} does not publish a public customer service phone number.{alt} Use the official chat link on this page instead.".format(
-            name=name, alt=alt
+        phone_a = "No. {name} does not publish a public customer service phone number.{alt} Use the {channel} link on this page instead.".format(
+            name=name, alt=alt, channel=channel_noun(b)
         )
 
     issue_names = [ci["issue"] for ci in b["commonIssues"]]
@@ -445,10 +450,28 @@ def render_brand(b):
     avg_wait = b.get("avgWaitTime") or "Not officially published"
     best_time = b.get("bestTimeToCall") or "Early or late in the day, local time"
 
+    has_phone = bool(b.get("phone"))
+    has_chat = b.get("chatType") == "chat"
+    if has_phone:
+        end_contact_verb = "hang up"
+    elif has_chat:
+        end_contact_verb = "end the chat"
+    else:
+        end_contact_verb = "stop responding"
+
+    if has_phone and has_chat:
+        before_heading = "Before you call or chat"
+    elif has_phone:
+        before_heading = "Before you call"
+    elif has_chat:
+        before_heading = "Before you chat"
+    else:
+        before_heading = "Before you reach out"
+
     scam_note = b.get("scamWarningNote") or (
         "aicrazed will never ask you for a password, one-time passcode, gift card, or payment over the phone or in chat. "
-        "Neither will {name}&rsquo;s real support team. If someone claiming to represent {name} asks for these, hang up "
-        "&mdash; you&rsquo;ve reached a scammer, not support.".format(name=esc(b["name"]))
+        "Neither will {name}&rsquo;s real support team. If someone claiming to represent {name} asks for these, {verb} "
+        "&mdash; you&rsquo;ve reached a scammer, not support.".format(name=esc(b["name"]), verb=end_contact_verb)
     )
 
     json_ld_obj = {
@@ -534,7 +557,7 @@ def render_brand(b):
       <div class="contact-panel__main">
         {phone_field}
         <div class="contact-field">
-          <label>Official chat &amp; help center</label>
+          <label>{channel_field_label}</label>
           <a class="chat-link" href="{chat_url}" rel="nofollow noopener" target="_blank">{chat_label} &rarr;</a>
         </div>
         {hours_field}
@@ -555,7 +578,7 @@ def render_brand(b):
   <div class="scam-box">
     <span class="scam-box__icon" aria-hidden="true">!</span>
     <div>
-      <h2>Before you call or chat</h2>
+      <h2>{before_heading}</h2>
       <p>{scam_note}</p>
       <ul>
         <li>We never ask for your password, one-time code, or payment details.</li>
@@ -599,20 +622,34 @@ def render_brand(b):
         phone_field=render_phone_field(b),
         chat_url=esc(b["chatUrl"]),
         chat_label=esc(b["chatLabel"]),
+        channel_field_label={"chat": "Official chat &amp; help center", "form": "Official contact form", "none": "Official help center"}[b.get("chatType", "form")],
         hours_field=render_hours_field(b),
         verified_date=esc(b["verifiedDate"]),
         source_url=esc(b["sourceUrl"]),
         related_html=related_html,
         scam_note=scam_note,
+        before_heading=before_heading,
         issues=issues,
         avg_wait=esc(avg_wait),
         best_time=esc(best_time),
         faq_html=faq_html,
     )
 
-    title = "{} Customer Service: Phone & Chat | aicrazed".format(b["name"])
-    description = "Official {} customer service: phone number (if published), live chat, support hours, and common issues — verified {}.".format(
-        b["name"], b["verifiedDate"]
+    if has_phone and has_chat:
+        title_suffix = "Phone & Chat"
+        desc_channel = "phone number, live chat"
+    elif has_phone:
+        title_suffix = "Phone Number"
+        desc_channel = "phone number"
+    elif has_chat:
+        title_suffix = "No Phone, Live Chat"
+        desc_channel = "live chat (no public phone number)"
+    else:
+        title_suffix = "No Phone Number"
+        desc_channel = "official contact channel (no public phone number)"
+    title = "{} Customer Service: {} | aicrazed".format(b["name"], title_suffix)
+    description = "Official {} customer service: {}, support hours, and common issues — verified {}.".format(
+        b["name"], desc_channel, b["verifiedDate"]
     )
     return layout(
         title=title,
@@ -662,7 +699,8 @@ def render_category(cat_slug):
     else:
         rows = ""
     for b in members:
-        meta = "Phone + official chat" if b.get("phone") else "Official chat &amp; help center (no public phone line)"
+        channel = {"chat": "chat", "form": "contact form", "none": "help center"}[b.get("chatType", "form")]
+        meta = "Phone + {}".format(channel) if b.get("phone") else "No phone &mdash; {} only".format(channel)
         rows += """<a class="cat-row" href="/brand/{slug}/">
   <span class="cat-row__left">
     <span class="cat-row__mark" aria-hidden="true">{mark}</span>

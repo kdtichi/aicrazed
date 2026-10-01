@@ -106,7 +106,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "amazon",
@@ -152,7 +153,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "doordash",
@@ -198,7 +200,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "facebook",
@@ -245,7 +248,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "instagram",
@@ -292,7 +296,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "x",
@@ -340,7 +345,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "gmail",
@@ -388,7 +394,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "none"
     },
     {
       "slug": "outlook",
@@ -436,7 +443,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "yahoo-mail",
@@ -483,7 +491,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "walmart",
@@ -530,7 +539,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "ebay",
@@ -577,7 +587,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "target",
@@ -624,7 +635,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "best-buy",
@@ -671,7 +683,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "shein",
@@ -721,7 +734,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "tiktok",
@@ -768,7 +782,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "none"
     },
     {
       "slug": "linkedin",
@@ -815,7 +830,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "snapchat",
@@ -862,7 +878,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "pinterest",
@@ -909,7 +926,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "reddit",
@@ -956,7 +974,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "icloud-mail",
@@ -1004,7 +1023,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "aol-mail",
@@ -1051,7 +1071,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "proton-mail",
@@ -1098,7 +1119,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "none"
     },
     {
       "slug": "netflix",
@@ -1146,7 +1168,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "spotify",
@@ -1193,7 +1216,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "hulu",
@@ -1239,7 +1263,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     },
     {
       "slug": "verizon",
@@ -1286,7 +1311,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "att",
@@ -1333,7 +1359,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "form"
     },
     {
       "slug": "t-mobile",
@@ -1383,7 +1410,8 @@
       ],
       "avgWaitTime": "",
       "bestTimeToCall": "",
-      "scamWarningNote": ""
+      "scamWarningNote": "",
+      "chatType": "chat"
     }
   ]
 }
