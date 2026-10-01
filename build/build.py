@@ -938,7 +938,7 @@ def render_privacy():
     <p>You&rsquo;re never required to email us to use this site. Depending on where you live, you may have rights under applicable law (such as the California Consumer Privacy Act or the EU/UK GDPR) to request access to, correction of, or deletion of personal information we hold about you. To exercise any of these rights, contact <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>.</p>
 
     <h2>Who operates this site</h2>
-    <p>aicrazed is operated from N-33, Sailing Club Road, Batla House, New Delhi 110025, India. That&rsquo;s the address to use for any formal privacy request that needs one.</p>
+    <p>aicrazed is operated from {street}, {city} {postal}, India. That&rsquo;s the address to use for any formal privacy request that needs one.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we&rsquo;ll update this page and change the effective date above.</p>
@@ -947,7 +947,11 @@ def render_privacy():
     <p>Questions about this policy: <a href="mailto:help@aicrazed.com">help@aicrazed.com</a>.</p>
   </div>
 </section>
-"""
+""".format(
+        street=esc(SITE["address"]["streetAddress"]),
+        city=esc(SITE["address"]["addressLocality"]),
+        postal=esc(SITE["address"]["postalCode"]),
+    )
     return layout(
         title="Privacy Policy | aicrazed",
         description="How aicrazed collects, uses, and protects information — and what we don't collect.",
