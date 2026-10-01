@@ -673,6 +673,10 @@ CATEGORY_ICONS = {
     "email": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="30" width="92" height="64" rx="4"/><path d="M18 34 L60 68 L102 34"/></svg>',
     "streaming": '<svg viewBox="0 0 120 120" {attrs}><rect x="14" y="20" width="92" height="64" rx="6"/><path d="M52 36 L74 52 L52 68 Z" fill="currentColor" stroke="none"/><path d="M40 96 H80"/></svg>',
     "telecom": '<svg viewBox="0 0 120 120" {attrs}><path d="M40 36 Q60 20 80 36"/><path d="M30 46 Q60 16 90 46"/><path d="M60 20 V36"/><circle cx="60" cy="14" r="4" fill="currentColor" stroke="none"/><rect x="48" y="60" width="24" height="40" rx="3"/></svg>',
+    "shipping": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 16 L104 38 V82 L60 104 L16 82 V38 Z"/><path d="M16 38 L60 58 L104 38"/><path d="M60 58 V104"/></svg>',
+    "airlines": '<svg viewBox="0 0 120 120" {attrs}><path d="M10 92 L105 55 L10 18 V48 L75 55 L10 62 Z" fill="currentColor" stroke="none"/></svg>',
+    "rideshare": '<svg viewBox="0 0 120 120" {attrs}><path d="M22 68 L30 46 Q33 38 42 38 H78 Q87 38 90 46 L98 68" fill="none"/><rect x="14" y="68" width="92" height="22" rx="4"/><circle cx="34" cy="92" r="9" fill="currentColor" stroke="none"/><circle cx="86" cy="92" r="9" fill="currentColor" stroke="none"/></svg>',
+    "insurance": '<svg viewBox="0 0 120 120" {attrs}><path d="M60 14 L98 28 V56 Q98 88 60 106 Q22 88 22 56 V28 Z"/><path d="M42 58 L55 71 L80 44" fill="none"/></svg>',
 }
 for _k in CATEGORY_ICONS:
     CATEGORY_ICONS[_k] = CATEGORY_ICONS[_k].format(attrs=_ICON_ATTRS)

@@ -58,6 +58,32 @@
       "slug": "telecom",
       "description": "Phone and internet carriers — for billing, outages, device, and account issues.",
       "intro": "Telecom support covers more ground than most categories here — billing questions, outages, device and SIM issues, and account changes all route through the same customer service lines. Unlike social media or streaming, telecom carriers do publish real phone numbers, and we've verified each one directly against the carrier's own site, along with its stated hours. Carriers often run separate lines for different issues &mdash; new service versus an existing account versus technical support &mdash; so check the full listing below rather than just the headline number if your issue is more specific. As always, treat any number you find elsewhere, like a search ad or forum post, as unverified until you confirm it here or on the carrier's own site."
+    },
+    "shipping": {
+      "label": "Shipping Carriers",
+      "navLabel": "Shipping",
+      "slug": "shipping",
+      "description": "Package carriers — for tracking, delays, and claims on a shipment that's gone missing.",
+      "intro": "Shipping and carrier support almost always comes down to one question: where is my package, and why hasn't it moved. UPS, FedEx, and USPS each publish real phone numbers and automated tracking tools, verified directly against their own sites below. Before you contact any of them, have the tracking number ready &mdash; it's the fastest way to get a real answer, often faster than a phone call. If a package shows &ldquo;delivered&rdquo; but isn't there, most carriers ask you to wait a short window before filing a claim, since GPS-marked deliveries are occasionally logged a little early. For lost, damaged, or stolen packages, you'll typically need the tracking number and, for higher-value items, proof of contents or purchase. As with every category here, treat any &ldquo;carrier support&rdquo; number you find outside this page as unverified until you confirm it against the carrier's own site."
+    },
+    "airlines": {
+      "label": "Airlines",
+      "slug": "airlines",
+      "description": "Major US airlines — for booking changes, delays, cancellations, and baggage issues.",
+      "intro": "Airline customer service tends to split into two very different situations: a routine question (baggage, seat changes, mileage) and a disrupted trip (delay, cancellation, misconnection) where minutes matter. Delta, American, United, and Southwest all publish real phone numbers, and we've verified each one directly against the airline's own site, along with its stated hours. If your flight is disrupted, the airline's app or website often rebooks you faster than waiting on hold &mdash; check there first. For anything involving a refund or compensation claim, keep your confirmation number and boarding pass on hand; airlines ask for both before they can look up a reservation. As always, be wary of any &ldquo;airline support&rdquo; number you find in a search ad or forum post that isn't listed on the airline's own official site."
+    },
+    "rideshare": {
+      "label": "Ride-Hailing & Delivery",
+      "navLabel": "Rides",
+      "slug": "rideshare",
+      "description": "Ride-hailing and delivery apps — for trip issues, missing items, and safety concerns.",
+      "intro": "Uber, Lyft, and Instacart handle support almost entirely in-app rather than by phone &mdash; a fare dispute, a missing delivery item, or a driver issue is usually resolved fastest through the trip or order itself, not a general support line. We've verified each company's actual phone and chat situation directly against their own site below, including where a published number exists versus where support is app-only. Have your trip or order ID ready before reaching out; it's the first thing these companies ask for, since it ties the issue to a specific driver, shopper, or delivery. For anything involving a safety concern, use the in-app emergency or safety reporting tool first &mdash; it routes to a dedicated team faster than general support. Treat any &ldquo;Uber support number&rdquo; or similar found outside the app or the company's own site as unverified."
+    },
+    "insurance": {
+      "label": "Insurance",
+      "slug": "insurance",
+      "description": "Auto and home insurers — for policy questions, billing, and filing a claim.",
+      "intro": "Insurance support covers a wide range &mdash; a routine policy change, a billing question, and an active claim after an accident or loss are all handled differently, and timing matters most for the last one. GEICO, Progressive, State Farm, and Allstate each publish real phone numbers, verified directly against their own sites below, often with a separate line specifically for filing or checking a claim versus general policy service. Have your policy number ready before calling; most insurers ask for it immediately to pull up your account. If you're filing a claim after an accident, photos, a police report (if one was filed), and the other party's information will speed things up considerably. This is a category scammers specifically target after accidents and natural disasters &mdash; treat any &ldquo;claims number&rdquo; you find outside the insurer's own official site as unverified until you confirm it here or directly with them."
     }
   },
   "brands": [
@@ -1412,6 +1438,683 @@
       "bestTimeToCall": "",
       "scamWarningNote": "",
       "chatType": "chat"
+    },
+    {
+      "slug": "ups",
+      "name": "UPS",
+      "category": "shipping",
+      "aliases": [
+        "ups customer service",
+        "ups support number",
+        "ups phone number",
+        "ups tracking help"
+      ],
+      "phone": "1-800-742-5877",
+      "phoneNote": "Monday–Friday 7am–11pm, Saturday 8am–8pm, Eastern time. Technical support (website/account issues): 1-877-289-6418.",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://www.ups.com/us/en/support.page",
+      "chatLabel": "UPS Support — Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Customer service: Monday–Friday 7am–11pm, Saturday 8am–8pm, Eastern time. Other department lines have their own hours — see the source page."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.ups.com/us/en/support.page",
+      "sourceLabel": "UPS Support page",
+      "commonIssues": [
+        {
+          "issue": "Tracking a package",
+          "solution": "UPS's tracking page needs your 1Z tracking number from the shipment confirmation. If a package shows no movement for several days, use the contact option above instead of waiting it out."
+        },
+        {
+          "issue": "Missing or delayed delivery",
+          "solution": "Check the delivery status and any driver release notes on the tracking page first — UPS often leaves a photo or location note for \"delivered\" packages that aren't visibly there. If that doesn't explain it, contact UPS above."
+        },
+        {
+          "issue": "Filing a claim",
+          "solution": "Start a claim through UPS's online claims tool with your tracking number and proof of value ready. Claims for damage are usually faster to resolve than claims for loss, so have photos on hand if the package arrived damaged."
+        },
+        {
+          "issue": "Shipping and label creation",
+          "solution": "Most label and rate questions can be solved directly through UPS's shipping tools without a call. Contact UPS above if a label won't generate or a shipment is stuck in \"label created\" status."
+        },
+        {
+          "issue": "Billing and invoices",
+          "solution": "Review your invoice online first to check which charges are disputed — UPS billing often itemizes surcharges separately from base shipping. Contact billing support above for anything that still looks wrong."
+        },
+        {
+          "issue": "International shipping support",
+          "solution": "Customs forms and duties estimates are available through UPS's international shipping tools before you ship. Contact UPS above if a shipment is held at customs or duties seem incorrect."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "fedex",
+      "name": "FedEx",
+      "category": "shipping",
+      "aliases": [
+        "fedex customer service",
+        "fedex support number",
+        "fedex phone number",
+        "fedex tracking help"
+      ],
+      "phone": "1-800-463-3339",
+      "phoneNote": "Described as available anytime on FedEx's official page, though no explicit hours are stated. Billing inquiries: 1-800-622-1147.",
+      "phoneAltNote": "",
+      "chatType": "form",
+      "chatUrl": "https://www.fedex.com/en-us/customer-support.html",
+      "chatLabel": "FedEx Customer Support",
+      "hours": {
+        "mode": "unspecified",
+        "text": "FedEx's official page describes the main line as available anytime, but does not state explicit hours. Department lines (billing, freight) have their own numbers — see the source page."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.fedex.com/en-us/customer-support/call-us.html",
+      "sourceLabel": "FedEx Call Us page",
+      "commonIssues": [
+        {
+          "issue": "Tracking and delivery status",
+          "solution": "FedEx's tracking page updates from the door tag or driver scan — check for a delivery photo or signature note before assuming a package is lost. Contact FedEx above if tracking hasn't updated in a few days."
+        },
+        {
+          "issue": "Shipping and label creation",
+          "solution": "Rates, labels, and pickup scheduling are all available through FedEx's online shipping tools. Contact FedEx above if a label fails to generate or a shipment doesn't get picked up as scheduled."
+        },
+        {
+          "issue": "Scheduling a pickup",
+          "solution": "Same-day and recurring pickups can usually be scheduled directly online or through the FedEx mobile app. Contact FedEx above if a scheduled pickup is missed."
+        },
+        {
+          "issue": "Returns management",
+          "solution": "Many FedEx return labels are generated directly by the retailer, so check your return confirmation email first. Contact FedEx above if you have a FedEx-issued return label that isn't scanning."
+        },
+        {
+          "issue": "Billing and invoice questions",
+          "solution": "FedEx's online billing portal breaks down surcharges and fuel costs separately from base shipping charges. Contact the billing line above for anything that still looks wrong after reviewing it."
+        },
+        {
+          "issue": "Claims for damage or loss",
+          "solution": "File a claim online with your tracking number, photos of any damage, and proof of value ready — FedEx generally asks for this documentation up front rather than after the claim is opened."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "usps",
+      "name": "USPS",
+      "category": "shipping",
+      "aliases": [
+        "usps customer service",
+        "usps support number",
+        "usps phone number",
+        "usps tracking help"
+      ],
+      "phone": "1-800-275-8777",
+      "phoneNote": "Monday–Friday 8am–8:30pm, Saturday 8am–6pm, Eastern time. Tracking-specific line: 1-800-222-1811 (same hours).",
+      "phoneAltNote": "",
+      "chatType": "form",
+      "chatUrl": "https://www.usps.com/help/contact-us.htm",
+      "chatLabel": "USPS Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Monday–Friday 8am–8:30pm, Saturday 8am–6pm, Eastern time. Closed Sundays and postal holidays."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.usps.com/help/contact-us.htm",
+      "sourceLabel": "USPS Contact Us page",
+      "commonIssues": [
+        {
+          "issue": "Missing, late, or damaged mail",
+          "solution": "Use USPS's \"Where Is My Package\" tool first with your tracking number — it often surfaces more detail than the basic tracking status. Contact USPS above if a package shows no movement for several days."
+        },
+        {
+          "issue": "Filing a claim",
+          "solution": "Domestic claims for insured mail can be filed online through USPS's claims system with proof of value and, for damage, photos. Keep your original mailing receipt — USPS typically asks for it."
+        },
+        {
+          "issue": "Change of address and mail forwarding",
+          "solution": "Submit a change of address directly through USPS's official online form rather than a third-party site, since those sometimes charge an unnecessary fee. Contact USPS above if forwarding doesn't start as expected."
+        },
+        {
+          "issue": "Package tracking",
+          "solution": "Tracking numbers can be entered directly on USPS.com for the most current scan history. Contact USPS above if a package is marked delivered but hasn't arrived."
+        },
+        {
+          "issue": "PO Box services",
+          "solution": "PO Box rental, renewal, and payment can usually be managed online or at your local post office. Contact USPS above for availability or access issues at a specific location."
+        },
+        {
+          "issue": "Click-N-Ship account issues",
+          "solution": "Password resets and label history are available directly in your Click-N-Ship account settings. Contact USPS above if a label was purchased but isn't showing in your account."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "delta",
+      "name": "Delta Air Lines",
+      "category": "airlines",
+      "aliases": [
+        "delta customer service",
+        "delta airlines support number",
+        "delta phone number"
+      ],
+      "phone": "800-221-1212",
+      "phoneNote": "Available 24/7. SkyMiles members: 800-323-2323. Baggage: 800-325-8224 (6am–midnight ET, daily). Refund status (weekdays only): 800-847-0578.",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://www.delta.com/us/en/need-help/overview",
+      "chatLabel": "Delta Need Help — Message Us",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.delta.com/us/en/need-help/overview",
+      "sourceLabel": "Delta Need Help page",
+      "commonIssues": [
+        {
+          "issue": "Flight changes or cancellations",
+          "solution": "Most changes can be made directly in \"My Trips\" on delta.com or the Fly Delta app, including same-day confirmed changes where eligible. Contact Delta above for changes the app can't complete, like irregular operations rebooking."
+        },
+        {
+          "issue": "Seats and upgrades",
+          "solution": "Seat selection, Comfort+ upgrades, and SkyMiles upgrade requests can all be managed in \"My Trips.\" Contact Delta above if a seat assignment doesn't match what you selected."
+        },
+        {
+          "issue": "Baggage issues",
+          "solution": "Report a delayed or damaged bag directly through Delta's baggage claim tool with your bag tag number — this starts tracking immediately. Contact Delta above if a bag hasn't been located within the window shown in the tool."
+        },
+        {
+          "issue": "Refund requests and status",
+          "solution": "Check refund eligibility and status directly in \"My Trips\" first, since refundable vs. non-refundable fares are handled differently. Contact Delta above if a refund hasn't posted within the timeframe shown there."
+        },
+        {
+          "issue": "SkyMiles program questions",
+          "solution": "Mileage balances, missing miles, and award bookings are managed directly in your SkyMiles account. Contact Delta above for a flight that didn't credit after the posting window has passed."
+        },
+        {
+          "issue": "Accessible travel services",
+          "solution": "Request wheelchair assistance, medical equipment accommodations, or other accessibility services in advance through Delta's accessible travel tools. Contact Delta above to confirm arrangements close to your travel date."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "american-airlines",
+      "name": "American Airlines",
+      "category": "airlines",
+      "aliases": [
+        "american airlines customer service",
+        "american airlines support number",
+        "aa phone number"
+      ],
+      "phone": "800-433-7300",
+      "phoneNote": "Available 24 hours. Spanish-language line: 800-633-3711 (also 24 hours).",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://www.aa.com/web/i18n/customer-service/contact-american/american-customer-service.html",
+      "chatLabel": "American Airlines Customer Service",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.aa.com/web/i18n/customer-service/contact-american/american-customer-service.html",
+      "sourceLabel": "American Airlines Customer Service page",
+      "commonIssues": [
+        {
+          "issue": "Reservations and ticket changes",
+          "solution": "Most changes can be made directly in \"My Trips\" on aa.com or the mobile app. Contact American above for changes involving irregular operations or multi-city itineraries the app can't rebook."
+        },
+        {
+          "issue": "AAdvantage account services",
+          "solution": "Mileage balances, missing miles, and award travel are managed directly in your AAdvantage account. Contact American above for a flight that didn't credit after the posting window has passed."
+        },
+        {
+          "issue": "Baggage issues",
+          "solution": "Report a delayed or damaged bag through American's baggage tracking tool using your bag tag number as soon as you notice it. Contact American above if a bag isn't located within the window the tool shows."
+        },
+        {
+          "issue": "Disability assistance",
+          "solution": "Request wheelchair service or other accessibility accommodations in advance through American's special assistance tools when booking or in \"My Trips.\" Contact American above to confirm arrangements close to travel."
+        },
+        {
+          "issue": "Group and meeting travel",
+          "solution": "Group bookings of 10 or more passengers are typically handled through American's dedicated group travel request form rather than the standard booking flow."
+        },
+        {
+          "issue": "Onboard incident reports",
+          "solution": "Report an incident involving a flight attendant, another passenger, or an onboard issue through American's customer relations channel as soon as possible after the flight."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "united-airlines",
+      "name": "United Airlines",
+      "category": "airlines",
+      "aliases": [
+        "united airlines customer service",
+        "united airlines support number",
+        "united phone number"
+      ],
+      "phone": "1-800-864-8331",
+      "phoneNote": "Specific hours are not published for this line on United's official site. Flight status: 1-877-624-3653. Baggage: 1-800-335-2247.",
+      "phoneAltNote": "",
+      "chatType": "form",
+      "chatUrl": "https://www.united.com/en/us/fly/contact.html",
+      "chatLabel": "United Airlines Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Specific support hours are not published on United's official contact page for the main reservations line."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.united.com/en/us/fly/contact.html",
+      "sourceLabel": "United Airlines Contact Us page",
+      "commonIssues": [
+        {
+          "issue": "Travel reservation help",
+          "solution": "Most booking and date changes can be handled directly in \"My Trips\" on united.com or the United app. Contact United above for changes the app can't complete, like irregular operations rebooking."
+        },
+        {
+          "issue": "Baggage policies and issues",
+          "solution": "Report a delayed or damaged bag through United's baggage tool with your bag tag number right away. Contact United above if a bag isn't located within the window the tool shows."
+        },
+        {
+          "issue": "Schedule changes",
+          "solution": "Check \"My Trips\" first for rebooking options when United changes a flight's schedule — self-service rebooking is often available there before you need to call."
+        },
+        {
+          "issue": "MileagePlus program",
+          "solution": "Mileage balances, missing miles, and award bookings are managed directly in your MileagePlus account. Contact United above for a flight that didn't credit after the posting window has passed."
+        },
+        {
+          "issue": "Unaccompanied minor travel",
+          "solution": "Unaccompanied minor service must be arranged in advance through United's reservations process rather than at the airport on travel day."
+        },
+        {
+          "issue": "Website technical help",
+          "solution": "Clear your browser cache or try the United app if united.com won't process a booking or payment. Contact United above if the issue continues."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "southwest",
+      "name": "Southwest Airlines",
+      "category": "airlines",
+      "aliases": [
+        "southwest airlines customer service",
+        "southwest support number",
+        "southwest phone number"
+      ],
+      "phone": "1-800-435-9792",
+      "phoneNote": "Specific hours are not published on Southwest's official site for this line. Rapid Rewards program: 1-800-445-5764.",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://support.southwest.com/helpcenter/s/",
+      "chatLabel": "Southwest Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Specific support hours are not published on Southwest's official help center for this line."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://support.southwest.com/helpcenter/contact-us",
+      "sourceLabel": "Southwest Help Center — Contact Us",
+      "commonIssues": [
+        {
+          "issue": "Booking and planning a trip",
+          "solution": "Most bookings and date changes can be handled directly through Southwest.com or the mobile app, including fare difference calculations. Contact Southwest above for anything the app can't complete."
+        },
+        {
+          "issue": "Check-in and flight changes",
+          "solution": "Southwest's 24-hour online check-in opens automatically — set a reminder, since boarding position depends on check-in time. Contact Southwest above if check-in won't open for your flight."
+        },
+        {
+          "issue": "Delays and cancellations",
+          "solution": "Check the Southwest app first for rebooking options during widespread delays or cancellations — self-service rebooking is often faster than waiting on hold during major disruptions."
+        },
+        {
+          "issue": "Baggage issues",
+          "solution": "Report a delayed or damaged bag through Southwest's baggage service office at the airport or the online baggage tool as soon as you notice it."
+        },
+        {
+          "issue": "Travel funds and refunds",
+          "solution": "Check your travel funds balance and expiration directly in your Southwest account — funds are tied to the original passenger by default. Contact Southwest above for a refund that hasn't posted."
+        },
+        {
+          "issue": "Rapid Rewards account",
+          "solution": "Points balances and missing credit requests are managed directly in your Rapid Rewards account. Contact Southwest above for a flight that didn't credit after the posting window has passed."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "uber",
+      "name": "Uber",
+      "category": "rideshare",
+      "aliases": [
+        "uber customer service",
+        "uber support number",
+        "uber phone number"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Uber's own help center states it directly: “While we don’t offer a customer service number for Uber riders, you can log in to your account to get personalized support.”",
+      "chatType": "form",
+      "chatUrl": "https://help.uber.com/riders",
+      "chatLabel": "Uber Help — Riders",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No public phone or chat hours are published — support is account-login-gated and personalized once you sign in."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://help.uber.com/riders",
+      "sourceLabel": "Uber Help Center — Riders",
+      "commonIssues": [
+        {
+          "issue": "Trip issues",
+          "solution": "Open \"Your Trips\" in the Uber app and select the specific ride to report an issue — this routes it to the right review team faster than a general message."
+        },
+        {
+          "issue": "Lost item during a trip",
+          "solution": "Use the \"I lost an item\" flow under your trip history to contact your driver directly first, since drivers often still have the item. Uber's lost-item line is reached only through this in-app flow."
+        },
+        {
+          "issue": "Payment issue or fare review",
+          "solution": "Review the fare breakdown on the specific trip receipt in your ride history before disputing a charge — tolls, surge pricing, and wait time are itemized there."
+        },
+        {
+          "issue": "Cash payment issues",
+          "solution": "Cash payment availability and any related issues are handled through the trip-specific help flow in the app rather than a general account issue."
+        },
+        {
+          "issue": "Reporting an issue with the app",
+          "solution": "Use the in-app \"Help\" section for technical issues, which routes to Uber's support team with your account and device details attached automatically."
+        },
+        {
+          "issue": "Disputing an unpaid prior trip",
+          "solution": "Review the trip in your ride history and use the trip-specific help flow to dispute it — Uber ties these disputes to the individual trip record, not a general account message."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": "Uber does not publish a general customer service phone number for riders. A “Critical Safety Response Line” number circulates on third-party sites but could not be confirmed on an Uber-owned page — treat it as unverified."
+    },
+    {
+      "slug": "lyft",
+      "name": "Lyft",
+      "category": "rideshare",
+      "aliases": [
+        "lyft customer service",
+        "lyft support number",
+        "lyft phone number"
+      ],
+      "phone": null,
+      "phoneNote": "",
+      "phoneAltNote": "Lyft's safety page states its safety team is available by phone or chat 24/7, but that number is surfaced only inside the app during an active trip — it is not published as a general public support line.",
+      "chatType": "form",
+      "chatUrl": "https://help.lyft.com/hc/en-us",
+      "chatLabel": "Lyft Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "No general public phone or chat hours are published. In-app safety support is available 24/7 during an active trip."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://help.lyft.com/hc/en-us",
+      "sourceLabel": "Lyft Help Center",
+      "commonIssues": [
+        {
+          "issue": "Profile and account issues",
+          "solution": "Most profile updates — phone number, payment method, email — can be changed directly in the Lyft app's account settings."
+        },
+        {
+          "issue": "Using the app",
+          "solution": "Lyft's Help Center covers most app functionality questions with step-by-step guidance for booking, scheduling, and ride types."
+        },
+        {
+          "issue": "Trip and fare questions",
+          "solution": "Review the fare breakdown on the specific ride in your ride history before disputing a charge — tolls and surge pricing are itemized there."
+        },
+        {
+          "issue": "Safety concerns",
+          "solution": "Use the in-app emergency button during an active ride for anything urgent — it connects to safety support and can loop in 911 with your location."
+        },
+        {
+          "issue": "Accessibility",
+          "solution": "Request accessible vehicle options directly in the app's ride type selection where available in your area."
+        },
+        {
+          "issue": "Lost item during a ride",
+          "solution": "Call your driver directly through the app's post-ride \"lost item\" flow first — this is usually the fastest way to recover something left in the car."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "instacart",
+      "name": "Instacart",
+      "category": "rideshare",
+      "aliases": [
+        "instacart customer service",
+        "instacart support number",
+        "instacart phone number"
+      ],
+      "phone": "1-888-246-7822",
+      "phoneNote": "General line hours are not published. Senior and specialized support (age 60+): 1-844-981-3433, daily 8am–11pm Eastern time.",
+      "phoneAltNote": "",
+      "chatType": "form",
+      "chatUrl": "https://www.instacart.com/help",
+      "chatLabel": "Instacart Help Center",
+      "hours": {
+        "mode": "unspecified",
+        "text": "General support hours are not published. The senior/specialized support line is staffed daily, 8am–11pm Eastern time."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.instacart.com/help/section/809794019/1992925010",
+      "sourceLabel": "Instacart Help Center — Get Help",
+      "commonIssues": [
+        {
+          "issue": "Order tracking and shopper communication",
+          "solution": "Message your shopper directly through the live order tracking screen for the fastest response during an active order."
+        },
+        {
+          "issue": "Delivery issue reporting",
+          "solution": "Report a missing, wrong, or damaged item directly on the order's receipt screen within the app — Instacart's refund and credit tools are tied to that specific order."
+        },
+        {
+          "issue": "Payments, charges, and promos",
+          "solution": "Check the order receipt for a breakdown of service fees, tips, and any promo applied before disputing a charge — final totals can differ slightly from the estimate shown at checkout."
+        },
+        {
+          "issue": "Instacart+ membership management",
+          "solution": "Manage or cancel Instacart+ membership directly in account settings under \"Your Membership.\""
+        },
+        {
+          "issue": "Account settings and login",
+          "solution": "Password resets and login issues can usually be resolved through the app's \"Forgot password\" flow. Contact Instacart above if you're locked out entirely."
+        },
+        {
+          "issue": "Pricing and fees",
+          "solution": "Instacart's pricing on some items can differ from in-store pricing, and this is disclosed at checkout — review the itemized receipt before contacting support about a pricing discrepancy."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "geico",
+      "name": "GEICO",
+      "category": "insurance",
+      "aliases": [
+        "geico customer service",
+        "geico support number",
+        "geico phone number",
+        "geico claims number"
+      ],
+      "phone": "(800) 207-7847",
+      "phoneNote": "For filing or checking a claim specifically, GEICO lists a dedicated 24/7 claims line: (800) 841-3000.",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://www.geico.com/contact-us/",
+      "chatLabel": "GEICO Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Specific hours are not published for the general Sales & Service line. The claims line, (800) 841-3000, is explicitly stated as available 24/7."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.geico.com/contact-us/phone/",
+      "sourceLabel": "GEICO Contact Us — Phone",
+      "commonIssues": [
+        {
+          "issue": "Filing or checking a claim",
+          "solution": "File a new claim or check an existing one directly through the GEICO mobile app or your online account — this is usually faster than the phone for straightforward claims."
+        },
+        {
+          "issue": "Getting a quote",
+          "solution": "GEICO's online quote tool covers most standard policies; contact GEICO above for bundled or specialty coverage a self-service quote can't price."
+        },
+        {
+          "issue": "Policy management",
+          "solution": "Add a vehicle, update coverage, or review your policy documents directly in your GEICO online account."
+        },
+        {
+          "issue": "Payment assistance",
+          "solution": "Set up autopay or review payment due dates directly in your account — GEICO's billing section shows your current balance and next due date."
+        },
+        {
+          "issue": "ID card retrieval",
+          "solution": "Digital ID cards are available instantly in the GEICO mobile app and online account, without needing to call."
+        },
+        {
+          "issue": "Emergency roadside service",
+          "solution": "Request roadside assistance directly through the GEICO mobile app if you have the coverage — this is typically faster than calling during an active breakdown."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "state-farm",
+      "name": "State Farm",
+      "category": "insurance",
+      "aliases": [
+        "state farm customer service",
+        "state farm support number",
+        "state farm claims number"
+      ],
+      "phone": "800-782-8332",
+      "phoneNote": "For filing a claim specifically, State Farm lists a dedicated line: 800-732-5246 (800-SF-CLAIM). 24/7 payment line: 800-440-0998.",
+      "phoneAltNote": "",
+      "chatType": "form",
+      "chatUrl": "https://www.statefarm.com/contact-us",
+      "chatLabel": "State Farm Contact Us",
+      "hours": {
+        "mode": "unspecified",
+        "text": "Specific hours are not published for the general comments/claims lines. The payment line and emergency road service are both explicitly stated as available 24/7."
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.statefarm.com/contact-us",
+      "sourceLabel": "State Farm Contact Us page",
+      "commonIssues": [
+        {
+          "issue": "Filing or checking a claim",
+          "solution": "File a new claim or check an existing one directly through the State Farm mobile app or your online account, which is generally faster than the phone line for routine claims."
+        },
+        {
+          "issue": "Billing and payments",
+          "solution": "Review your bill, set up autopay, or make a one-time payment directly in your State Farm online account."
+        },
+        {
+          "issue": "Auto insurance questions",
+          "solution": "Policy documents, coverage details, and ID cards are available in your online account without needing to call."
+        },
+        {
+          "issue": "Home and property insurance questions",
+          "solution": "Review your home policy's coverage limits and endorsements directly in your online account before contacting an agent about a specific question."
+        },
+        {
+          "issue": "Life insurance questions",
+          "solution": "Life insurance questions are often handled by your personal State Farm agent rather than the general customer service line — check your policy documents for your agent's direct contact."
+        },
+        {
+          "issue": "Emergency road service",
+          "solution": "Request roadside assistance directly through the State Farm mobile app if you have the coverage, which is typically faster during an active breakdown."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": ""
+    },
+    {
+      "slug": "allstate",
+      "name": "Allstate",
+      "category": "insurance",
+      "aliases": [
+        "allstate customer service",
+        "allstate support number",
+        "allstate claims number"
+      ],
+      "phone": "1 (800) 726-6033",
+      "phoneNote": "Available 24/7 — handles quotes, coverage questions, policy management, billing, and filing or tracking a claim.",
+      "phoneAltNote": "",
+      "chatType": "chat",
+      "chatUrl": "https://www.allstate.com/help-support/contact",
+      "chatLabel": "Allstate Help & Support — Contact Us",
+      "hours": {
+        "mode": "247"
+      },
+      "verifiedDate": "2026-10-01",
+      "sourceUrl": "https://www.allstate.com/help-support/contact",
+      "sourceLabel": "Allstate Help & Support — Contact Us",
+      "commonIssues": [
+        {
+          "issue": "Filing or tracking a claim",
+          "solution": "File a new claim or check an existing one directly through the Allstate mobile app or your online account — photo upload for damage claims is handled there."
+        },
+        {
+          "issue": "Billing and payments",
+          "solution": "Review your bill, set up autopay, or make a one-time payment directly in your Allstate online account."
+        },
+        {
+          "issue": "Policy information and insurance cards",
+          "solution": "Digital ID cards and full policy documents are available instantly in the Allstate app and online account."
+        },
+        {
+          "issue": "Account settings and login issues",
+          "solution": "Password resets and login issues can usually be resolved through the app's \"Forgot password\" flow. Contact Allstate above if you're locked out entirely."
+        },
+        {
+          "issue": "Mobile app assistance",
+          "solution": "The Allstate app's own help section covers most functionality questions, including how to file a claim or access ID cards offline."
+        },
+        {
+          "issue": "Drivewise and Milewise programs",
+          "solution": "Review your Drivewise or Milewise trip data and discount progress directly in the respective program dashboard within the app."
+        }
+      ],
+      "avgWaitTime": "",
+      "bestTimeToCall": "",
+      "scamWarningNote": "A separate claims-only number and a roadside-assistance number circulate on third-party sites, but neither could be confirmed on an Allstate-owned page — treat them as unverified until confirmed."
     }
   ]
 }
