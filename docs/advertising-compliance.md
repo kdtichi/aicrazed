@@ -5,7 +5,7 @@ Internal reference document, not published on the live site. Records what was ac
 ## The short version
 
 - **Microsoft Advertising: paid ads for this business model are categorically prohibited, with no appeal.** This is not fixable by better disclosures or ad copy. Do not spend budget trying.
-- **Google Ads: not prohibited outright, but heavily scrutinized.** A narrower set of brands (real published phone numbers, non-scam-associated categories) has a realistic shot at approval with careful, honest ad copy. Expect friction and some disapprovals as normal, not a sign of a broken account.
+- **Google Ads: likely also blocked for this business model, confirmed by an actual disapproval — see the 2026-10-01 correction below.** A real pilot campaign (UPS + DoorDash, both "lowest risk" brands) was disapproved for "restricted product or service," matching Google's own policy listing for "Call directory, forwarding, and recording services" as flatly prohibited. Brand selection and ad copy quality did not prevent this. Do not assume a different brand or better copy fixes it without a confirmed answer from Google support first.
 - **Neither policy affects organic search.** Both are paid-advertising rules. aicrazed can rank normally in unpaid Google and Bing search results regardless.
 
 ---
@@ -75,3 +75,15 @@ Applying the same two criteria (real published phone number; not an account-reco
 **Second tier, still low risk:** Airlines (Delta, American, United, Southwest) — same profile, marginally more consumer-complaint volume around flight disruptions than insurance/shipping, worth a second wave rather than the pilot.
 
 **Exclude from paid ads regardless of category:** Uber and Lyft — neither publishes any phone number (confirmed via direct research against their own official sites), which undercuts the ad's core value proposition and will likely hurt Quality Score/approval odds independent of category risk. Fine for organic SEO, not recommended for paid.
+
+### Update 2026-10-01 (correction): likely categorical prohibition, not just brand-tier risk
+
+**What happened:** A real pilot campaign was built (UPS + DoorDash ad groups — both in the "lowest risk" tier above) and both ad groups were disapproved with: *"Your ads relate to a restricted product or service. In order for your ads to start running, you'll need to apply for specific approval."*
+
+**Re-verified directly against Google's own policy page** (https://support.google.com/adspolicy/answer/6368711, fetched twice independently for exact wording): the "Other restricted businesses" page lists **"Call directory, forwarding, and recording services"** as prohibited — exact quote: *"Promotions for call directory, forwarding, and recording services are not allowed."* — shown with a red X (no certification pathway), the same tier as "Third-party consumer technical support" (*"Technical support for consumer technology products and online services provided by third-party providers is not allowed"*).
+
+**Why this matters:** aicrazed.com is, functionally, a directory of companies' call/contact information. That both UPS and DoorDash — brands with no trademark-enforcement red flags, both with real published phone numbers, neither in a scam-pattern category — were disapproved identically suggests the block may be on the **business model itself** (being a "call directory"), not brand-specific trademark/scam-pattern risk as the brand-tiering above assumed. If that's correct, no brand selection or ad-copy change fixes this — it would mean Google Ads, like Microsoft Advertising, effectively blocks this business model, just with less explicit language about it ("restricted" + an inapplicable-in-practice "apply for approval" prompt, rather than Microsoft's flat "no appeal" statement).
+
+**Not yet fully confirmed:** this is read from Google's policy page and one real disapproval, not a definitive answer from Google support. It's possible a manual policy appeal clarifies the line differently (e.g. a plain informational page listing a publicly available number might be judged differently from an active call-forwarding/routing service) — that would need an actual appeal response to know for sure, not further inference from the policy page.
+
+**Practical conclusion (supersedes the "narrow pilot is plausible" conclusion above):** do not spend further budget assuming the brand-tiering alone will get a campaign approved. Before any further paid Google Ads spend: either (a) file Google's policy appeal with support and get a specific human answer about whether this business model qualifies, or (b) treat Google Ads as likely closed for this business model, same as Microsoft, and rely on organic SEO only (unaffected by either ad policy).
