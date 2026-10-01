@@ -92,15 +92,18 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
     footer_nav = render_footer_nav()
     year = "2026"
     return """<!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
+<link rel="alternate" hreflang="en-us" href="{canonical}">
+<link rel="alternate" hreflang="x-default" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="aicrazed">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:url" content="{canonical}">
@@ -304,12 +307,14 @@ def render_home():
         "description": SITE["description"],
         "email": SITE["contactEmail"],
         "address": {"@type": "PostalAddress", **SITE["address"]},
+        "areaServed": "US",
     }
     website_ld = {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "aicrazed",
         "url": BASE_URL + "/",
+        "inLanguage": "en-US",
     }
     json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
         json.dumps(org_ld), json.dumps(website_ld)
