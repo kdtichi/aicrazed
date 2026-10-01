@@ -76,6 +76,7 @@
       "phoneAltNote": "Its official Contact Us page lists 24/7 chat as the main support channel for general (US) support.",
       "chatUrl": "https://www.temu.com/support-center.html",
       "chatLabel": "Temu Support Center & live chat",
+      "channel": "chat",
       "hours": {
         "mode": "247"
       },
@@ -104,8 +105,6 @@
           "solution": "Double-check the card on file and the exact wording/expiration of the promo code first, since typos are the most common cause. Contact Temu above if a code still won't apply or a charge looks wrong."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -122,6 +121,7 @@
       "phoneAltNote": "Its official help page instead asks you to sign in and choose your issue, which connects you by phone, chat, or email as appropriate.",
       "chatUrl": "https://www.amazon.com/gp/help/customer/display.html?nodeId=508510",
       "chatLabel": "Amazon Customer Service",
+      "channel": "signin",
       "hours": {
         "mode": "247"
       },
@@ -150,8 +150,6 @@
           "solution": "Double-check the card on file for a typo or expiration date, and confirm a promo code's exact terms before assuming it's an error. Contact Amazon above if a charge still looks wrong."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -168,6 +166,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://help.doordash.com/consumers",
       "chatLabel": "DoorDash Help Center — Consumers",
+      "channel": "chat",
       "hours": {
         "mode": "247"
       },
@@ -196,8 +195,6 @@
           "solution": "Check DoorDash's app for delivery availability in your area first, since coverage varies by location and time of day. Use the contact option above if the app shows an error rather than an availability message."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -214,6 +211,7 @@
       "phoneAltNote": "Meta's official Help Centre for Facebook offers only a search box and an AI support assistant.",
       "chatUrl": "https://www.facebook.com/help/",
       "chatLabel": "Facebook Help Centre",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "No support hours are published. The Help Centre and its AI support assistant are self-service and available anytime you visit."
@@ -224,15 +222,15 @@
       "commonIssues": [
         {
           "issue": "Account settings",
-          "solution": "Most settings — name, contact info, linked accounts — are changed directly in Settings, not through support. Contact Facebook above only for something the settings menu doesn't expose."
+          "solution": "Most settings — name, contact info, linked accounts — are changed directly in Settings, not through support. The help center linked above covers anything the settings menu doesn't."
         },
         {
           "issue": "Login and password recovery",
-          "solution": "Try Facebook's own “forgot password” flow first — it resolves most sign-in issues without needing to contact anyone. If you no longer have access to the email or phone number on file, use the option above and be ready to verify your identity another way."
+          "solution": "Try Facebook's own “forgot password” flow first — it resolves most sign-in issues without needing to contact anyone. If you no longer have access to the email or phone number on file, follow Facebook's official account recovery steps in the help center linked above — there's no support line to call, so anyone offering to recover the account for you is not Facebook."
         },
         {
           "issue": "Privacy and security",
-          "solution": "Review your account's connected apps and login activity directly under Settings first. Use the contact option above to report anything you didn't recognize."
+          "solution": "Review your account's connected apps and login activity directly under Settings first. Then follow the hacked-account steps in Facebook's help center linked above if anything looks unfamiliar."
         },
         {
           "issue": "Marketplace",
@@ -243,8 +241,6 @@
           "solution": "Group and Page admin tools (roles, settings, moderation) live inside the Group or Page itself. Facebook's help center above walks through the specific admin controls."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -261,6 +257,7 @@
       "phoneAltNote": "Its official Help Center offers the same Meta AI support assistant used by Facebook.",
       "chatUrl": "https://help.instagram.com/",
       "chatLabel": "Instagram Help Center",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "No support hours are published. Help articles and the AI support assistant are self-service and available anytime you visit."
@@ -271,27 +268,25 @@
       "commonIssues": [
         {
           "issue": "Login, recovery, and security",
-          "solution": "Try Instagram's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number, use the option above and be ready to verify your identity another way."
+          "solution": "Try Instagram's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to the recovery email or phone number, follow Instagram's official account recovery steps in the help center linked above — there's no support line to call, so anyone offering to recover the account for you is not Instagram."
         },
         {
           "issue": "Managing your account",
-          "solution": "Most account details can be updated directly in your account settings. Contact Instagram above for anything the settings page doesn't cover."
+          "solution": "Most account details can be updated directly in your account settings. The help center linked above covers anything the settings page doesn't."
         },
         {
           "issue": "Staying safe",
-          "solution": "Use the built-in blocking, muting, and restricting tools first — they take effect immediately without needing to contact anyone. Use the contact option above for anything those tools don't resolve."
+          "solution": "Use the built-in blocking, muting, and restricting tools first — they take effect immediately without needing to contact anyone. The help center linked above covers anything else."
         },
         {
           "issue": "Privacy and reporting",
-          "solution": "Use the in-app reporting tool on the specific post, comment, or account — it routes faster than general support. Use the contact option above only if there's no direct reporting flow for your situation."
+          "solution": "Use the in-app reporting tool on the specific post, comment, or account — it routes faster than general support. Check the help center linked above if there's no direct reporting flow for your situation."
         },
         {
           "issue": "Report a fake or impersonating account",
-          "solution": "Report it directly from the account's profile using “Report” → “Impersonation” — that's the fastest path and the one Instagram actually reviews first. Use the contact option above only if that flow isn't available to you."
+          "solution": "Report it directly from the account's profile using “Report” → “Impersonation” — that's the fastest path and the one Instagram actually reviews first. Check the help center linked above if that flow isn't available to you."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -309,6 +304,7 @@
       "phoneAltNote": "X provides help articles and a topic-based Contact Us form rather than a phone line or live chat.",
       "chatUrl": "https://help.x.com/en/forms",
       "chatLabel": "X Help Center — Contact Us form",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "No support hours are published. X uses a topic-based contact form rather than live support."
@@ -338,8 +334,6 @@
           "solution": "Report the specific post directly rather than the account overall — it gives X (Twitter)'s review team the exact content in question. Use the contact option above only if there's no report option on the content itself."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -357,6 +351,7 @@
       "phoneAltNote": "Free personal Gmail accounts don't have a live phone or chat channel — support is through self-service help articles and a peer-to-peer Help Community forum, not Google staff.",
       "chatUrl": "https://support.google.com/mail/",
       "chatLabel": "Google Mail Help Center",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "No live support hours are published for personal Gmail accounts. Self-service help articles are available anytime."
@@ -367,27 +362,25 @@
       "commonIssues": [
         {
           "issue": "Gmail messages are missing",
-          "solution": "Search “all mail” and check your spam and trash folders first — a filter or label often hides a message rather than deleting it. Use the contact option above if a specific message still can't be found after that."
+          "solution": "Search “all mail” and check your spam and trash folders first — a filter or label often hides a message rather than deleting it. Check the help center linked above if a specific message still can't be found after that."
         },
         {
           "issue": "Unwanted or suspicious emails",
-          "solution": "Use Gmail's built-in “Report spam” or “Report phishing” button rather than just deleting it — that also helps filter similar messages going forward. Use the contact option above if it keeps getting through after reporting."
+          "solution": "Use Gmail's built-in “Report spam” or “Report phishing” button rather than just deleting it — that also helps filter similar messages going forward. Check the help center linked above if it keeps getting through after reporting."
         },
         {
           "issue": "Account access issues",
-          "solution": "Try Gmail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to your recovery email or phone number, use the option above and be ready to verify your identity another way."
+          "solution": "Try Gmail's own password reset link first — it resolves most sign-in issues faster than contacting support. If you no longer have access to your recovery email or phone number, follow Gmail's official account recovery steps in the help center linked above — there's no support line to call, so anyone offering to recover the account for you is not Gmail."
         },
         {
           "issue": "Sync and import problems",
-          "solution": "Try removing and re-adding the account on the affected device first — that fixes most sync issues without needing support. Use the contact option above if re-adding the account doesn't help."
+          "solution": "Try removing and re-adding the account on the affected device first — that fixes most sync issues without needing support. Check the help center linked above if re-adding the account doesn't help."
         },
         {
           "issue": "Rejected or bounced messages",
-          "solution": "Check the bounce-back message itself first — it usually states the exact reason (wrong address, full inbox, blocked sender). Use the contact option above if the reason given doesn't make sense."
+          "solution": "Check the bounce-back message itself first — it usually states the exact reason (wrong address, full inbox, blocked sender). Check the help center linked above if the reason given doesn't make sense."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -405,6 +398,7 @@
       "phoneAltNote": "Its official Contact Us page instead asks you to sign in and choose a product first — self-service options appear, with live chat available if needed.",
       "chatUrl": "https://support.microsoft.com/contactus",
       "chatLabel": "Microsoft Support — Contact Us",
+      "channel": "signin",
       "hours": {
         "mode": "unspecified",
         "text": "No specific support hours are published on the official Contact Us page."
@@ -434,8 +428,6 @@
           "solution": "Delegate and shared-mailbox access is set up directly in account permissions, not through a support request. Outlook's help center above walks through granting and revoking that access correctly."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -452,6 +444,7 @@
       "phoneAltNote": "Yahoo's official support article says help is available via email, chat, or help articles, and notes: “We don't have a contact option for every product or issue.”",
       "chatUrl": "https://help.yahoo.com/kb/new-yahoo-mail",
       "chatLabel": "Yahoo Mail Help",
+      "channel": "chat",
       "hours": {
         "mode": "unspecified",
         "text": "No support hours are published."
@@ -481,8 +474,6 @@
           "solution": "Look for sent messages you didn't write, a changed password, or unfamiliar recovery info — those are the clearest signs. Change your password immediately and use the contact option above to report it."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -499,6 +490,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://www.walmart.com/help",
       "chatLabel": "Walmart Help Center",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "No specific support hours are published on Walmart's official contact pages."
@@ -528,8 +520,6 @@
           "solution": "Check your pickup-ready or delivery-tracking notification first to confirm the current status. Contact Walmart above if the order isn't ready or delivered when it said it would be."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -546,6 +536,7 @@
       "phoneAltNote": "eBay routes support through an automated assistant and a sign-in-based Contact Us flow rather than a static phone number.",
       "chatUrl": "https://www.ebay.com/help/home",
       "chatLabel": "eBay Help & Contact",
+      "channel": "signin",
       "hours": {
         "mode": "unspecified",
         "text": "No support hours are published — eBay's help center uses an automated assistant rather than live hours."
@@ -575,8 +566,6 @@
           "solution": "Check the tracking link on the order page first — it's usually more current than what a seller can tell you directly. Contact eBay above if tracking hasn't updated in several days."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -593,6 +582,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://www.target.com/help/contact-us/target-com-order-experience",
       "chatLabel": "Target Help — Contact Us",
+      "channel": "chat",
       "hours": {
         "mode": "unspecified",
         "text": "No specific support hours are published on Target's official contact pages."
@@ -622,8 +612,6 @@
           "solution": "Contact Target above as soon as you notice it — the sooner a disputed charge or security concern is reported, the more options they have to fix it."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -640,6 +628,7 @@
       "phoneAltNote": "Best Buy's official contact pages route you through topic buttons (Orders & Purchases, My Account, and so on) rather than displaying one general phone number as page text.",
       "chatUrl": "https://www.bestbuy.com/contact-us",
       "chatLabel": "Best Buy Contact Us",
+      "channel": "signin",
       "hours": {
         "mode": "unspecified",
         "text": "No specific support hours are published on Best Buy's official contact pages."
@@ -669,8 +658,6 @@
           "solution": "Confirm your pickup-ready notification or delivery tracking first, and bring the order confirmation and ID used at checkout for pickup. Contact Best Buy above if the order isn't ready or delivered when expected."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -687,6 +674,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://us.shein.com/contact-us.html",
       "chatLabel": "Shein Contact Us",
+      "channel": "chat",
       "hours": {
         "mode": "detailed",
         "tz": "America/Los_Angeles",
@@ -719,8 +707,6 @@
           "solution": "Most account details can be updated directly in your account settings. Contact Shein above for anything the settings page doesn't cover."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -737,6 +723,7 @@
       "phoneAltNote": "TikTok support is handled through in-app reporting and the Help Center rather than a phone line.",
       "chatUrl": "https://support.tiktok.com/en",
       "chatLabel": "TikTok Help Center",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — support is self-service and in-app."
@@ -747,27 +734,25 @@
       "commonIssues": [
         {
           "issue": "Account and privacy settings",
-          "solution": "Most privacy controls — who can see your videos, message you, or duet with you — are set directly in Settings and Privacy. Use the contact option above for anything the settings menu doesn't expose."
+          "solution": "Most privacy controls — who can see your videos, message you, or duet with you — are set directly in Settings and Privacy. The help center linked above covers anything else."
         },
         {
           "issue": "Log in and troubleshooting",
-          "solution": "Try the password reset flow first, since most login issues resolve there. Use the contact option above if you no longer have access to the phone number or email linked to the account."
+          "solution": "Try the password reset flow first, since most login issues resolve there. Check the help center linked above if you no longer have access to the phone number or email linked to the account."
         },
         {
           "issue": "Safety and Community Guidelines",
-          "solution": "Use the in-app reporting tool on the specific video or comment first — it routes faster than general support. Use the contact option above only if there's no direct reporting flow for your situation."
+          "solution": "Use the in-app reporting tool on the specific video or comment first — it routes faster than general support. Check the help center linked above if there's no direct reporting flow for your situation."
         },
         {
           "issue": "Account recovery",
-          "solution": "Try the account recovery flow in the app first using your linked phone number or email. Use the contact option above only if that flow doesn't recognize your account."
+          "solution": "Try the account recovery flow in the app first using your linked phone number or email. Check the help center linked above if that flow doesn't recognize your account."
         },
         {
           "issue": "Report inappropriate content",
-          "solution": "Report the specific video or comment directly rather than the account overall — it gives TikTok's review team the exact content in question. Use the contact option above only if there's no report option available."
+          "solution": "Report the specific video or comment directly rather than the account overall — it gives TikTok's review team the exact content in question. Check the help center linked above if there's no report option available."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -784,6 +769,7 @@
       "phoneAltNote": "LinkedIn support is handled through a web-based Contact Us form.",
       "chatUrl": "https://www.linkedin.com/help/linkedin/ask",
       "chatLabel": "LinkedIn Help — Contact Us",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — support is form-based, not live."
@@ -813,8 +799,6 @@
           "solution": "Check your application history under “My Jobs” first to confirm what was actually submitted. LinkedIn's help center above covers job-alert and application-status questions in more detail."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -831,6 +815,7 @@
       "phoneAltNote": "Snapchat support is handled through a Contact Us ticket form.",
       "chatUrl": "https://help.snapchat.com/hc/en-us/requests/new",
       "chatLabel": "Snapchat Support — Contact Us",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — support is ticket-based."
@@ -860,8 +845,6 @@
           "solution": "This is done directly in account settings in most cases — check there first. Use the contact option above only if the in-app option isn't working, or to recover a recently closed account."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -878,6 +861,7 @@
       "phoneAltNote": "Pinterest support is handled through a guided, topic-based Contact form.",
       "chatUrl": "https://help.pinterest.com/en/contact",
       "chatLabel": "Pinterest Help — Contact Us",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — support is form-based."
@@ -907,8 +891,6 @@
           "solution": "Report the specific pin or board directly rather than the account overall — it gives Pinterest's review team the exact content in question. Use the contact option above only if there's no report option available."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -925,6 +907,7 @@
       "phoneAltNote": "Reddit support is handled through a ticket-based request form.",
       "chatUrl": "https://support.reddithelp.com",
       "chatLabel": "Reddit Help Center",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — support is ticket-based."
@@ -954,8 +937,6 @@
           "solution": "Review your account's connected apps and login activity directly under Settings first. Use the contact option above to report anything you didn't recognize."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -973,6 +954,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://support.apple.com/en-us/icloud",
       "chatLabel": "Apple Support — iCloud",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "Not stated specifically for iCloud support."
@@ -1002,8 +984,6 @@
           "solution": "Confirm Keychain is turned on for every device you want passwords synced to, under iCloud settings on each one. Use the contact option above if saved passwords still aren't appearing across devices."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1020,6 +1000,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://help.aol.com/",
       "chatLabel": "AOL Help Center",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "No specific support hours are published on AOL's official help page."
@@ -1049,8 +1030,6 @@
           "solution": "Use the built-in “Report spam” button rather than just deleting unwanted mail — it also improves future filtering. Use the contact option above if unwanted mail keeps getting through after that."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1067,6 +1046,7 @@
       "phoneAltNote": "Proton doesn't offer phone support by design — support is via ticket for paid users and self-service articles for everyone.",
       "chatUrl": "https://proton.me/support/mail",
       "chatLabel": "Proton Mail Support",
+      "channel": "form",
       "hours": {
         "mode": "unspecified",
         "text": "Not applicable — no phone or live chat support is offered."
@@ -1096,8 +1076,6 @@
           "solution": "Additional email addresses and identities are added directly under account settings, not through a support request. Proton Mail's help center above covers the exact steps."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1115,6 +1093,7 @@
       "phoneAltNote": "Netflix's Contact Us flow asks you to describe your issue first, then may offer a callback or chat tied to your account — no general number is printed on the page.",
       "chatUrl": "https://help.netflix.com/en/contactus",
       "chatLabel": "Netflix Help — Contact Us",
+      "channel": "signin",
       "hours": {
         "mode": "unspecified",
         "text": "Not stated — availability depends on the issue you select."
@@ -1144,8 +1123,6 @@
           "solution": "Try reinstalling the game from your device's app store first, since most game-specific issues are fixed that way rather than through general account support. Contact Netflix above if the problem is with your account access to Games rather than the game itself."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1162,6 +1139,7 @@
       "phoneAltNote": "Spotify support is chat and ticket-based through an in-account assistant, plus a large Community forum.",
       "chatUrl": "https://support.spotify.com/us/",
       "chatLabel": "Spotify Support",
+      "channel": "chat",
       "hours": {
         "mode": "unspecified",
         "text": "Not stated."
@@ -1191,8 +1169,6 @@
           "solution": "Manage or cancel your plan directly in account settings — changes usually apply immediately there, though you typically keep access until the end of the billing period. Contact Spotify above if the option isn't available or a charge doesn't match."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1209,6 +1185,7 @@
       "phoneAltNote": "Hulu explicitly states its support is chat-based, not phone.",
       "chatUrl": "https://help.hulu.com/s/",
       "chatLabel": "Hulu Help — Get in Touch",
+      "channel": "chat",
       "hours": {
         "mode": "247"
       },
@@ -1237,8 +1214,6 @@
           "solution": "Most day-to-day features (profiles, downloads, live TV setup) are explained in Hulu's help center with exact steps. Contact them directly if you hit a bug the guides don't explain."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1255,6 +1230,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://www.verizon.com/support/contact-us/",
       "chatLabel": "Verizon Support — Contact Us",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "Verizon lists different hours for mobile billing, mobile technical support, sales, and Fios on its official contact page — check the source link for the exact hours for your issue."
@@ -1284,8 +1260,6 @@
           "solution": "Try the password reset flow first, since most access problems resolve there. Use the contact option above if you no longer have access to the phone number or email on file."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1302,6 +1276,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://www.att.com/support/contact-us/wireless",
       "chatLabel": "AT&T Support — Contact Us",
+      "channel": "helpcenter",
       "hours": {
         "mode": "unspecified",
         "text": "Bill & account and New service lines: Monday–Friday 8am–8pm, Saturday–Sunday 9am–7pm, Central time."
@@ -1331,8 +1306,6 @@
           "solution": "Track a device order or upgrade directly in your account — most status questions are answered there before support would know more. Contact AT&T above if an order is delayed past its estimate."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     },
     {
@@ -1349,6 +1322,7 @@
       "phoneAltNote": "",
       "chatUrl": "https://www.t-mobile.com/contact-us",
       "chatLabel": "T-Mobile Contact Us",
+      "channel": "helpcenter",
       "hours": {
         "mode": "detailed",
         "tz": "America/Los_Angeles",
@@ -1381,8 +1355,6 @@
           "solution": "Check T-Mobile's help center above for country-specific coverage and add-on requirements before you travel — international terms often differ from domestic ones. Contact T-Mobile above if service doesn't work as described once you're there."
         }
       ],
-      "avgWaitTime": "",
-      "bestTimeToCall": "",
       "scamWarningNote": ""
     }
   ]
