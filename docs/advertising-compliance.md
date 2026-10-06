@@ -87,3 +87,24 @@ Applying the same two criteria (real published phone number; not an account-reco
 **Not yet fully confirmed:** this is read from Google's policy page and one real disapproval, not a definitive answer from Google support. It's possible a manual policy appeal clarifies the line differently (e.g. a plain informational page listing a publicly available number might be judged differently from an active call-forwarding/routing service) — that would need an actual appeal response to know for sure, not further inference from the policy page.
 
 **Practical conclusion (supersedes the "narrow pilot is plausible" conclusion above):** do not spend further budget assuming the brand-tiering alone will get a campaign approved. Before any further paid Google Ads spend: either (a) file Google's policy appeal with support and get a specific human answer about whether this business model qualifies, or (b) treat Google Ads as likely closed for this business model, same as Microsoft, and rely on organic SEO only (unaffected by either ad policy).
+
+### Update 2026-10-06: Google Ads account suspended (Unacceptable business practices)
+
+**What happened:** The Google Ads account (customer 666-734-5000, "Ai Crazed") was reported suspended for violating the **Unacceptable business practices** policy, after the UPS & DoorDash pilot campaign had run for a few days. Google's exact sub-reason is shown in the account notification and has not been recorded here yet — capture it before appealing.
+
+**What Google's own pages say** (support.google.com/adspolicy/answer/15938071 and support.google.com/google-ads/answer/9841640, fetched 2026-10-06):
+- The policy covers making it seem like you're affiliated with another brand, and impersonating brands or businesses. Violations are treated as egregious: suspension "upon detection and without prior warning," and "you will not be allowed to advertise with Google Ads again."
+- "Accounts are only reinstated in compelling circumstances, and when there is good reason."
+- Any new account the advertiser tries to create "may also be suspended." Do not open a replacement account.
+- Appeals go through the Contact Us link in the account notification. One appeal at a time; too many appeals for one suspension may be ignored, and misuse can pause appeal processing for 7 days.
+
+**Where the pilot departed from the brand guardrails (skill `aicrazed-brand`), which had not been loaded when the campaign was built:**
+- Phase 1 was specified as Temu + Shein; the pilot used UPS + DoorDash.
+- Ad text put brand names next to support-line wording ("UPS Customer Service Number", "UPS Customer Care Number", "DoorDash Customer Care") and one description said "Tap to call UPS directly" — the guardrails forbid the brand name next to "call", "support line", or "helpline".
+- Independence wording was in descriptions only; a responsive search ad can show headlines without it, so no single impression was guaranteed to carry it.
+- All keywords were broad match; the guardrails require phrase/exact for brand terms.
+- Site side: brand-page meta/og descriptions read "Official {brand} customer service: ..." (build.py, render_brand), which contradicts the independent-directory positioning on the landing page itself.
+
+Which of these, if any, Google actually acted on is unknown. This list is what a careful reviewer could object to, not a finding of cause.
+
+**Practical conclusion:** treat Google Ads as unavailable for now. Do not create new accounts. At most one carefully written appeal after the site/copy issues above are fixed and the exact reason is known. Organic SEO is unaffected.
