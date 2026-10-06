@@ -1450,14 +1450,14 @@
         "ups tracking help"
       ],
       "phone": "1-877-289-6418",
-      "phoneNote": "Monday–Friday 7am–11pm, Saturday 8am–8pm, Eastern time. Technical support (website/account issues): 1-877-289-6418.",
+      "phoneNote": "UPS lists this line for technical support (website and account issues). General customer service is 1-800-742-5877.",
       "phoneAltNote": "",
       "chatType": "chat",
       "chatUrl": "https://www.ups.com/us/en/support.page",
       "chatLabel": "UPS Support — Contact Us",
       "hours": {
         "mode": "unspecified",
-        "text": "Customer service: Monday–Friday 7am–11pm, Saturday 8am–8pm, Eastern time. Other department lines have their own hours — see the source page."
+        "text": "These hours are for UPS's general customer service line, 1-800-742-5877: Monday–Friday 7am–11pm, Saturday 8am–8pm, Eastern time. Other department lines have their own hours — see the source page."
       },
       "verifiedDate": "2026-10-01",
       "sourceUrl": "https://www.ups.com/us/en/support.page",
