@@ -1447,8 +1447,9 @@
         "ups tracking help"
       ],
       "phone": "1-877-289-6418",
-      "phoneNote": "UPS lists this line for technical support (website and account issues). General customer service is 1-800-742-5877.",
+      "phoneNote": "For general customer service, UPS lists 1-800-742-5877.",
       "phoneAltNote": "",
+      "phoneLineLabel": "technical support line (website and account issues)",
       "chatType": "chat",
       "chatUrl": "https://www.ups.com/us/en/support.page",
       "chatLabel": "UPS Support — Contact Us",

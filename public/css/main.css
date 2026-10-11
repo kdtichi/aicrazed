@@ -448,15 +448,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 }
 @media (max-width: 760px) { .contact-panel__main { border-right: none; } }
 
-/* On mobile, show the verification stamp before the (sometimes long) phone/
-   chat/hours details, so the trust signal lands within the first screen
-   instead of being pushed below the fold by a lengthy "no phone published"
-   explanation. Visual order only — DOM order (and text-extraction order)
-   is unchanged. */
-@media (max-width: 760px) {
-  .contact-panel__aside { order: -1; border-bottom: 1px solid var(--rule); }
-}
-
 .contact-field { margin-bottom: 24px; }
 .contact-field:last-child { margin-bottom: 0; }
 .contact-field label {
@@ -813,4 +804,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .stamp { width: 128px; height: 128px; }
   .info-grid { gap: 32px; }
   .scam-box { flex-direction: column; }
+}
+
+.brand-lead { margin: 20px 0 0; font-size: 1.05rem; color: var(--ink-soft); max-width: 62ch; }
+
+.all-brands { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 32px 28px; }
+.all-brands__group h3 a { color: inherit; text-decoration: none; }
+.all-brands__group ul { list-style: none; margin: 6px 0 0; padding: 0; }
+.all-brands__group li a { display: flex; align-items: center; min-height: 44px; color: var(--ink-soft); text-decoration: none; }
+.all-brands__group li a:hover { color: var(--accent); }
+@media (max-width: 760px) {
+  .all-brands__group ul { columns: 2; column-gap: 16px; }
+  .all-brands__group li { break-inside: avoid; }
+}
+
+@media (max-width: 760px) {
+  .nav-toggle { min-height: 44px; }
+  .cat-pill { min-height: 44px; display: inline-flex; align-items: center; }
+  .phone-number { min-height: 44px; }
+  .footer-nav a, .footer-legal-links a { display: inline-flex; align-items: center; min-height: 44px; }
 }

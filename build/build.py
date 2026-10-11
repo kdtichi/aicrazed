@@ -26,7 +26,16 @@ CATEGORIES = DATA["categories"]
 BRANDS = DATA["brands"]
 BASE_URL = "https://" + SITE["domain"]
 
-TODAY = "2026-09-12"
+# Date each static page's content last really changed. Nav/markup-only edits do
+# not bump these, mirroring the rule used for brand pages (verified date only).
+PAGE_DEFAULT_UPDATED = "2026-09-12"
+STATIC_PAGE_UPDATED = {
+    "/": "2026-10-12",
+    "/about/": "2026-10-01",
+    "/contact/": "2026-10-01",
+    "/privacy/": "2026-10-01",
+}
+CATEGORY_UPDATED = {"insurance": "2026-10-12", "email": "2026-10-12"}
 
 
 def esc(s):
@@ -42,6 +51,20 @@ def brand_by_slug(slug):
 
 def brands_in(cat_slug):
     return [b for b in BRANDS if b["category"] == cat_slug]
+
+
+def schema_phone(phone):
+    """US numbers with a +1 country code for structured data; page text is unchanged."""
+    digits = "".join(ch for ch in phone if ch.isdigit())
+    if len(digits) == 10:
+        digits = "1" + digits
+    if len(digits) == 11 and digits.startswith("1"):
+        return "+1-{}-{}-{}".format(digits[1:4], digits[4:7], digits[7:])
+    return phone
+
+
+def phone_line_label(b):
+    return b.get("phoneLineLabel") or "phone number"
 
 
 def initial_mark(name):
@@ -225,6 +248,14 @@ def render_home():
   <span class="brand-card__cat">{cat}</span>
 </a>""".format(slug=b["slug"], mark=initial_mark(b["name"]), name=esc(b["name"]), cat=esc(CATEGORIES[b["category"]]["label"]))
 
+    all_groups = ""
+    for cat_slug, c in CATEGORIES.items():
+        members = brands_in(cat_slug)
+        if not members:
+            continue
+        items = "".join('<li><a href="/brand/{}/">{}</a></li>'.format(m["slug"], esc(m["name"])) for m in members)
+        all_groups += '<div class="all-brands__group"><h3 class="label-heading"><a href="/category/{}/">{}</a></h3><ul>{}</ul></div>'.format(cat_slug, esc(c["label"]), items)
+
     body = """
 <section class="hero container">
   <p class="eyebrow">Customer Service Directory</p>
@@ -235,7 +266,7 @@ def render_home():
       class="search-input"
       id="search-input"
       type="text"
-      placeholder="Search a company &mdash; e.g. Netflix, Amazon, Verizon"
+      placeholder="Search a company (e.g. Walmart)"
       aria-autocomplete="list"
       aria-controls="search-results"
       aria-expanded="false">
@@ -250,12 +281,21 @@ def render_home():
 
 <section class="section container">
   <div class="section-head">
-    <h2>Most searched</h2>
+    <h2>Featured companies</h2>
   </div>
   <div class="brand-grid">
     {cards}
   </div>
   <div class="cat-nav-pills" style="margin-top:24px;">{cat_pills}</div>
+</section>
+
+<section class="section container" id="all-companies">
+  <div class="section-head">
+    <h2>All companies</h2>
+  </div>
+  <div class="all-brands">
+    {all_groups}
+  </div>
 </section>
 
 <section class="how-strip">
@@ -267,7 +307,7 @@ def render_home():
       <div class="how-step">
         <div class="num">01</div>
         <h3>Search or browse</h3>
-        <p>Type a company name or pick one from the grid. We cover the brands people search for most when something&rsquo;s gone wrong.</p>
+        <p>Type a company name or pick one from the grid. We cover well-known companies people often need to reach when something&rsquo;s gone wrong.</p>
       </div>
       <div class="how-step">
         <div class="num">02</div>
@@ -291,6 +331,7 @@ def render_home():
 </section>
 """.format(
         cards=cards,
+        all_groups=all_groups,
         index_json=index_json,
         cat_pills="".join(
             '<a class="cat-pill" href="/category/{}/">{}</a>'.format(slug, esc(c["label"]))
@@ -419,9 +460,14 @@ def brand_faq_items(b):
     name = b["name"]
     if b.get("phone"):
         note = " " + b["phoneNote"] if b.get("phoneNote") else ""
-        phone_a = "Yes &mdash; {name}&rsquo;s verified customer service number is {phone}.{note}".format(
-            name=name, phone=b["phone"], note=note
-        )
+        if b.get("phoneLineLabel"):
+            phone_a = "Yes &mdash; {name} lists {phone} as its {label}.{note}".format(
+                name=name, phone=b["phone"], label=b["phoneLineLabel"], note=note
+            )
+        else:
+            phone_a = "Yes &mdash; {name}&rsquo;s verified customer service number is {phone}.{note}".format(
+                name=name, phone=b["phone"], note=note
+            )
     else:
         alt = " " + b["phoneAltNote"] if b.get("phoneAltNote") else ""
         phone_a = "No. {name} does not publish a public customer service phone number.{alt} Use the {channel} link on this page instead.".format(
@@ -452,8 +498,12 @@ def render_brand(b):
         )
         for ci in b["commonIssues"]
     )
-    avg_wait = b.get("avgWaitTime") or "Not officially published"
-    best_time = b.get("bestTimeToCall") or "Early or late in the day, local time"
+    stat_blocks = ""
+    if b.get("avgWaitTime"):
+        stat_blocks += '<div class="info-col"><h3 class="label-heading">Average wait time</h3><div class="stat-value" style="font-size:1.5rem;">{}</div></div>'.format(esc(b["avgWaitTime"]))
+    if b.get("bestTimeToCall"):
+        stat_blocks += '<div class="info-col"><h3 class="label-heading">Best time to contact</h3><div class="stat-value" style="font-size:1.4rem;">{}</div></div>'.format(esc(b["bestTimeToCall"]))
+    stats_html = '<div class="info-grid info-grid--stats">{}</div>'.format(stat_blocks) if stat_blocks else ""
 
     has_phone = bool(b.get("phone"))
     has_chat = b.get("chatType") == "chat"
@@ -479,21 +529,20 @@ def render_brand(b):
         "&mdash; you&rsquo;ve reached a scammer, not support.".format(name=esc(b["name"]), verb=end_contact_verb)
     )
 
-    json_ld_obj = {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": b["name"],
-        "url": official_root(b["chatUrl"]),
-        "contactPoint": [
-            {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "areaServed": "US",
-                "availableLanguage": ["English"],
-                **({"telephone": b["phone"]} if b.get("phone") else {}),
-                "url": b["chatUrl"],
-            }
-        ],
+    if has_phone:
+        lead = "{name} publishes {phone} as its {label}.".format(name=esc(b["name"]), phone=esc(b["phone"]), label=esc(phone_line_label(b)))
+    else:
+        lead = "{name} publishes no phone number; use the {channel} below.".format(name=esc(b["name"]), channel=channel_noun(b))
+    lead += " Last checked {date} against {source}.".format(date=esc(b["verifiedDate"]), source=esc(b["sourceLabel"]))
+
+    contact_type = "technical support" if "technical support" in phone_line_label(b).lower() else "customer service"
+    contact_point = {
+        "@type": "ContactPoint",
+        "contactType": contact_type,
+        "areaServed": "US",
+        "availableLanguage": ["English"],
+        **({"telephone": schema_phone(b["phone"])} if b.get("phone") else {}),
+        "url": b["chatUrl"],
     }
     breadcrumb_ld = {
         "@context": "https://schema.org",
@@ -518,19 +567,29 @@ def render_brand(b):
         "@type": "WebPage",
         "name": "{} Customer Service".format(b["name"]),
         "url": BASE_URL + "/brand/" + b["slug"] + "/",
+        "inLanguage": "en-US",
         "dateModified": b["verifiedDate"],
-        "about": {"@type": "Organization", "name": b["name"]},
+        "isPartOf": {"@type": "WebSite", "name": "aicrazed", "url": BASE_URL + "/"},
+        "publisher": {"@type": "Organization", "name": "aicrazed", "url": BASE_URL + "/"},
+        "about": {
+            "@type": "Organization",
+            "name": b["name"],
+            "url": official_root(b["chatUrl"]),
+            "contactPoint": [contact_point],
+        },
     }
     json_ld = "\n".join(
         '<script type="application/ld+json">{}</script>'.format(json.dumps(obj))
-        for obj in (json_ld_obj, breadcrumb_ld, faq_ld, webpage_ld)
+        for obj in (breadcrumb_ld, faq_ld, webpage_ld)
     )
     faq_html = "".join(
         '<details class="faq-item"><summary>{q}</summary><p>{a}</p></details>'.format(q=q, a=a)
         for q, a in faq_items
     )
 
-    related = [r for r in brands_in(b["category"]) if r["slug"] != b["slug"]][:4]
+    siblings = brands_in(b["category"])
+    idx = next(i for i, r in enumerate(siblings) if r["slug"] == b["slug"])
+    related = [siblings[(idx + k) % len(siblings)] for k in range(1, min(4, len(siblings) - 1) + 1)]
     if related:
         related_links = "".join(
             '<a class="related-link" href="/brand/{slug}/">{name}</a>'.format(slug=r["slug"], name=esc(r["name"]))
@@ -556,6 +615,7 @@ def render_brand(b):
       <p class="cat-label">{cat_label} &middot; Independent contact guide</p>
     </div>
   </div>
+  <p class="brand-lead">{lead}</p>
 
   <div class="contact-panel">
     <div class="contact-panel__grid">
@@ -599,18 +659,7 @@ def render_brand(b):
     <div class="faq-list">{issues}</div>
   </div>
 
-  <div class="info-grid info-grid--stats">
-    <div class="info-col">
-      <h3 class="label-heading">Average wait time</h3>
-      <div class="stat-value" style="font-size:1.5rem;">{avg_wait}</div>
-      <p class="stat-sub">{name} doesn&rsquo;t publish wait-time data &mdash; this isn&rsquo;t a verified figure.</p>
-    </div>
-    <div class="info-col">
-      <h3 class="label-heading">Best time to contact</h3>
-      <div class="stat-value" style="font-size:1.4rem;">{best_time}</div>
-      <p class="stat-sub">General rule of thumb, not brand-specific data: contacting outside peak hours tends to mean a shorter wait.</p>
-    </div>
-  </div>
+  {stats_html}
 
   <div class="faq-list" style="margin-top:48px;border-top:1px solid var(--rule);">
     <h2 class="label-heading" style="margin:28px 0 4px;">Quick answers</h2>
@@ -635,8 +684,8 @@ def render_brand(b):
         scam_note=scam_note,
         before_heading=before_heading,
         issues=issues,
-        avg_wait=esc(avg_wait),
-        best_time=esc(best_time),
+        stats_html=stats_html,
+        lead=lead,
         faq_html=faq_html,
     )
 
@@ -771,6 +820,7 @@ def static_page_ld(name, path):
         "@type": "WebPage",
         "name": name,
         "url": BASE_URL + path,
+        "dateModified": STATIC_PAGE_UPDATED.get(path, PAGE_DEFAULT_UPDATED),
         "isPartOf": {"@type": "WebSite", "name": "aicrazed", "url": BASE_URL + "/"},
     }
     breadcrumb_ld = {
@@ -916,7 +966,7 @@ def render_privacy():
 </section>
 <section class="section container">
   <div class="prose">
-    <p><strong>Effective date: September 8, 2026</strong></p>
+    <p><strong>Effective date: September 8, 2026</strong> &middot; Last updated: October 1, 2026</p>
 
     <p>aicrazed (&ldquo;aicrazed,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) publishes an independent directory of publicly available customer service contact information. This policy explains what little information we collect, and why.</p>
 
@@ -1271,7 +1321,7 @@ def render_llms_txt():
         lines.append("## {}".format(cat["label"]))
         lines.append("")
         for b in members:
-            phone_bit = "phone: {}".format(b["phone"]) if b.get("phone") else "no public phone number"
+            phone_bit = "{}: {}".format(b["phoneLineLabel"] if b.get("phoneLineLabel") else "phone", b["phone"]) if b.get("phone") else "no public phone number"
             lines.append(
                 "- [{name}]({url}): {phone_bit}, verified {date}.".format(
                     name=b["name"],
@@ -1290,6 +1340,7 @@ def render_llms_txt():
         ("/faq/", "Frequently Asked Questions"),
         ("/about/", "About"),
         ("/contact/", "Contact"),
+        ("/editorial-policy/", "Editorial Policy"),
     ]:
         lines.append("- [{}]({}{})".format(label, BASE_URL, path))
 
@@ -1353,14 +1404,15 @@ def build():
 
     static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/editorial-policy/", "/accessibility/"]
 
-    # (path, lastmod) pairs. Static pages use the site's last-edit date (TODAY);
-    # brand pages use the date we actually last checked that listing — never
-    # inflated to "today" just to look fresher than the content really is.
-    url_entries = [(u, TODAY) for u in static_pages]
+    # (path, lastmod) pairs. Static pages use the date their content last really
+    # changed; brand pages use the date we actually last checked that listing —
+    # never inflated to "today" just to look fresher than the content really is.
+    url_entries = [(u, STATIC_PAGE_UPDATED.get(u, PAGE_DEFAULT_UPDATED)) for u in static_pages]
     for slug, cat in CATEGORIES.items():
-        members = brands_in(slug)
-        cat_lastmod = max((b["verifiedDate"] for b in members), default=TODAY)
-        url_entries.append(("/category/{}/".format(slug), cat_lastmod))
+        dates = [b["verifiedDate"] for b in brands_in(slug)]
+        if slug in CATEGORY_UPDATED:
+            dates.append(CATEGORY_UPDATED[slug])
+        url_entries.append(("/category/{}/".format(slug), max(dates, default=PAGE_DEFAULT_UPDATED)))
     for b in BRANDS:
         url_entries.append(("/brand/{}/".format(b["slug"]), b["verifiedDate"]))
 
