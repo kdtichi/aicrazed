@@ -45,7 +45,7 @@
       "navLabel": "Email",
       "slug": "email",
       "description": "Email and account providers — for lockouts, hacked accounts, and recovery.",
-      "intro": "Email providers, like social platforms, rarely offer phone support for personal accounts &mdash; Gmail, Outlook, and Yahoo Mail all route account issues through self-service help articles or, in Microsoft's case, a sign-in-gated chat option. The most common reason people search for these providers is being locked out or suspecting their account was compromised, which is unfortunately the exact scenario scammers exploit with fake account-recovery phone numbers. None of the providers listed here publish a general support line, so treat any number claiming otherwise as unverified. Each listing links directly to that provider's own help center, where you can start password recovery or report suspicious activity through their real, official flow."
+      "intro": "Email providers, like social platforms, rarely offer phone support for personal accounts &mdash; Gmail, Outlook, and Yahoo Mail all route account issues through self-service help articles or, in Microsoft's case, a sign-in-gated chat option. The most common reason people search for these providers is being locked out or suspecting their account was compromised, which is unfortunately the exact scenario scammers exploit with fake account-recovery phone numbers. Of the six providers listed, AOL Mail and iCloud Mail publish phone numbers (shown on their pages), while Gmail, Outlook, Yahoo Mail, and Proton Mail publish none for personal accounts, so treat any number claiming to be theirs as unverified. Each listing links directly to that provider's own help center, where you can start password recovery or report suspicious activity through their real, official flow."
     },
     "streaming": {
       "label": "Streaming",
@@ -83,7 +83,7 @@
       "label": "Insurance",
       "slug": "insurance",
       "description": "Auto and home insurers — for policy questions, billing, and filing a claim.",
-      "intro": "Insurance support covers a wide range &mdash; a routine policy change, a billing question, and an active claim after an accident or loss are all handled differently, and timing matters most for the last one. GEICO, Progressive, State Farm, and Allstate each publish real phone numbers, verified directly against their own sites below, often with a separate line specifically for filing or checking a claim versus general policy service. Have your policy number ready before calling; most insurers ask for it immediately to pull up your account. If you're filing a claim after an accident, photos, a police report (if one was filed), and the other party's information will speed things up considerably. This is a category scammers specifically target after accidents and natural disasters &mdash; treat any &ldquo;claims number&rdquo; you find outside the insurer's own official site as unverified until you confirm it here or directly with them."
+      "intro": "Insurance support covers a wide range &mdash; a routine policy change, a billing question, and an active claim after an accident or loss are all handled differently, and timing matters most for the last one. GEICO, State Farm, and Allstate each publish real phone numbers, verified directly against their own sites below, often with a separate line specifically for filing or checking a claim versus general policy service. Have your policy number ready before calling; most insurers ask for it immediately to pull up your account. If you're filing a claim after an accident, photos, a police report (if one was filed), and the other party's information will speed things up considerably. This is a category scammers specifically target after accidents and natural disasters &mdash; treat any &ldquo;claims number&rdquo; you find outside the insurer's own official site as unverified until you confirm it here or directly with them."
     }
   },
   "brands": [
@@ -213,7 +213,7 @@
         },
         {
           "issue": "Cancel an order",
-          "solution": "Check your order history first — many orders can still be canceled there if they haven't shipped yet. If that option is already gone, contact DoorDash above right away; the sooner you ask, the better the odds of stopping it."
+          "solution": "Check your active order in the app first — if a cancel option is still shown, use it. If it's already gone, contact DoorDash above right away; the sooner you ask, the better the odds of stopping it."
         },
         {
           "issue": "DashPass membership questions",
@@ -727,11 +727,8 @@
       "chatUrl": "https://us.shein.com/contact-us.html",
       "chatLabel": "Shein Contact Us",
       "hours": {
-        "mode": "detailed",
-        "tz": "America/Los_Angeles",
-        "start": "04:00",
-        "end": "20:00",
-        "days": "daily"
+        "mode": "unspecified",
+        "text": "Live chat: 4:00 AM–8:00 PM Pacific time, every day. Phone: Monday–Friday, 9 a.m.–6 p.m. Pacific time."
       },
       "verifiedDate": "2026-09-08",
       "sourceUrl": "https://us.shein.com/contact-us.html",
@@ -1473,7 +1470,7 @@
         },
         {
           "issue": "Filing a claim",
-          "solution": "Start a claim through UPS's online claims tool with your tracking number and proof of value ready. Claims for damage are usually faster to resolve than claims for loss, so have photos on hand if the package arrived damaged."
+          "solution": "Start a claim through UPS's online claims tool with your tracking number and proof of value ready. Have photos on hand if the package arrived damaged."
         },
         {
           "issue": "Shipping and label creation",
@@ -1538,7 +1535,7 @@
         },
         {
           "issue": "Claims for damage or loss",
-          "solution": "File a claim online with your tracking number, photos of any damage, and proof of value ready — FedEx generally asks for this documentation up front rather than after the claim is opened."
+          "solution": "File a claim online with your tracking number, photos of any damage, and proof of value ready — having this documentation on hand makes the claim easier to complete."
         }
       ],
       "avgWaitTime": "",
@@ -1689,7 +1686,7 @@
         },
         {
           "issue": "Group and meeting travel",
-          "solution": "Group bookings of 10 or more passengers are typically handled through American's dedicated group travel request form rather than the standard booking flow."
+          "solution": "Large group or meeting travel is usually arranged through the airline's group travel contact rather than the standard booking flow — check American's own group travel page for current rules."
         },
         {
           "issue": "Onboard incident reports",
@@ -1781,7 +1778,7 @@
         },
         {
           "issue": "Check-in and flight changes",
-          "solution": "Southwest's 24-hour online check-in opens automatically — set a reminder, since boarding position depends on check-in time. Contact Southwest above if check-in won't open for your flight."
+          "solution": "Check in online or in the airline's app before your flight — your confirmation shows when check-in opens. Contact Southwest above if check-in won't open for your flight."
         },
         {
           "issue": "Delays and cancellations",
@@ -1793,7 +1790,7 @@
         },
         {
           "issue": "Travel funds and refunds",
-          "solution": "Check your travel funds balance and expiration directly in your Southwest account — funds are tied to the original passenger by default. Contact Southwest above for a refund that hasn't posted."
+          "solution": "Check your travel funds balance and expiration directly in your Southwest account. Contact Southwest above for a refund that hasn't posted."
         },
         {
           "issue": "Rapid Rewards account",
@@ -1833,7 +1830,7 @@
         },
         {
           "issue": "Lost item during a trip",
-          "solution": "Use the \"I lost an item\" flow under your trip history to contact your driver directly first, since drivers often still have the item. Uber's lost-item line is reached only through this in-app flow."
+          "solution": "Use the \"I lost an item\" flow under your trip history to contact your driver directly first, since drivers often still have the item."
         },
         {
           "issue": "Payment issue or fare review",
@@ -1953,7 +1950,7 @@
         },
         {
           "issue": "Pricing and fees",
-          "solution": "Instacart's pricing on some items can differ from in-store pricing, and this is disclosed at checkout — review the itemized receipt before contacting support about a pricing discrepancy."
+          "solution": "Prices on delivery apps can differ from in-store prices — review the itemized receipt before contacting support about a pricing discrepancy."
         }
       ],
       "avgWaitTime": "",

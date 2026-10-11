@@ -167,7 +167,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 /* ---------- Hero / search ---------- */
 .hero {
-  padding: 32px 0 28px;
+  padding-top: 32px;
+  padding-bottom: 28px;
   text-align: center;
 }
 .hero .eyebrow {
@@ -253,7 +254,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .search-empty { padding: 16px 20px; color: var(--ink-faint); font-size: 0.9rem; }
 
 /* ---------- Brand grid (home) ---------- */
-.section { padding: 56px 0; }
+.section { padding-top: 56px; padding-bottom: 56px; }
 .section-head {
   display: flex;
   align-items: baseline;
@@ -406,7 +407,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 
 /* ---------- Brand page ---------- */
 .brand-hero {
-  padding: 36px 0 16px;
+  padding-top: 36px;
+  padding-bottom: 16px;
 }
 .brand-hero__top {
   display: flex;
@@ -634,7 +636,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .stat-sub { font-size: 0.9rem; color: var(--ink-faint); margin-top: 4px; }
 
 /* ---------- Category / listing pages ---------- */
-.cat-hero { padding: 48px 0 24px; }
+.cat-hero { padding-top: 48px; padding-bottom: 24px; }
 .cat-hero .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -688,7 +690,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .prose h2 { margin-top: 1.6em; }
 .prose p { font-size: 1.02rem; }
 .prose ul { color: var(--ink-soft); }
-.page-hero { padding: 48px 0 8px; }
+.page-hero { padding-top: 48px; padding-bottom: 8px; }
 .page-hero .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;
