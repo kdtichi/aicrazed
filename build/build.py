@@ -18,13 +18,6 @@ DATA_PATH = os.path.join(ROOT, "data", "brands.json")
 DIST = os.path.join(ROOT, "dist")
 PUBLIC = os.path.join(ROOT, "public")
 
-# Google Ads "Page Visit" conversion event, scoped to the specific brand pages
-# that paid campaigns actually land on (not fired site-wide).
-AD_LANDING_PAGE_CONVERSION_LABELS = {
-    "ups": "AW-18485838764/L_v_CL-f34wdEKyH3u5E",
-    "doordash": "AW-18485838764/L_v_CL-f34wdEKyH3u5E",
-}
-
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     DATA = json.load(f)
 
@@ -103,14 +96,6 @@ def layout(title, description, path, body, extra_head="", json_ld="", robots="in
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18485838764"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', 'AW-18485838764');
-</script>
 <title>{title}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
@@ -671,23 +656,12 @@ def render_brand(b):
     description = "Official {} customer service: {}, support hours, and common issues — verified {}.".format(
         b["name"], desc_channel, b["verifiedDate"]
     )
-    ad_conversion_label = AD_LANDING_PAGE_CONVERSION_LABELS.get(b["slug"])
-    extra_head = ""
-    if ad_conversion_label:
-        extra_head = """<script>
-  gtag('event', 'conversion', {{
-      'send_to': '{label}',
-      'value': 1.0,
-      'currency': 'INR'
-  }});
-</script>""".format(label=ad_conversion_label)
     return layout(
         title=title,
         description=description,
         path="/brand/{}/".format(b["slug"]),
         body=body,
         json_ld=json_ld,
-        extra_head=extra_head,
         og_image="/og/{}.png".format(b["slug"]),
     )
 
