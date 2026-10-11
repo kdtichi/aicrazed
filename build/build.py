@@ -343,14 +343,14 @@ def render_phone_field(b):
         tel_href = "tel:" + "".join(ch for ch in b["phone"] if ch.isdigit() or ch == "+")
         note = "<p class='stat-sub' style='margin-top:10px;'>{}</p>".format(esc(b["phoneNote"])) if b.get("phoneNote") else ""
         return """<div class="contact-field">
-  <label for="phone-link">Phone number published by {name}</label>
+  <label for="phone-link">Official phone number</label>
   <a class="phone-number" id="phone-link" href="{tel}">{display}<span class="tap-hint" aria-hidden="true">Tap to call</span></a>
   {note}
-</div>""".format(tel=tel_href, display=esc(b["phone"]), note=note, name=esc(b["name"]))
+</div>""".format(tel=tel_href, display=esc(b["phone"]), note=note)
     else:
         alt = esc(b["phoneAltNote"]) if b.get("phoneAltNote") else ""
         return """<div class="contact-field">
-  <label>Phone number published by {name}</label>
+  <label>Official phone number</label>
   <p class="no-phone-verdict">{name} publishes no phone number &mdash; use the {channel} below.</p>
   <p class="stat-sub">{alt} Any &ldquo;support number&rdquo; for {name} circulating elsewhere is not confirmed and may be a scam.</p>
 </div>""".format(name=esc(b["name"]), alt=alt, channel=channel_noun(b))
@@ -627,7 +627,7 @@ def render_brand(b):
         phone_field=render_phone_field(b),
         chat_url=esc(b["chatUrl"]),
         chat_label=esc(b["chatLabel"]),
-        channel_field_label={"chat": "Chat &amp; help center published by ", "form": "Contact form published by ", "none": "Help center published by "}[b.get("chatType", "form")] + esc(b["name"]),
+        channel_field_label={"chat": "Official chat &amp; help center", "form": "Official contact form", "none": "Official help center"}[b.get("chatType", "form")],
         hours_field=render_hours_field(b),
         verified_date=esc(b["verifiedDate"]),
         source_url=esc(b["sourceUrl"]),
@@ -651,10 +651,10 @@ def render_brand(b):
         desc_channel = "live chat (no public phone number)"
     else:
         title_suffix = "No Phone Number"
-        desc_channel = "contact channel (no public phone number)"
+        desc_channel = "official contact channel (no public phone number)"
     title = "{} Customer Service: {} | aicrazed".format(b["name"], title_suffix)
-    description = "Independent directory: {name} {channel} and hours, checked against its own site {date}. Not affiliated with {name}.".format(
-        name=b["name"], channel=desc_channel, date=b["verifiedDate"]
+    description = "Official {} customer service: {}, support hours, and common issues — verified {}.".format(
+        b["name"], desc_channel, b["verifiedDate"]
     )
     return layout(
         title=title,
@@ -754,7 +754,7 @@ def render_category(cat_slug):
     json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(breadcrumb_ld))
 
     title = "{} Customer Service Contacts | aicrazed".format(cat["label"])
-    description = "Independent directory of verified customer service contacts for {} companies: phone numbers, chat links, and support hours.".format(cat["label"])
+    description = "Verified official customer service contacts for {} companies: phone numbers, chat links, and support hours.".format(cat["label"])
     return layout(title=title, description=description, path="/category/{}/".format(cat_slug), body=body, json_ld=json_ld)
 
 
