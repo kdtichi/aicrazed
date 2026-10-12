@@ -108,3 +108,11 @@ Applying the same two criteria (real published phone number; not an account-reco
 Which of these, if any, Google actually acted on is unknown. This list is what a careful reviewer could object to, not a finding of cause.
 
 **Practical conclusion:** treat Google Ads as unavailable for now. Do not create new accounts. At most one carefully written appeal after the site/copy issues above are fixed and the exact reason is known. Organic SEO is unaffected.
+
+### Update 2026-10-13: second appeal rejected
+
+Appeal ID 6452335131 (submitted 2026-10-12) returned "Unacceptable Business Practices: Unsuccessful"; the account (666-734-5000) stays suspended. Google's email gives no sub-reason. It states that a suspension applies to the account owner and any current or future linked accounts, and that new accounts created while suspended are suspended immediately. Options Google offers: appeal again with more detail and information not in the previous appeal, cancel the account, or request a refund of any prepaid balance.
+
+That appeal reported only the Google tag removal, because the independent-directory wording was not live when it was submitted. The following went live afterwards (commits 25dcece, 57c8a6c, facf515): independent-directory titles/descriptions and "published by {brand}" labels on all brand and category pages, a lead sentence on every brand page, corrected copy (Progressive, email intro, Shein hours, unverified brand-policy statements), brand schema moved inside WebPage.about with aicrazed as publisher, and the mobile layout fixes. Those are the genuinely new facts for any further appeal.
+
+Still open before another appeal: confirm the UPS number labels on ups.com and Uber's rider-inquiries line (+1 833-315-8991), so a reviewer who checks the pages finds them accurate.
