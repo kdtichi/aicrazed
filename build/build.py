@@ -13,6 +13,8 @@ import shutil
 import html as html_lib
 from datetime import datetime
 
+import report
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(ROOT, "data", "brands.json")
 DIST = os.path.join(ROOT, "dist")
@@ -25,6 +27,9 @@ SITE = DATA["site"]
 CATEGORIES = DATA["categories"]
 BRANDS = DATA["brands"]
 BASE_URL = "https://" + SITE["domain"]
+# Stable entity IDs so every page's JSON-LD points at one aicrazed Organization/WebSite.
+ORG_ID = BASE_URL + "/#organization"
+WEBSITE_ID = BASE_URL + "/#website"
 
 # Date each static page's content last really changed. Nav/markup-only edits do
 # not bump these, mirroring the rule used for brand pages (verified date only).
@@ -93,6 +98,7 @@ NAV_ITEMS = _CATEGORY_NAV_SHORT + [
 
 FOOTER_NAV = [("/", "Home")] + _CATEGORY_NAV_FULL + [
     ("/how-it-works/", "How It Works"),
+    (report.REPORT_PATH, "No-Phone Report"),
     ("/faq/", "FAQ"),
     ("/about/", "About"),
     ("/contact/", "Contact"),
@@ -342,6 +348,7 @@ def render_home():
     org_ld = {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": ORG_ID,
         "name": "aicrazed",
         "url": BASE_URL + "/",
         "logo": BASE_URL + "/logo.png",
@@ -353,9 +360,11 @@ def render_home():
     website_ld = {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": WEBSITE_ID,
         "name": "aicrazed",
         "url": BASE_URL + "/",
         "inLanguage": "en-US",
+        "publisher": {"@id": ORG_ID},
     }
     json_ld = '<script type="application/ld+json">{}</script>\n<script type="application/ld+json">{}</script>'.format(
         json.dumps(org_ld), json.dumps(website_ld)
@@ -569,8 +578,8 @@ def render_brand(b):
         "url": BASE_URL + "/brand/" + b["slug"] + "/",
         "inLanguage": "en-US",
         "dateModified": b["verifiedDate"],
-        "isPartOf": {"@type": "WebSite", "name": "aicrazed", "url": BASE_URL + "/"},
-        "publisher": {"@type": "Organization", "name": "aicrazed", "url": BASE_URL + "/"},
+        "isPartOf": {"@type": "WebSite", "@id": WEBSITE_ID, "name": "aicrazed", "url": BASE_URL + "/"},
+        "publisher": {"@type": "Organization", "@id": ORG_ID, "name": "aicrazed", "url": BASE_URL + "/"},
         "about": {
             "@type": "Organization",
             "name": b["name"],
@@ -800,7 +809,19 @@ def render_category(cat_slug):
             {"@type": "ListItem", "position": 2, "name": cat["label"], "item": BASE_URL + "/category/" + cat_slug + "/"},
         ],
     }
-    json_ld = '<script type="application/ld+json">{}</script>'.format(json.dumps(breadcrumb_ld))
+    itemlist_ld = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "{} customer service contacts".format(cat["label"]),
+        "numberOfItems": len(members),
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "name": b["name"] + " customer service", "url": BASE_URL + "/brand/" + b["slug"] + "/"}
+            for i, b in enumerate(members, start=1)
+        ],
+    }
+    json_ld = "\n".join(
+        '<script type="application/ld+json">{}</script>'.format(json.dumps(obj)) for obj in (breadcrumb_ld, itemlist_ld)
+    )
 
     title = "{} Customer Service Contacts | aicrazed".format(cat["label"])
     description = "Independent directory of verified customer service contacts for {} companies: phone numbers, chat links, and support hours.".format(cat["label"])
@@ -821,7 +842,7 @@ def static_page_ld(name, path):
         "name": name,
         "url": BASE_URL + path,
         "dateModified": STATIC_PAGE_UPDATED.get(path, PAGE_DEFAULT_UPDATED),
-        "isPartOf": {"@type": "WebSite", "name": "aicrazed", "url": BASE_URL + "/"},
+        "isPartOf": {"@type": "WebSite", "@id": WEBSITE_ID, "name": "aicrazed", "url": BASE_URL + "/"},
     }
     breadcrumb_ld = {
         "@context": "https://schema.org",
@@ -1332,6 +1353,7 @@ def render_llms_txt():
             )
         lines.append("")
 
+    lines.extend(report.report_llms_lines(report_ctx()))
     lines.append("## Site")
     lines.append("")
     for path, label in [
@@ -1341,6 +1363,7 @@ def render_llms_txt():
         ("/about/", "About"),
         ("/contact/", "Contact"),
         ("/editorial-policy/", "Editorial Policy"),
+        (report.REPORT_PATH, "Report: companies with no customer service phone number"),
     ]:
         lines.append("- [{}]({}{})".format(label, BASE_URL, path))
 
@@ -1350,6 +1373,38 @@ def render_llms_txt():
 # ---------------------------------------------------------------------------
 # Write files
 # ---------------------------------------------------------------------------
+
+def report_ctx():
+    return {
+        "layout": layout,
+        "esc": esc,
+        "brands": BRANDS,
+        "categories": CATEGORIES,
+        "base_url": BASE_URL,
+        "org_id": ORG_ID,
+        "website_id": WEBSITE_ID,
+    }
+
+
+# Answer-engine crawlers named explicitly. They are already allowed by the
+# wildcard rule; listing them makes the intent unambiguous to anyone (or any
+# hosting layer) reading robots.txt, and keeps them allowed if a Disallow is
+# ever added under "*".
+AI_CRAWLERS = [
+    "OAI-SearchBot", "ChatGPT-User", "GPTBot",
+    "Claude-SearchBot", "Claude-User", "ClaudeBot",
+    "PerplexityBot", "Perplexity-User",
+    "Google-Extended", "Applebot-Extended", "bingbot",
+]
+
+
+def render_robots_txt():
+    lines = ["User-agent: *", "Allow: /", ""]
+    for bot in AI_CRAWLERS:
+        lines += ["User-agent: {}".format(bot), "Allow: /", ""]
+    lines.append("Sitemap: {}/sitemap.xml".format(BASE_URL))
+    return "\n".join(lines) + "\n"
+
 
 def write(path, content):
     full = os.path.join(DIST, path.lstrip("/"))
@@ -1375,6 +1430,10 @@ def build():
     og_dir_src = os.path.join(PUBLIC, "og")
     if os.path.isdir(og_dir_src):
         shutil.copytree(og_dir_src, os.path.join(DIST, "og"))
+    for name in os.listdir(PUBLIC):
+        # IndexNow key file(s): public/<key>.txt containing the key itself.
+        if name.endswith(".txt") and len(name) == 36:
+            shutil.copy(os.path.join(PUBLIC, name), os.path.join(DIST, name))
     logo_src = os.path.join(PUBLIC, "logo.png")
     if os.path.exists(logo_src):
         shutil.copy(logo_src, os.path.join(DIST, "logo.png"))
@@ -1391,6 +1450,8 @@ def build():
     write("accessibility/index.html", render_accessibility())
     write("faq/index.html", render_faq())
     write("404.html", render_404())
+    write(report.REPORT_PATH.lstrip("/") + "index.html", report.render_report(report_ctx()))
+    write(report.REPORT_CSV_PATH.lstrip("/"), report.render_report_csv(report.report_rows(BRANDS, CATEGORIES)))
 
     for cat_slug in CATEGORIES:
         write("category/{}/index.html".format(cat_slug), render_category(cat_slug))
@@ -1399,7 +1460,7 @@ def build():
         write("brand/{}/index.html".format(b["slug"]), render_brand(b))
 
     # robots.txt + sitemap.xml
-    write("robots.txt", "User-agent: *\nAllow: /\nSitemap: {}/sitemap.xml\n".format(BASE_URL))
+    write("robots.txt", render_robots_txt())
     write("llms.txt", render_llms_txt())
 
     static_pages = ["/", "/about/", "/contact/", "/how-it-works/", "/faq/", "/privacy/", "/terms/", "/trademark-notice/", "/editorial-policy/", "/accessibility/"]
@@ -1415,6 +1476,8 @@ def build():
         url_entries.append(("/category/{}/".format(slug), max(dates, default=PAGE_DEFAULT_UPDATED)))
     for b in BRANDS:
         url_entries.append(("/brand/{}/".format(b["slug"]), b["verifiedDate"]))
+    # The report is computed from listing data, so it changes exactly when a listing is rechecked.
+    url_entries.append((report.REPORT_PATH, report.report_lastmod(report_ctx())))
 
     sitemap_entries = "".join(
         "<url><loc>{}{}</loc><lastmod>{}</lastmod></url>\n".format(BASE_URL, u, lastmod)
@@ -1427,7 +1490,7 @@ def build():
         ),
     )
 
-    print("Built {} pages into {}".format(len(static_pages) + 1 + len(CATEGORIES) + len(BRANDS), DIST))
+    print("Built {} pages into {}".format(len(static_pages) + 2 + len(CATEGORIES) + len(BRANDS), DIST))
 
 
 if __name__ == "__main__":

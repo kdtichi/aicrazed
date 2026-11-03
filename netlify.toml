@@ -2,6 +2,10 @@
   command = "python3 build/build.py"
   publish = "dist"
 
+[functions]
+  # deploy-succeeded.mjs pings IndexNow after each production deploy.
+  directory = "netlify/functions"
+
 [[headers]]
   for = "/*"
   [headers.values]

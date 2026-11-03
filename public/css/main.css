@@ -824,3 +824,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .phone-number { min-height: 44px; }
   .footer-nav a, .footer-legal-links a { display: inline-flex; align-items: center; min-height: 44px; }
 }
+
+/* ---------- Data report ---------- */
+.report-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
+}
+.report-stat { display: flex; flex-direction: column; }
+@media (max-width: 720px) { .report-stats { grid-template-columns: 1fr; gap: 20px; } }
+.data-table-wrap { overflow-x: auto; margin-top: 16px; -webkit-overflow-scrolling: touch; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; min-width: 560px; }
+.data-table caption {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  padding-bottom: 10px;
+}
+.data-table th, .data-table td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.data-table thead th { font-weight: 600; color: var(--ink-soft); border-bottom: 1px solid var(--rule-strong); }
+.data-table tbody th { font-weight: 500; }
+.data-table tfoot th, .data-table tfoot td { font-weight: 600; border-bottom: none; }
+.data-table a { color: var(--ink); }
+.data-table td a { color: var(--ink-soft); }
